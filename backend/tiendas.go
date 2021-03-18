@@ -11,12 +11,11 @@ import (
 	"strconv"
 )
 
-
 var path = "grafo.dot"
 var file, err = os.OpenFile(path, os.O_RDWR, 0644)
 var path1 = "documento.json"
 var file1, err1 = os.OpenFile(path1, os.O_RDWR, 0644)
-var tiendas_grafo, conexiones_grafo,datos_tiendas string
+var tiendas_grafo, conexiones_grafo, datos_tiendas string
 var nodo, valor int
 
 type indice struct {
@@ -43,9 +42,9 @@ func main() {
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", home)
 	router.HandleFunc("/cargartienda", cargartienda).Methods("GET")
-	router.HandleFunc("/getArreglo", getArreglo ).Methods("GET")
+	router.HandleFunc("/getArreglo", getArreglo).Methods("GET")
 	router.HandleFunc("/TiendaEspecifica", TiendaEspecifica).Methods("POST")
-	router.HandleFunc("/id/{numero}",busquedaporPosicion).Methods("GET")
+	router.HandleFunc("/id/{numero}", busquedaporPosicion).Methods("GET")
 
 	log.Fatal(http.ListenAndServe(":3000", router))
 }
@@ -63,18 +62,17 @@ func cargartienda(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(indices)
 }
-func busquedaporPosicion(w http.ResponseWriter, r *http.Request){
+func busquedaporPosicion(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	taskID, err := strconv.Atoi(vars["numero"])
 	if err != nil {
 		return
 	}
 
-	valor=taskID
+	valor = taskID
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(datos_tiendas)
-
 
 }
 
@@ -90,5 +88,3 @@ func TiendaEspecifica(w http.ResponseWriter, r *http.Request) {
 	json.NewEncoder(w).Encode("<img src=\"dinosaur.jpg\">")
 
 }
-
-
