@@ -158,7 +158,9 @@ func recorreInventario()  {
 }
 
 func mostrartiendas(w http.ResponseWriter, r *http.Request) {
-
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	var lista_tiendas []tiendas
 	for i := 0; i < len(indices.Datos); i++ { //letra
 		for j := 0; j < len(indices.Datos[i].Departamentos); j++ { //departamento
 			for k := 0; k < len(indices.Datos[i].Departamentos[j].Tiendas); k++ {
@@ -170,15 +172,14 @@ func mostrartiendas(w http.ResponseWriter, r *http.Request) {
 					Calificacion: tiendas_json.Calificacion,
 					Logo: tiendas_json.Logo,
 				}
+				lista_tiendas=append(lista_tiendas,datosTiendas)
 
-
-		
 			}
 		}
 	}
-	w.Header().Set("Content-Type", "application/json")
-	w.WriteHeader(http.StatusCreated)
-	json.NewEncoder(w).Encode(datosTiendas)
+	json.NewEncoder(w).Encode(lista_tiendas)
+
+
 }
 
 
