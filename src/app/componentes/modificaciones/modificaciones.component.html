@@ -3,4 +3,14 @@
     <label for="floatingTextarea2">Ingresar Tiendas</label>
   </div>
   <button type="button" class="btn btn-dark" >Cargar Tiendas</button>
-  <button type="button" class="btn btn-success" (click)="mostrarTiendas()" >Mostrar Tiendas</button>
+  <button type="button" class="btn btn-success"  >Mostrar Tiendas</button>
+
+
+<div class="card" style="width: 18rem;" *ngFor="let tienda of tiendas" >
+  <img src={{tienda.Logo}} class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{tienda.Nombre}}</h5>
+    <p class="card-text">{{tienda.Descripcion}}</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>

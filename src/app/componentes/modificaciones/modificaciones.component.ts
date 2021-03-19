@@ -9,18 +9,16 @@ export class ModificacionesComponent implements OnInit {
 
   constructor(private http: HttpClient) { }
   conversion
-  rta:[];
+  tiendas:any=[];
   ngOnInit(): void {
-    
+    this.http.get('http://localhost:3000/mostrartiendas')
+      .subscribe(data => {
+        this.conversion=data
+        this.tiendas=this.conversion;
+        console.log('Tiendas',this.tiendas)
+      });
   }
-mostrarTiendas(){
-  this.http.get('https://www.datos.gov.co/resource/xdk5-pm3f.json')
-  .subscribe(data => { 
-  this.conversion=data
-  this.rta=this.conversion;
-  console.log('prueba',this.rta)
-  });
-}
+
 
 
 
