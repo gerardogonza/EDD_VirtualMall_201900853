@@ -11,15 +11,14 @@ export class ModificacionesComponent implements OnInit {
   conversion
   tiendas:any=[];
   ngOnInit(): void {
-    this.http.get('http://localhost:3000/mostrartiendas')
-      .subscribe(data => {
-        this.conversion=data
-        this.tiendas=this.conversion;
-        console.log('Tiendas',this.tiendas)
-      });
   }
 
-
-
-
+mostrarTiendas(){
+  this.http.get('http://localhost:3000/mostrartiendas')
+  .subscribe(data => {
+    this.conversion=data
+    this.tiendas=this.conversion;
+    console.log('Tiendas',this.tiendas)
+  });
+}
 }

@@ -3,14 +3,19 @@
     <label for="floatingTextarea2">Ingresar Tiendas</label>
   </div>
   <button type="button" class="btn btn-dark" >Cargar Tiendas</button>
-  <button type="button" class="btn btn-success"  >Mostrar Tiendas</button>
+  <button type="button"  class="btn btn-success" (click)="mostrarTiendas()" >Mostrar Tiendas</button>
 
-
-<div class="card" style="width: 18rem;" *ngFor="let tienda of tiendas" >
-  <img src={{tienda.Logo}} class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">{{tienda.Nombre}}</h5>
-    <p class="card-text">{{tienda.Descripcion}}</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="row row-cols-1 row-cols-md-4 g-4">
+  <div class="col" *ngFor="let tienda of tiendas">
+    <div class="card">
+      <img src={{tienda.Logo}} class="card-img-top" alt="..." width="10" height="150">
+      <div class="card-body">
+        <h5 class="card-title">{{tienda.Nombre}}</h5>
+        <p class="card-text">Descripcion: {{tienda.Descripcion}}</p>
+        <p class="card-text">Contacto: {{tienda.Contacto}}</p>
+        <p class="card-text">Califiacion: {{tienda.Calificacion}}</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
   </div>
 </div>
