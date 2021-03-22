@@ -1,6 +1,8 @@
 package archivos
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type nodo struct {
 	indice   Producto
@@ -111,7 +113,9 @@ func (avl *AVL) Print(){
 func inOrden(temp *nodo)  {
 	if temp != nil {
 		inOrden(temp.izq)
+
 		fmt.Println("Inorder: ", temp.indice)
 		inOrden(temp.der)
 	}
 }
+

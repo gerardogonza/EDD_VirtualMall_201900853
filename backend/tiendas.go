@@ -19,6 +19,7 @@ var path1 = "documento.json"
 var file1, err1 = os.OpenFile(path1, os.O_RDWR, 0644)
 var tiendas_grafo, conexiones_grafo, datos_tiendas string
 var nodo, valor int
+var espacio []listD
 
 type indice struct {
 	Datos []indicess
@@ -37,9 +38,11 @@ type tienda struct {
 	Contacto     string
 	Calificacion int
 	Logo 		string
+	inventario archivos.AVL
+
 }
 type arbol struct {
-Invetarios[] Inventarios
+Invetarios[] Inventarios //todo si no jala inventario cambiarlo a como den el nuevo json
 }
 type Inventarios struct {
 	Tienda string
@@ -55,13 +58,15 @@ type productos struct {
 	Cantidad int
 	Imagen string
 }
-//esta estructura es la mando al fron
+//esta estructura es la mando al front
 type tiendas struct {
 	Nombre       string
 	Descripcion  string
 	Contacto     string
 	Calificacion int
 	Logo 		string
+
+
 }
 
 var indices indice
@@ -69,7 +74,6 @@ var datosInventario arbol
 var datosTiendas tiendas
 var avl = archivos.NewAVL()
 func main() {
-
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", home)
 	router.HandleFunc("/cargartienda", cargartienda).Methods("POST")
@@ -77,7 +81,7 @@ func main() {
 	router.HandleFunc("/getArreglo", getArreglo).Methods("GET")
 	router.HandleFunc("/TiendaEspecifica", TiendaEspecifica).Methods("POST")
 	router.HandleFunc("/id/{numero}", busquedaporPosicion).Methods("GET")
-	router.HandleFunc("/arbol", cargararbol).Methods("POST")
+	router.HandleFunc("/cargarinventario", cargarInventario).Methods("POST")
 	//log.Fatal(http.ListenAndServe(":3000", router))
 	log.Fatal(http.ListenAndServe(":3000", handlers.CORS(handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}), handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"}), handlers.AllowedOrigins([]string{"*"}))(router)))
 }
@@ -94,6 +98,7 @@ func cargartienda(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(indices)
+
 }
 
 
@@ -103,9 +108,7 @@ func busquedaporPosicion(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		return
 	}
-
 	valor = taskID
-
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(datos_tiendas)
 
@@ -124,37 +127,38 @@ func TiendaEspecifica(w http.ResponseWriter, r *http.Request) {
 
 }
 
-func cargararbol(w http.ResponseWriter, r *http.Request)  {
+func cargarInventario(w http.ResponseWriter, r *http.Request)  {
 	reqBody, err := ioutil.ReadAll(r.Body)
 	json.Unmarshal(reqBody, &datosInventario)
 	if err != nil {
 		log.Fatal("Error")
 	}
+
+	recorreInventario()
+
+	avl.Print()
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
-	json.NewEncoder(w).Encode(datosInventario)
-	recorreInventario()
+
 }
 
 func recorreInventario()  {
-	for i:=0; i<len(datosInventario.Invetarios);i ++{
-		for j:=0; j<len(datosInventario.Invetarios[i].Productos);j ++{
-			var productosInventario=datosInventario.Invetarios[i].Productos[j]
-			productos:=archivos.Producto{
-				Nombre: productosInventario.Nombre,
-				Cantidad: productosInventario.Cantidad,
-				Descripcion: productosInventario.Descripcion,
-				Precio: productosInventario.Precio,
-				Codigo: productosInventario.Codigo,
-				Imagen: productosInventario.Imagen,
+	espacio = make([]listD, len(indices.Datos[0].Departamentos)*len(indices.Datos)*5)
+	for i := 0; i < len(indices.Datos); i++ { //letra
+		for j := 0; j < len(indices.Datos[i].Departamentos); j++ { //departamento
+			for k := 0; k < len(indices.Datos[i].Departamentos[j].Tiendas); k++ { //tienda
+				Calificacion := indices.Datos[i].Departamentos[j].Tiendas[k].Calificacion - 1
+				colocacion := Calificacion + 5*(j+len(indices.Datos[i].Departamentos)*i)
+				newNode := nodeD{Indice: indices.Datos[i].Indice, Departamentos: indices.Datos[i].Departamentos[j].Nombre, Nombre: indices.Datos[i].Departamentos[j].Tiendas[k].Nombre, Descripcion: indices.Datos[i].Departamentos[j].Tiendas[k].Descripcion, Contacto: indices.Datos[i].Departamentos[j].Tiendas[k].Contacto, Calificacion: indices.Datos[i].Departamentos[j].Tiendas[k].Calificacion}
+				espacio[colocacion].Insert(&newNode)
 			}
-
-			avl.Insertar(productos)
-
 		}
 	}
-	fmt.Println("Valores de AVL")
-	avl.Print()
+	for nodo = 0; nodo < len(espacio); nodo++ {
+		espacio[nodo].Showtienda()
+	}
+
+
 }
 
 func mostrartiendas(w http.ResponseWriter, r *http.Request) {
@@ -173,13 +177,70 @@ func mostrartiendas(w http.ResponseWriter, r *http.Request) {
 					Logo: tiendas_json.Logo,
 				}
 				lista_tiendas=append(lista_tiendas,datosTiendas)
-
 			}
 		}
 	}
 	json.NewEncoder(w).Encode(lista_tiendas)
 
-
 }
 
+type nodeD struct {
+	next          *nodeD
+	previous      *nodeD
+	Indice        string
+	Departamentos string
+	Nombre        string
+	Descripcion   string
+	Contacto      string
+	Calificacion  int
+	inventario archivos.AVL
+}
 
+type listD struct {
+	first *nodeD
+	last  *nodeD
+}
+
+func NewList() *listD {
+	return &listD{nil, nil}
+}
+
+func (elist_d *listD) Insert(Nodo *nodeD) {
+
+	if elist_d.first == nil {
+		elist_d.last = Nodo
+		elist_d.first = elist_d.last
+	} else {
+		Nodo.previous = elist_d.last
+		elist_d.last.next = Nodo
+		elist_d.last = Nodo
+	}
+
+}
+func (elist_d *listD)Showtienda() {
+	auxiliar := elist_d.first
+	for auxiliar != nil {
+		for i := 0; i < len(datosInventario.Invetarios); i++ {
+			if (datosInventario.Invetarios[i].Tienda == auxiliar.Nombre && datosInventario.Invetarios[i].Departamento == auxiliar.Departamentos && datosInventario.Invetarios[i].Calificacion == auxiliar.Calificacion) {
+					for j:=0; j<len(datosInventario.Invetarios[i].Productos);j ++{
+						var productosInventario=datosInventario.Invetarios[i].Productos[j]
+						productos:=archivos.Producto{
+							Nombre: productosInventario.Nombre,
+							Cantidad: productosInventario.Cantidad,
+							Descripcion: productosInventario.Descripcion,
+							Precio: productosInventario.Precio,
+							Codigo: productosInventario.Codigo,
+							Imagen: productosInventario.Imagen,
+						}
+						auxiliar.inventario.Insertar(productos)
+
+					}
+				}
+			}
+			fmt.Println(auxiliar.Nombre)
+			auxiliar.inventario.Print()
+
+			auxiliar = auxiliar.next
+
+		}
+	}
