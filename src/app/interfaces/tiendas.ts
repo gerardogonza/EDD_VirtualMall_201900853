@@ -1,3 +1,3 @@
 export interface ITiendas {
-    Nombre: string;
+    Archivo: string;
   }

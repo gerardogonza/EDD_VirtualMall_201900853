@@ -1,7 +1,9 @@
 <div class="form-floating">
-    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px" type="json"
+    nombre="jsonEntrada"  id="curso"
+    name="curso"></textarea>
     <label for="floatingTextarea2">Ingresar Tiendas</label>
-  </div>
+</div>
   <button type="button" class="btn btn-dark" >Cargar Tiendas</button>
   <button type="button"  class="btn btn-success" (click)="mostrarTiendas()" >Mostrar Tiendas</button>
 
@@ -14,7 +16,7 @@
         <p class="card-text">Descripcion: {{tienda.Descripcion}}</p>
         <p class="card-text">Contacto: {{tienda.Contacto}}</p>
         <p class="card-text">Califiacion: {{tienda.Calificacion}}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
+        <a [routerLink]="['/inventario',tienda.Id]" class="btn btn-primary" >Comprar</a>
       </div>
     </div>
   </div>

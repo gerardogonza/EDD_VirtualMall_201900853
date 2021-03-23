@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import { TiendasService } from "../../services/tiendas.service";
+import { ITiendas } from "../../interfaces/tiendas";
 @Component({
   selector: 'app-modificaciones',
   templateUrl: './modificaciones.component.html',
@@ -7,9 +9,14 @@ import { HttpClient } from "@angular/common/http";
 })
 export class ModificacionesComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private jsonEntrada:TiendasService) { }
   conversion
   tiendas:any=[];
+  
+  archivoEntrada: any=[];
+
+
+
   ngOnInit(): void {
   }
 
@@ -21,4 +28,5 @@ mostrarTiendas(){
     console.log('Tiendas',this.tiendas)
   });
 }
+
 }
