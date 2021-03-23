@@ -10,12 +10,12 @@ type nodo struct {
 	izq, der *nodo
 }
 type Producto struct {
-	Nombre string
-	Codigo int
+	Nombre      string
+	Codigo      int
 	Descripcion string
-	Precio float64
-	Cantidad int
-	Imagen string
+	Precio      float64
+	Cantidad    int
+	Imagen      string
 }
 
 func newNodo(indice Producto) *nodo {
@@ -80,42 +80,44 @@ func insert(indice Producto, root **nodo) {
 	if indice.Codigo < (*root).indice.Codigo {
 		insert(indice, &(*root).izq)
 		if (altura((*root).izq) - altura((*root).der)) == -2 {
-			if indice.Codigo < (*root).izq.indice.Codigo{
+			if indice.Codigo < (*root).izq.indice.Codigo {
 				rotacionIzquierda(root)
-			}else{
+			} else {
 				rotacionDobleIzquierda(root)
 			}
 		}
-	}else if indice.Codigo > (*root).indice.Codigo{
+	} else if indice.Codigo > (*root).indice.Codigo {
 		insert(indice, &(*root).der)
-		if (altura((*root).der) - altura((*root).izq)) == 2{
+		if (altura((*root).der) - altura((*root).izq)) == 2 {
 			if indice.Codigo > (*root).der.indice.Codigo {
 				rotacionDerecha(root)
-			}else{
+			} else {
 				rotacionDobleDerecha(root)
 			}
 		}
-	}else{
+	} else {
 		fmt.Println("Ya se inserto el indice")
 	}
 
-	(*root).altura = max(altura((*root).izq), altura((*root).der))+1
+	(*root).altura = max(altura((*root).izq), altura((*root).der)) + 1
 }
 
 func (avl *AVL) Insertar(indice Producto) {
 	insert(indice, &avl.raiz)
 }
 
-func (avl *AVL) Print(){
+func (avl *AVL) Print() {
 	inOrden(avl.raiz)
 }
 
-func inOrden(temp *nodo)  {
+var A string
+var List []string
+
+func inOrden(temp *nodo) {
 	if temp != nil {
 		inOrden(temp.izq)
-
-		fmt.Println("Inorder: ", temp.indice)
+		A = temp.indice.Nombre
+		List = append(List, temp.indice.Nombre)
 		inOrden(temp.der)
 	}
 }
-
