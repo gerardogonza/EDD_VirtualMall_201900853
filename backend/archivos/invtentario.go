@@ -1,8 +1,6 @@
 package archivos
 
-import (
-	"fmt"
-)
+import "fmt"
 
 type nodo struct {
 	indice   Producto
@@ -96,9 +94,11 @@ func insert(indice Producto, root **nodo) {
 			}
 		}
 	} else {
-		fmt.Println("Ya se inserto el indice")
-	}
+		(*root).indice.Cantidad += indice.Cantidad
+		fmt.Print("se a sumado a stock" + indice.Nombre)
+		return
 
+	}
 	(*root).altura = max(altura((*root).izq), altura((*root).der)) + 1
 }
 

@@ -2,15 +2,16 @@ package main
 
 import (
 	"./archivos"
+	"./matriz"
 	"encoding/json"
 	"fmt"
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
 	"strconv"
-	"github.com/gorilla/handlers"
 )
 
 var path = "grafo.dot"
@@ -37,51 +38,66 @@ type tienda struct {
 	Descripcion  string
 	Contacto     string
 	Calificacion int
-	Logo 		string
-	inventario archivos.AVL
-
+	Logo         string
+	inventario   archivos.AVL
 }
+
 type arbol struct {
-Invetarios[] Inventarios //todo si no jala inventario cambiarlo a como den el nuevo json
+	Invetarios []Inventarios //todo si no jala inventario cambiarlo a como den el nuevo json
 }
 type Inventarios struct {
-	Tienda string
+	Tienda       string
 	Departamento string
 	Calificacion int
-	Productos [] productos
-	}
-type productos struct {
-	Nombre string
-	Codigo int
-	Descripcion string
-	Precio float64
-	Cantidad int
-	Imagen string
+	Productos    []productos
 }
+type productos struct {
+	Nombre      string
+	Codigo      int
+	Descripcion string
+	Precio      float64
+	Cantidad    int
+	Imagen      string
+}
+
 //esta estructura es la mando al front
 type tiendas struct {
+	Id           int
 	Nombre       string
 	Descripcion  string
 	Contacto     string
 	Calificacion int
-	Logo 		string
-
-
+	Logo         string
 }
 
+type pedido struct {
+	Pedidos []contenido
+}
+type contenido struct {
+	Fecha        string
+	Tienda       string
+	Departamento string
+	Calificacion int
+	Productos    []producto
+}
+type producto struct {
+	Codigo int
+}
+
+var pedidos pedido
 var indices indice
 var datosInventario arbol
 var datosTiendas tiendas
 var avl = archivos.NewAVL()
+
 func main() {
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", home)
 	router.HandleFunc("/cargartienda", cargartienda).Methods("POST")
 	router.HandleFunc("/mostrartiendas", mostrartiendas).Methods("GET")
-	router.HandleFunc("/getArreglo", getArreglo).Methods("GET")
-	router.HandleFunc("/TiendaEspecifica", TiendaEspecifica).Methods("POST")
-	router.HandleFunc("/id/{numero}", busquedaporPosicion).Methods("GET")
 	router.HandleFunc("/cargarinventario", cargarInventario).Methods("POST")
+	router.HandleFunc("/mostrarinventario/{numero}", mostrarinventario).Methods("GET")
+	router.HandleFunc("/cargarpedido", cargarpedido).Methods("POST")
 	//log.Fatal(http.ListenAndServe(":3000", router))
 	log.Fatal(http.ListenAndServe(":3000", handlers.CORS(handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}), handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"}), handlers.AllowedOrigins([]string{"*"}))(router)))
 }
@@ -101,48 +117,19 @@ func cargartienda(w http.ResponseWriter, r *http.Request) {
 
 }
 
-
-func busquedaporPosicion(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
-	taskID, err := strconv.Atoi(vars["numero"])
-	if err != nil {
-		return
-	}
-	valor = taskID
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(datos_tiendas)
-
-}
-
-func getArreglo(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-
-	json.NewEncoder(w).Encode("<img src=\"imagengrafo.jpg\">")
-
-}
-func TiendaEspecifica(w http.ResponseWriter, r *http.Request) {
-
-	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode("<img src=\"dinosaur.jpg\">")
-
-}
-
-func cargarInventario(w http.ResponseWriter, r *http.Request)  {
+func cargarInventario(w http.ResponseWriter, r *http.Request) {
 	reqBody, err := ioutil.ReadAll(r.Body)
 	json.Unmarshal(reqBody, &datosInventario)
 	if err != nil {
 		log.Fatal("Error")
 	}
-
 	recorreInventario()
-
-	avl.Print()
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
-
+	json.NewEncoder(w).Encode(datosInventario)
 }
 
-func recorreInventario()  {
+func recorreInventario() {
 	espacio = make([]listD, len(indices.Datos[0].Departamentos)*len(indices.Datos)*5)
 	for i := 0; i < len(indices.Datos); i++ { //letra
 		for j := 0; j < len(indices.Datos[i].Departamentos); j++ { //departamento
@@ -157,31 +144,103 @@ func recorreInventario()  {
 	for nodo = 0; nodo < len(espacio); nodo++ {
 		espacio[nodo].Showtienda()
 	}
-
-
 }
 
+var lista_tiendas []tiendas
+
 func mostrartiendas(w http.ResponseWriter, r *http.Request) {
+	var id = 0
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
-	var lista_tiendas []tiendas
+	var lista_tiendas1 []tiendas
 	for i := 0; i < len(indices.Datos); i++ { //letra
 		for j := 0; j < len(indices.Datos[i].Departamentos); j++ { //departamento
 			for k := 0; k < len(indices.Datos[i].Departamentos[j].Tiendas); k++ {
-				var tiendas_json=indices.Datos[i].Departamentos[j].Tiendas[k]
-				datosTiendas=tiendas{
-					Nombre: tiendas_json.Nombre,
-					Descripcion: tiendas_json.Descripcion,
-					Contacto: tiendas_json.Contacto,
+				var tiendas_json = indices.Datos[i].Departamentos[j].Tiendas[k]
+
+				datosTiendas = tiendas{
+					Id:           id,
+					Nombre:       tiendas_json.Nombre,
+					Descripcion:  tiendas_json.Descripcion,
+					Contacto:     tiendas_json.Contacto,
 					Calificacion: tiendas_json.Calificacion,
-					Logo: tiendas_json.Logo,
+					Logo:         tiendas_json.Logo,
 				}
-				lista_tiendas=append(lista_tiendas,datosTiendas)
+				id = id + 1
+				lista_tiendas = append(lista_tiendas, datosTiendas)
+				lista_tiendas1 = append(lista_tiendas1, datosTiendas)
 			}
 		}
 	}
-	json.NewEncoder(w).Encode(lista_tiendas)
 
+	json.NewEncoder(w).Encode(lista_tiendas1)
+}
+
+func mostrarinventario(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	taskID, err := strconv.Atoi(vars["numero"])
+	if err != nil {
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	var lista_productos []productosInventario
+	var lista_temporal []productotemporales
+	for nodoo := 0; nodoo < len(archivos.List); nodoo++ {
+		for i := 0; i < len(datosInventario.Invetarios); i++ {
+			for j := 0; j < len(datosInventario.Invetarios[i].Productos); j++ {
+				if archivos.List[nodoo] == datosInventario.Invetarios[i].Productos[j].Nombre {
+					datostiendasInventario = productosInventario{
+						Tienda:      datosInventario.Invetarios[i].Tienda,
+						Nombre:      datosInventario.Invetarios[i].Productos[j].Nombre,
+						Codigo:      datosInventario.Invetarios[i].Productos[j].Codigo,
+						Descripcion: datosInventario.Invetarios[i].Productos[j].Descripcion,
+						Precio:      datosInventario.Invetarios[i].Productos[j].Precio,
+						Cantidad:    datosInventario.Invetarios[i].Productos[j].Cantidad,
+						Imagen:      datosInventario.Invetarios[i].Productos[j].Imagen,
+					}
+					lista_productos = append(lista_productos, datostiendasInventario)
+				}
+			}
+		}
+	}
+	for nodoo := 0; nodoo < len(archivos.List); nodoo++ {
+		if lista_tiendas[taskID].Nombre == lista_productos[nodoo].Tienda {
+			productosTemporales = productotemporales{
+				Nombre:      lista_productos[nodoo].Nombre,
+				Codigo:      lista_productos[nodoo].Codigo,
+				Descripcion: lista_productos[nodoo].Descripcion,
+				Precio:      lista_productos[nodoo].Precio,
+				Cantidad:    lista_productos[nodoo].Cantidad,
+				Imagen:      lista_productos[nodoo].Imagen,
+			}
+			lista_temporal = append(lista_temporal, productosTemporales)
+		}
+	}
+	json.NewEncoder(w).Encode(lista_temporal)
+}
+
+var productosTemporales productotemporales
+
+type productotemporales struct {
+	Nombre      string
+	Codigo      int
+	Descripcion string
+	Precio      float64
+	Cantidad    int
+	Imagen      string
+}
+
+var datostiendasInventario productosInventario
+
+type productosInventario struct {
+	Tienda      string
+	Nombre      string
+	Codigo      int
+	Descripcion string
+	Precio      float64
+	Cantidad    int
+	Imagen      string
 }
 
 type nodeD struct {
@@ -193,7 +252,7 @@ type nodeD struct {
 	Descripcion   string
 	Contacto      string
 	Calificacion  int
-	inventario archivos.AVL
+	inventario    archivos.AVL
 }
 
 type listD struct {
@@ -206,7 +265,6 @@ func NewList() *listD {
 }
 
 func (elist_d *listD) Insert(Nodo *nodeD) {
-
 	if elist_d.first == nil {
 		elist_d.last = Nodo
 		elist_d.first = elist_d.last
@@ -215,32 +273,38 @@ func (elist_d *listD) Insert(Nodo *nodeD) {
 		elist_d.last.next = Nodo
 		elist_d.last = Nodo
 	}
-
 }
-func (elist_d *listD)Showtienda() {
+func (elist_d *listD) Showtienda() {
 	auxiliar := elist_d.first
 	for auxiliar != nil {
 		for i := 0; i < len(datosInventario.Invetarios); i++ {
-			if (datosInventario.Invetarios[i].Tienda == auxiliar.Nombre && datosInventario.Invetarios[i].Departamento == auxiliar.Departamentos && datosInventario.Invetarios[i].Calificacion == auxiliar.Calificacion) {
-					for j:=0; j<len(datosInventario.Invetarios[i].Productos);j ++{
-						var productosInventario=datosInventario.Invetarios[i].Productos[j]
-						productos:=archivos.Producto{
-							Nombre: productosInventario.Nombre,
-							Cantidad: productosInventario.Cantidad,
-							Descripcion: productosInventario.Descripcion,
-							Precio: productosInventario.Precio,
-							Codigo: productosInventario.Codigo,
-							Imagen: productosInventario.Imagen,
-						}
-						auxiliar.inventario.Insertar(productos)
-
+			if datosInventario.Invetarios[i].Tienda == auxiliar.Nombre && datosInventario.Invetarios[i].Departamento == auxiliar.Departamentos && datosInventario.Invetarios[i].Calificacion == auxiliar.Calificacion {
+				for j := 0; j < len(datosInventario.Invetarios[i].Productos); j++ {
+					var productosInventario = datosInventario.Invetarios[i].Productos[j]
+					productos := archivos.Producto{
+						Nombre:      productosInventario.Nombre,
+						Cantidad:    productosInventario.Cantidad,
+						Descripcion: productosInventario.Descripcion,
+						Precio:      productosInventario.Precio,
+						Codigo:      productosInventario.Codigo,
+						Imagen:      productosInventario.Imagen,
 					}
+					auxiliar.inventario.Insertar(productos)
+
 				}
 			}
-			fmt.Println(auxiliar.Nombre)
-			auxiliar.inventario.Print()
-
-			auxiliar = auxiliar.next
-
 		}
+		//fmt.Println(auxiliar.Nombre)
+		auxiliar.inventario.Print()
+		auxiliar = auxiliar.next
 	}
+}
+func cargarpedido(w http.ResponseWriter, r *http.Request) {
+	reqBody, err := ioutil.ReadAll(r.Body)
+	json.Unmarshal(reqBody, &pedidos)
+	if err != nil {
+		log.Fatal("Error")
+	}
+	matriz.NewMatriz()
+	json.NewEncoder(w).Encode(pedidos)
+}
