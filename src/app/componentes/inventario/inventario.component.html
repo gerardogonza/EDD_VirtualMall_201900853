@@ -1,3 +1,4 @@
+<a  class="btn btn-primary" href="carrito-compras">Ir al Carrito</a>
 <div class="row row-cols-1 row-cols-md-4 g-4">
     <div class="col" *ngFor="let tienda of tiendas">
       <div class="card">
@@ -5,8 +6,9 @@
         <div class="card-body">
           <h5 class="card-title">{{tienda.Nombre}}</h5>
           <p class="card-text">Descripcion: {{tienda.Descripcion}}</p>
+          <p class="card-text">Codigo: {{tienda.Codigo}}</p>
           <p class="card-text">Precio: Q{{tienda.Precio}}</p>
-          <a [routerLink]="['/inventario',tienda.Nombre]" class="btn btn-primary" >Comprar</a>
+          <a  class="btn btn-primary" (click)="addCarrito(getIndex(tienda.Codigo))" >Agregar al Carrito</a>
         </div>
       </div>
     </div>
