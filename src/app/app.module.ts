@@ -7,6 +7,7 @@ import { ModificacionesComponent } from './componentes/modificaciones/modificaci
 import { InventarioComponent } from './componentes/inventario/inventario.component';
 import { InicioComponent } from './componentes/inicio/inicio.component';
 import { CarritoComprasComponent } from './componentes/carrito-compras/carrito-compras.component';
+import { PedidoComponent } from './componentes/pedido/pedido.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { CarritoComprasComponent } from './componentes/carrito-compras/carrito-c
     ModificacionesComponent,
     InventarioComponent,
     InicioComponent,
-    CarritoComprasComponent
+    CarritoComprasComponent,
+    PedidoComponent
   ],
   imports: [
     BrowserModule,

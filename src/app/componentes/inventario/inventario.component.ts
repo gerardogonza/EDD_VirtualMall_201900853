@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
 import { CarritoService } from "../../services/carrito.service";
-import { Producto } from 'src/app/interfaces/models';
+import { Pedido, ProducotoPedido, Producto } from 'src/app/interfaces/models';
 import { dashCaseToCamelCase, partitionArray } from '@angular/compiler/src/util';
 @Component({
   selector: 'app-inventario',
@@ -14,7 +14,7 @@ export class InventarioComponent implements OnInit {
   constructor(private activedRoute: ActivatedRoute,private http: HttpClient, public carritoServices:CarritoService) { }
   conversion
   tiendas:Producto[]=[];
-
+  
   ngOnInit(): void {
     const params =this.activedRoute.snapshot.params;
     if(params.nombre){
@@ -37,6 +37,9 @@ getIndex(Codigo:number):number{
     }
   }
   return 0 
+}
+verCarrito(){
+  this.carritoServices.realizarPedido(this.conversion);
 }
 
 }

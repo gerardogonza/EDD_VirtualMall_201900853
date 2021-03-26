@@ -1,4 +1,4 @@
-<a  class="btn btn-primary" href="carrito-compras">Ir al Carrito</a>
+<a  class="btn btn-primary"  (click)="verCarrito()">Ir al Carrito</a>
 <div class="row row-cols-1 row-cols-md-4 g-4">
     <div class="col" *ngFor="let tienda of tiendas">
       <div class="card">
@@ -13,3 +13,36 @@
       </div>
     </div>
   </div>
+
+  <p class="fs-3">Carrito de Compras</p>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Productos</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Costo</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row"></th>      
+        <td>25</td>
+        <td>hola</td>
+        <td><a href="" type="submit" class="btn btn-danger">Eliminar</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table table-striped">
+      <tr>
+       
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <a href="" type="submit" class="btn btn-secondary" >Seguir Comprando</a>
+        <th scope="col"></th>
+        <a href="" type="submit" class="btn btn-secondary" >Generar Pedido</a>
+      </tr>   
+    
+  </table>
+  
+ 
