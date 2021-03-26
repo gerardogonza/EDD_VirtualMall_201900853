@@ -11,7 +11,9 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"os/exec"
 	"strconv"
+	"strings"
 )
 
 var path = "grafo.dot"
@@ -43,7 +45,7 @@ type tienda struct {
 }
 
 type arbol struct {
-	Invetarios []Inventarios //todo si no jala inventario cambiarlo a como den el nuevo json
+	Inventarios []Inventarios //todo si no jala inventario cambiarlo a como den el nuevo json
 }
 type Inventarios struct {
 	Tienda       string
@@ -124,7 +126,7 @@ func cargarInventario(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal("Error")
 	}
-	fmt.Print("hola")
+	fmt.Print("inventarioCargado")
 	recorreInventario()
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
@@ -189,17 +191,17 @@ func mostrarinventario(w http.ResponseWriter, r *http.Request) {
 	var lista_productos []productosInventario
 	var lista_temporal []productotemporales
 	for nodoo := 0; nodoo < len(archivos.List); nodoo++ {
-		for i := 0; i < len(datosInventario.Invetarios); i++ {
-			for j := 0; j < len(datosInventario.Invetarios[i].Productos); j++ {
-				if archivos.List[nodoo] == datosInventario.Invetarios[i].Productos[j].Nombre {
+		for i := 0; i < len(datosInventario.Inventarios); i++ {
+			for j := 0; j < len(datosInventario.Inventarios[i].Productos); j++ {
+				if archivos.List[nodoo] == datosInventario.Inventarios[i].Productos[j].Nombre {
 					datostiendasInventario = productosInventario{
-						Tienda:      datosInventario.Invetarios[i].Tienda,
-						Nombre:      datosInventario.Invetarios[i].Productos[j].Nombre,
-						Codigo:      datosInventario.Invetarios[i].Productos[j].Codigo,
-						Descripcion: datosInventario.Invetarios[i].Productos[j].Descripcion,
-						Precio:      datosInventario.Invetarios[i].Productos[j].Precio,
-						Cantidad:    datosInventario.Invetarios[i].Productos[j].Cantidad,
-						Imagen:      datosInventario.Invetarios[i].Productos[j].Imagen,
+						Tienda:      datosInventario.Inventarios[i].Tienda,
+						Nombre:      datosInventario.Inventarios[i].Productos[j].Nombre,
+						Codigo:      datosInventario.Inventarios[i].Productos[j].Codigo,
+						Descripcion: datosInventario.Inventarios[i].Productos[j].Descripcion,
+						Precio:      datosInventario.Inventarios[i].Productos[j].Precio,
+						Cantidad:    datosInventario.Inventarios[i].Productos[j].Cantidad,
+						Imagen:      datosInventario.Inventarios[i].Productos[j].Imagen,
 					}
 					lista_productos = append(lista_productos, datostiendasInventario)
 				}
@@ -279,10 +281,10 @@ func (elist_d *listD) Insert(Nodo *nodeD) {
 func (elist_d *listD) Showtienda() {
 	auxiliar := elist_d.first
 	for auxiliar != nil {
-		for i := 0; i < len(datosInventario.Invetarios); i++ {
-			if datosInventario.Invetarios[i].Tienda == auxiliar.Nombre && datosInventario.Invetarios[i].Departamento == auxiliar.Departamentos && datosInventario.Invetarios[i].Calificacion == auxiliar.Calificacion {
-				for j := 0; j < len(datosInventario.Invetarios[i].Productos); j++ {
-					var productosInventario = datosInventario.Invetarios[i].Productos[j]
+		for i := 0; i < len(datosInventario.Inventarios); i++ {
+			if datosInventario.Inventarios[i].Tienda == auxiliar.Nombre && datosInventario.Inventarios[i].Departamento == auxiliar.Departamentos && datosInventario.Inventarios[i].Calificacion == auxiliar.Calificacion {
+				for j := 0; j < len(datosInventario.Inventarios[i].Productos); j++ {
+					var productosInventario = datosInventario.Inventarios[i].Productos[j]
 					productos := archivos.Producto{
 						Nombre:      productosInventario.Nombre,
 						Cantidad:    productosInventario.Cantidad,
@@ -301,7 +303,9 @@ func (elist_d *listD) Showtienda() {
 		auxiliar = auxiliar.next
 	}
 }
-var mat=matriz.Matrix{}
+
+var mat = matriz.Matrix{}
+
 func cargarpedido(w http.ResponseWriter, r *http.Request) {
 	reqBody, err := ioutil.ReadAll(r.Body)
 	json.Unmarshal(reqBody, &pedidos)
@@ -319,7 +323,6 @@ func mostrarpedido(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 
-	fmt.Println(taskID)
 	var strdate string
 	var mes int
 	mat.Init()
@@ -327,28 +330,27 @@ func mostrarpedido(w http.ResponseWriter, r *http.Request) {
 		strdate = pedidos.Pedidos[i].Fecha
 		day, _ := strconv.Atoi(strdate[:2])
 		mes, _ = strconv.Atoi(strdate[3:5])
-		if (mes == taskID) {
+		if mes == taskID {
 			for j := 0; j < len(pedidos.Pedidos[i].Productos); j++ {
-				if (len(pedidos.Pedidos[i].Productos) == 1) {
+				if len(pedidos.Pedidos[i].Productos) == 1 {
 					mat.Add(i+1, day, pedidos.Pedidos[i].Productos[j].Codigo)
 				}
-				if (len(pedidos.Pedidos[i].Productos) > 1) {
+				if len(pedidos.Pedidos[i].Productos) > 1 {
 					mat.Add(i+1, day, pedidos.Pedidos[i].Productos[j].Codigo)
 				}
 
 			}
 		} else {
-		fmt.Println("No hay pedidos en este mes")
+			fmt.Println("No hay pedidos en este mes")
 		}
 	}
 
-	if (mes == taskID) {
+	if mes == taskID {
 		mat.Show()
 		crearArchivo()
 		escribeArchivo()
 	}
 }
-
 
 func crearArchivo() {
 	var _, err = os.Create(path)
@@ -370,65 +372,71 @@ func escribeArchivo() {
 	_, err = file.WriteString(" Mt[ label = \"Matriz\" group = 1 ];\n")
 	_, err = file.WriteString("e0[ shape = point, width = 0 ];\n e1[ shape = point, width = 0 ]; \n ")
 	for i := 0; i < len(matriz.ListTienda); i++ {
-		t := strconv.Itoa(matriz.ListTienda[i]-1)
-		_, err = file.WriteString("nodo"+t+"[label = \""+pedidos.Pedidos[matriz.ListTienda[i]-1].Tienda+"\"    group = 1 ];\n")
+		t := strconv.Itoa(matriz.ListTienda[i] - 1)
+		_, err = file.WriteString("nodo" + t + "[label = \"" + pedidos.Pedidos[matriz.ListTienda[i]-1].Departamento + "\"    group = 1 ];\n")
 	}
 	for i := 0; i < len(matriz.ListTienda); i++ {
 		t := strconv.Itoa(matriz.ListDia[i])
-		_, err = file.WriteString("D"+t+"[label = \""+t+"\"    group = "+t+" ];\n")
+		_, err = file.WriteString("D" + t + "[label = \"" + t + "\"    group = " + t + " ];\n")
 	}
 	for i := 0; i < len(matriz.ListTienda); i++ {
 		t := strconv.Itoa(matriz.ListCodigo[i])
 		h := strconv.Itoa(matriz.ListDia[i])
-		_, err = file.WriteString("C"+t+"[label = \""+t+"\"    group = "+h+" ];\n")
+		_, err = file.WriteString("C" + t + "[label = \"" + t + "\"    group = " + h + " ];\n")
 	}
 	for i := 0; i < len(matriz.ListTienda); i++ {
 		h := strconv.Itoa(matriz.ListDia[i])
-		t := strconv.Itoa(matriz.ListTienda[i]-1)
+		t := strconv.Itoa(matriz.ListTienda[i] - 1)
 		g := strconv.Itoa(matriz.ListCodigo[i])
-		_, err = file.WriteString("nodo"+t+" ->C"+g+";\n")
-		_, err = file.WriteString("C"+g+" ->nodo"+t+";\n")
-		_, err = file.WriteString("D"+h+" ->C"+g+";\n")
-		_, err = file.WriteString("C"+g+" ->D"+h+";\n")
+		_, err = file.WriteString("nodo" + t + " ->C" + g + ";\n")
+		_, err = file.WriteString("C" + g + " ->nodo" + t + ";\n")
+		_, err = file.WriteString("D" + h + " ->C" + g + ";\n")
+		_, err = file.WriteString("C" + g + " ->D" + h + ";\n")
 
 	}
 	_, err = file.WriteString("{ rank = same; Mt;")
 	for i := 0; i < len(matriz.ListTienda); i++ {
 		h := strconv.Itoa(matriz.ListDia[i])
-		_, err = file.WriteString("D"+h+";")
+		_, err = file.WriteString("D" + h + ";")
 	}
 	_, err = file.WriteString("}\n")
 
 	for i := 0; i < len(matriz.ListTienda); i++ {
-		t := strconv.Itoa(matriz.ListTienda[i]-1)
+		t := strconv.Itoa(matriz.ListTienda[i] - 1)
 		f := strconv.Itoa(matriz.ListTienda[i])
-		_, err = file.WriteString("nodo"+t+" ->nodo"+f+";\n")
+		_, err = file.WriteString("nodo" + t + " ->nodo" + f + ";\n")
 	}
 
 	for i := 0; i < len(matriz.ListTienda); i++ {
 		g := strconv.Itoa(matriz.ListCodigo[i])
-		t := strconv.Itoa(matriz.ListTienda[i]-1)
+		t := strconv.Itoa(matriz.ListTienda[i] - 1)
 		_, err = file.WriteString("{ rank = same; ")
-		_, err = file.WriteString("C"+g+";")
-		_, err = file.WriteString("nodo"+t+";")
+		_, err = file.WriteString("C" + g + ";")
+		_, err = file.WriteString("nodo" + t + ";")
 		_, err = file.WriteString("}\n")
 	}
 
-
-
 	for i := 0; i < 1; i++ {
 		h := strconv.Itoa(matriz.ListDia[i])
-		t := strconv.Itoa(matriz.ListTienda[i]-1)
-		_, err = file.WriteString("Mt -> D"+h+";\n  Mt -> nodo"+t+";\n")
+		t := strconv.Itoa(matriz.ListTienda[i] - 1)
+		_, err = file.WriteString("Mt -> D" + h + ";\n  Mt -> nodo" + t + ";\n")
 	}
-
-
 
 	//_, err = file.WriteString(tiendas_grafo)
 	//_, err = file.WriteString(conexiones_grafo)
 	_, err = file.WriteString("}")
-
+	generarImagen()
 	fmt.Println("Grafo editado correctamente.")
+}
+func generarImagen() {
+	s := "dot.exe -Tpng grafo.dot -o frontend/src/assets/imagengrafo.png"
+	args := strings.Split(s, " ")
+	cmd := exec.Command(args[0], args[1:]...)
+	b, err := cmd.CombinedOutput()
+	if err != nil {
+		log.Println("Ejucicion Fallo", err)
+	}
+	fmt.Println("%s\n", b)
 }
 func existeError(err error) bool {
 	if err != nil {
