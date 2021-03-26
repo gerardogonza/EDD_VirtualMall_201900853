@@ -98,6 +98,7 @@ func main() {
 	router.HandleFunc("/cargarinventario", cargarInventario).Methods("POST")
 	router.HandleFunc("/mostrarinventario/{numero}", mostrarinventario).Methods("GET")
 	router.HandleFunc("/cargarpedido", cargarpedido).Methods("POST")
+	router.HandleFunc("/mostrarpedido/{numero}", mostrarpedido).Methods("GET")
 	//log.Fatal(http.ListenAndServe(":3000", router))
 	log.Fatal(http.ListenAndServe(":3000", handlers.CORS(handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}), handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"}), handlers.AllowedOrigins([]string{"*"}))(router)))
 }
@@ -123,6 +124,7 @@ func cargarInventario(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal("Error")
 	}
+	fmt.Print("hola")
 	recorreInventario()
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
@@ -299,12 +301,138 @@ func (elist_d *listD) Showtienda() {
 		auxiliar = auxiliar.next
 	}
 }
+var mat=matriz.Matrix{}
 func cargarpedido(w http.ResponseWriter, r *http.Request) {
 	reqBody, err := ioutil.ReadAll(r.Body)
 	json.Unmarshal(reqBody, &pedidos)
 	if err != nil {
 		log.Fatal("Error")
 	}
-	matriz.NewMatriz()
-	json.NewEncoder(w).Encode(pedidos)
+
+}
+func mostrarpedido(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	taskID, err := strconv.Atoi(vars["numero"])
+	if err != nil {
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+
+	fmt.Println(taskID)
+	var strdate string
+	var mes int
+	mat.Init()
+	for i := 0; i < len(pedidos.Pedidos); i++ {
+		strdate = pedidos.Pedidos[i].Fecha
+		day, _ := strconv.Atoi(strdate[:2])
+		mes, _ = strconv.Atoi(strdate[3:5])
+		if (mes == taskID) {
+			for j := 0; j < len(pedidos.Pedidos[i].Productos); j++ {
+				if (len(pedidos.Pedidos[i].Productos) == 1) {
+					mat.Add(i+1, day, pedidos.Pedidos[i].Productos[j].Codigo)
+				}
+				if (len(pedidos.Pedidos[i].Productos) > 1) {
+					mat.Add(i+1, day, pedidos.Pedidos[i].Productos[j].Codigo)
+				}
+
+			}
+		} else {
+		fmt.Println("No hay pedidos en este mes")
+		}
+	}
+
+	if (mes == taskID) {
+		mat.Show()
+		crearArchivo()
+		escribeArchivo()
+	}
+}
+
+
+func crearArchivo() {
+	var _, err = os.Create(path)
+	//Crea el archivo si no existe
+	if os.IsNotExist(err) {
+		var file, err = os.Create(path)
+		if existeError(err) {
+			return
+		}
+		defer file.Close()
+	}
+}
+func escribeArchivo() {
+	if existeError(err) {
+		return
+	}
+	defer file.Close()
+	_, err = file.WriteString("digraph grafica{ \n node [shape=box]\n")
+	_, err = file.WriteString(" Mt[ label = \"Matriz\" group = 1 ];\n")
+	_, err = file.WriteString("e0[ shape = point, width = 0 ];\n e1[ shape = point, width = 0 ]; \n ")
+	for i := 0; i < len(matriz.ListTienda); i++ {
+		t := strconv.Itoa(matriz.ListTienda[i]-1)
+		_, err = file.WriteString("nodo"+t+"[label = \""+pedidos.Pedidos[matriz.ListTienda[i]-1].Tienda+"\"    group = 1 ];\n")
+	}
+	for i := 0; i < len(matriz.ListTienda); i++ {
+		t := strconv.Itoa(matriz.ListDia[i])
+		_, err = file.WriteString("D"+t+"[label = \""+t+"\"    group = "+t+" ];\n")
+	}
+	for i := 0; i < len(matriz.ListTienda); i++ {
+		t := strconv.Itoa(matriz.ListCodigo[i])
+		h := strconv.Itoa(matriz.ListDia[i])
+		_, err = file.WriteString("C"+t+"[label = \""+t+"\"    group = "+h+" ];\n")
+	}
+	for i := 0; i < len(matriz.ListTienda); i++ {
+		h := strconv.Itoa(matriz.ListDia[i])
+		t := strconv.Itoa(matriz.ListTienda[i]-1)
+		g := strconv.Itoa(matriz.ListCodigo[i])
+		_, err = file.WriteString("nodo"+t+" ->C"+g+";\n")
+		_, err = file.WriteString("C"+g+" ->nodo"+t+";\n")
+		_, err = file.WriteString("D"+h+" ->C"+g+";\n")
+		_, err = file.WriteString("C"+g+" ->D"+h+";\n")
+
+	}
+	_, err = file.WriteString("{ rank = same; Mt;")
+	for i := 0; i < len(matriz.ListTienda); i++ {
+		h := strconv.Itoa(matriz.ListDia[i])
+		_, err = file.WriteString("D"+h+";")
+	}
+	_, err = file.WriteString("}\n")
+
+	for i := 0; i < len(matriz.ListTienda); i++ {
+		t := strconv.Itoa(matriz.ListTienda[i]-1)
+		f := strconv.Itoa(matriz.ListTienda[i])
+		_, err = file.WriteString("nodo"+t+" ->nodo"+f+";\n")
+	}
+
+	for i := 0; i < len(matriz.ListTienda); i++ {
+		g := strconv.Itoa(matriz.ListCodigo[i])
+		t := strconv.Itoa(matriz.ListTienda[i]-1)
+		_, err = file.WriteString("{ rank = same; ")
+		_, err = file.WriteString("C"+g+";")
+		_, err = file.WriteString("nodo"+t+";")
+		_, err = file.WriteString("}\n")
+	}
+
+
+
+	for i := 0; i < 1; i++ {
+		h := strconv.Itoa(matriz.ListDia[i])
+		t := strconv.Itoa(matriz.ListTienda[i]-1)
+		_, err = file.WriteString("Mt -> D"+h+";\n  Mt -> nodo"+t+";\n")
+	}
+
+
+
+	//_, err = file.WriteString(tiendas_grafo)
+	//_, err = file.WriteString(conexiones_grafo)
+	_, err = file.WriteString("}")
+
+	fmt.Println("Grafo editado correctamente.")
+}
+func existeError(err error) bool {
+	if err != nil {
+		fmt.Println(err.Error())
+	}
+	return (err != nil)
 }

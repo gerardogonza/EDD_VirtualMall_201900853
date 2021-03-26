@@ -71,10 +71,14 @@ func rotacionDobleDerecha(temp **nodo) {
 }
 
 func insert(indice Producto, root **nodo) {
-	if (*root) == nil {
-		*root = newNodo(indice)
-		return
-	}
+
+		if (*root) == nil {
+			*root = newNodo(indice)
+			return
+		}
+
+
+
 	if indice.Codigo < (*root).indice.Codigo {
 		insert(indice, &(*root).izq)
 		if (altura((*root).izq) - altura((*root).der)) == -2 {
