@@ -3,124 +3,3220 @@ digraph grafica{
  Mt[ label = "Matriz" group = 1 ];
 e0[ shape = point, width = 0 ];
  e1[ shape = point, width = 0 ]; 
- nodo0[label = "Tecnologia"    group = 1 ];
-nodo1[label = "Tecnologia"    group = 1 ];
-nodo2[label = "Tecnologia"    group = 1 ];
-nodo3[label = "Deporte"    group = 1 ];
-nodo4[label = "Tecnologia"    group = 1 ];
-nodo5[label = "Tecnologia"    group = 1 ];
-nodo6[label = "Deporte"    group = 1 ];
-nodo7[label = "Deporte"    group = 1 ];
-nodo8[label = "Deporte"    group = 1 ];
-nodo9[label = "Comida"    group = 1 ];
-nodo10[label = "Comida"    group = 1 ];
-nodo11[label = "Comida"    group = 1 ];
-nodo12[label = "Comida"    group = 1 ];
+ nodo8[label = "Arte y Artesanias"    group = 1 ];
+nodo70[label = "Arte y Artesanias"    group = 1 ];
+nodo101[label = "Arte y Artesanias"    group = 1 ];
+nodo103[label = "Arte y Artesanias"    group = 1 ];
+nodo107[label = "Electrónicos para autos"    group = 1 ];
+nodo119[label = "Arte y Artesanias"    group = 1 ];
+nodo128[label = "Arte y Artesanias"    group = 1 ];
+nodo129[label = "Electrónicos para autos"    group = 1 ];
+nodo132[label = "Arte y Artesanias"    group = 1 ];
+nodo150[label = "Consolas de videojuegos"    group = 1 ];
+nodo154[label = "Electrónicos para autos"    group = 1 ];
+nodo166[label = "Consolas de videojuegos"    group = 1 ];
+nodo175[label = "Arte y Artesanias"    group = 1 ];
+nodo181[label = "Arte y Artesanias"    group = 1 ];
+nodo182[label = "Otros"    group = 1 ];
+nodo208[label = "Vinilos"    group = 1 ];
+nodo237[label = "Consolas de videojuegos"    group = 1 ];
+nodo253[label = "Otros"    group = 1 ];
+nodo254[label = "Otros"    group = 1 ];
+nodo261[label = "Otros"    group = 1 ];
+nodo288[label = "Consolas de videojuegos"    group = 1 ];
+nodo308[label = "Electrónicos para autos"    group = 1 ];
+nodo312[label = "Consolas de videojuegos"    group = 1 ];
+nodo313[label = "Consolas de videojuegos"    group = 1 ];
+nodo327[label = "Arte y Artesanias"    group = 1 ];
+nodo344[label = "Arte y Artesanias"    group = 1 ];
+nodo355[label = "Vinilos"    group = 1 ];
+nodo366[label = "Otros"    group = 1 ];
+nodo377[label = "Otros"    group = 1 ];
+nodo390[label = "Consolas de videojuegos"    group = 1 ];
+nodo396[label = "Electrónicos para autos"    group = 1 ];
+nodo415[label = "Electrónicos para autos"    group = 1 ];
+nodo435[label = "Otros"    group = 1 ];
+nodo445[label = "Arte y Artesanias"    group = 1 ];
+nodo484[label = "Otros"    group = 1 ];
+nodo495[label = "Arte y Artesanias"    group = 1 ];
+nodo501[label = "Consolas de videojuegos"    group = 1 ];
+nodo513[label = "Otros"    group = 1 ];
+nodo527[label = "Electrónicos para autos"    group = 1 ];
+nodo532[label = "Otros"    group = 1 ];
+nodo544[label = "Otros"    group = 1 ];
+nodo561[label = "Otros"    group = 1 ];
+nodo567[label = "Arte y Artesanias"    group = 1 ];
+nodo571[label = "Electrónicos para autos"    group = 1 ];
+nodo574[label = "Consolas de videojuegos"    group = 1 ];
+nodo578[label = "Electrónicos para autos"    group = 1 ];
+nodo579[label = "Otros"    group = 1 ];
+nodo585[label = "Vinilos"    group = 1 ];
+nodo586[label = "Consolas de videojuegos"    group = 1 ];
+nodo599[label = "Electrónicos para autos"    group = 1 ];
+nodo615[label = "Electrónicos para autos"    group = 1 ];
+nodo625[label = "Electrónicos para autos"    group = 1 ];
+nodo639[label = "Consolas de videojuegos"    group = 1 ];
+nodo651[label = "Electrónicos para autos"    group = 1 ];
+nodo654[label = "Otros"    group = 1 ];
+nodo663[label = "Otros"    group = 1 ];
+nodo680[label = "Arte y Artesanias"    group = 1 ];
+nodo686[label = "Consolas de videojuegos"    group = 1 ];
+nodo692[label = "Arte y Artesanias"    group = 1 ];
+nodo709[label = "Otros"    group = 1 ];
+nodo751[label = "Otros"    group = 1 ];
+nodo759[label = "Consolas de videojuegos"    group = 1 ];
+nodo777[label = "Arte y Artesanias"    group = 1 ];
+nodo796[label = "Arte y Artesanias"    group = 1 ];
+nodo800[label = "Consolas de videojuegos"    group = 1 ];
+nodo802[label = "Consolas de videojuegos"    group = 1 ];
+nodo814[label = "Otros"    group = 1 ];
+nodo816[label = "Arte y Artesanias"    group = 1 ];
+nodo824[label = "Otros"    group = 1 ];
+nodo835[label = "Otros"    group = 1 ];
+nodo839[label = "Consolas de videojuegos"    group = 1 ];
+nodo846[label = "Electrónicos para autos"    group = 1 ];
+nodo849[label = "Otros"    group = 1 ];
+nodo852[label = "Arte y Artesanias"    group = 1 ];
+nodo858[label = "Vinilos"    group = 1 ];
+nodo861[label = "Otros"    group = 1 ];
+nodo884[label = "Consolas de videojuegos"    group = 1 ];
+nodo892[label = "Electrónicos para autos"    group = 1 ];
+nodo905[label = "Vinilos"    group = 1 ];
+nodo918[label = "Electrónicos para autos"    group = 1 ];
+nodo923[label = "Otros"    group = 1 ];
+nodo932[label = "Consolas de videojuegos"    group = 1 ];
+nodo955[label = "Electrónicos para autos"    group = 1 ];
+nodo978[label = "Otros"    group = 1 ];
+nodo979[label = "Arte y Artesanias"    group = 1 ];
+nodo980[label = "Consolas de videojuegos"    group = 1 ];
+nodo1006[label = "Electrónicos para autos"    group = 1 ];
+nodo1010[label = "Arte y Artesanias"    group = 1 ];
+nodo1019[label = "Arte y Artesanias"    group = 1 ];
+nodo1025[label = "Vinilos"    group = 1 ];
+nodo1039[label = "Consolas de videojuegos"    group = 1 ];
+nodo1050[label = "Arte y Artesanias"    group = 1 ];
+nodo1056[label = "Electrónicos para autos"    group = 1 ];
+nodo1058[label = "Arte y Artesanias"    group = 1 ];
+nodo1065[label = "Consolas de videojuegos"    group = 1 ];
+nodo1077[label = "Consolas de videojuegos"    group = 1 ];
+nodo1081[label = "Electrónicos para autos"    group = 1 ];
+nodo1087[label = "Arte y Artesanias"    group = 1 ];
+nodo1103[label = "Consolas de videojuegos"    group = 1 ];
+nodo1113[label = "Otros"    group = 1 ];
+nodo1133[label = "Otros"    group = 1 ];
+nodo1148[label = "Vinilos"    group = 1 ];
+nodo1149[label = "Electrónicos para autos"    group = 1 ];
+nodo1195[label = "Consolas de videojuegos"    group = 1 ];
+nodo1217[label = "Otros"    group = 1 ];
+nodo1224[label = "Vinilos"    group = 1 ];
+nodo1233[label = "Consolas de videojuegos"    group = 1 ];
+nodo1243[label = "Otros"    group = 1 ];
+nodo1246[label = "Electrónicos para autos"    group = 1 ];
+nodo1266[label = "Otros"    group = 1 ];
+nodo1280[label = "Arte y Artesanias"    group = 1 ];
+nodo1285[label = "Otros"    group = 1 ];
+nodo1296[label = "Otros"    group = 1 ];
+nodo1328[label = "Vinilos"    group = 1 ];
+nodo1331[label = "Consolas de videojuegos"    group = 1 ];
+nodo1332[label = "Vinilos"    group = 1 ];
+nodo1339[label = "Consolas de videojuegos"    group = 1 ];
+nodo1345[label = "Electrónicos para autos"    group = 1 ];
+nodo1359[label = "Otros"    group = 1 ];
+nodo1395[label = "Arte y Artesanias"    group = 1 ];
+nodo1400[label = "Otros"    group = 1 ];
+nodo1401[label = "Arte y Artesanias"    group = 1 ];
+nodo1416[label = "Arte y Artesanias"    group = 1 ];
+nodo1428[label = "Electrónicos para autos"    group = 1 ];
+nodo1429[label = "Arte y Artesanias"    group = 1 ];
+nodo1434[label = "Otros"    group = 1 ];
+nodo1436[label = "Otros"    group = 1 ];
+nodo1446[label = "Arte y Artesanias"    group = 1 ];
+nodo1453[label = "Otros"    group = 1 ];
+nodo1457[label = "Consolas de videojuegos"    group = 1 ];
+nodo1462[label = "Arte y Artesanias"    group = 1 ];
+nodo1463[label = "Electrónicos para autos"    group = 1 ];
+nodo1466[label = "Consolas de videojuegos"    group = 1 ];
+nodo1470[label = "Vinilos"    group = 1 ];
+nodo1471[label = "Arte y Artesanias"    group = 1 ];
+nodo1474[label = "Electrónicos para autos"    group = 1 ];
+nodo1515[label = "Electrónicos para autos"    group = 1 ];
+nodo1517[label = "Electrónicos para autos"    group = 1 ];
+nodo1522[label = "Arte y Artesanias"    group = 1 ];
+nodo1532[label = "Otros"    group = 1 ];
+nodo1540[label = "Consolas de videojuegos"    group = 1 ];
+nodo1556[label = "Consolas de videojuegos"    group = 1 ];
+nodo1562[label = "Arte y Artesanias"    group = 1 ];
+nodo1570[label = "Otros"    group = 1 ];
+nodo1572[label = "Arte y Artesanias"    group = 1 ];
+nodo1578[label = "Otros"    group = 1 ];
+nodo1579[label = "Consolas de videojuegos"    group = 1 ];
+nodo1587[label = "Vinilos"    group = 1 ];
+nodo1626[label = "Electrónicos para autos"    group = 1 ];
+nodo1645[label = "Electrónicos para autos"    group = 1 ];
+nodo1660[label = "Vinilos"    group = 1 ];
+nodo1669[label = "Otros"    group = 1 ];
+nodo1674[label = "Consolas de videojuegos"    group = 1 ];
+nodo1685[label = "Otros"    group = 1 ];
+nodo1690[label = "Otros"    group = 1 ];
+nodo1696[label = "Electrónicos para autos"    group = 1 ];
+nodo1719[label = "Otros"    group = 1 ];
+nodo1736[label = "Consolas de videojuegos"    group = 1 ];
+nodo1741[label = "Vinilos"    group = 1 ];
+nodo1742[label = "Arte y Artesanias"    group = 1 ];
+nodo1744[label = "Otros"    group = 1 ];
+nodo1760[label = "Arte y Artesanias"    group = 1 ];
+nodo1767[label = "Consolas de videojuegos"    group = 1 ];
+nodo1831[label = "Arte y Artesanias"    group = 1 ];
+nodo1834[label = "Arte y Artesanias"    group = 1 ];
+nodo1848[label = "Arte y Artesanias"    group = 1 ];
+nodo1851[label = "Otros"    group = 1 ];
+nodo1858[label = "Electrónicos para autos"    group = 1 ];
+nodo1876[label = "Electrónicos para autos"    group = 1 ];
+nodo1881[label = "Electrónicos para autos"    group = 1 ];
+nodo1892[label = "Vinilos"    group = 1 ];
+nodo1913[label = "Otros"    group = 1 ];
+nodo1923[label = "Arte y Artesanias"    group = 1 ];
+nodo1927[label = "Otros"    group = 1 ];
+nodo1941[label = "Vinilos"    group = 1 ];
+nodo1954[label = "Otros"    group = 1 ];
+nodo1975[label = "Vinilos"    group = 1 ];
+nodo1985[label = "Consolas de videojuegos"    group = 1 ];
+nodo1987[label = "Otros"    group = 1 ];
+nodo1991[label = "Consolas de videojuegos"    group = 1 ];
+nodo1998[label = "Vinilos"    group = 1 ];
+nodo2032[label = "Otros"    group = 1 ];
+nodo2039[label = "Consolas de videojuegos"    group = 1 ];
+nodo2051[label = "Otros"    group = 1 ];
+nodo2071[label = "Consolas de videojuegos"    group = 1 ];
+nodo2094[label = "Arte y Artesanias"    group = 1 ];
+nodo2096[label = "Electrónicos para autos"    group = 1 ];
+nodo2097[label = "Electrónicos para autos"    group = 1 ];
+nodo2104[label = "Otros"    group = 1 ];
+nodo2113[label = "Otros"    group = 1 ];
+nodo2128[label = "Consolas de videojuegos"    group = 1 ];
+nodo2130[label = "Electrónicos para autos"    group = 1 ];
+nodo2131[label = "Consolas de videojuegos"    group = 1 ];
+nodo2139[label = "Otros"    group = 1 ];
+nodo2147[label = "Otros"    group = 1 ];
+nodo2176[label = "Consolas de videojuegos"    group = 1 ];
+nodo2206[label = "Consolas de videojuegos"    group = 1 ];
+nodo2210[label = "Vinilos"    group = 1 ];
+nodo2218[label = "Electrónicos para autos"    group = 1 ];
+nodo2232[label = "Otros"    group = 1 ];
+nodo2247[label = "Electrónicos para autos"    group = 1 ];
+nodo2254[label = "Vinilos"    group = 1 ];
+nodo2255[label = "Consolas de videojuegos"    group = 1 ];
+nodo2259[label = "Otros"    group = 1 ];
+nodo2269[label = "Vinilos"    group = 1 ];
+nodo2308[label = "Electrónicos para autos"    group = 1 ];
+nodo2338[label = "Otros"    group = 1 ];
+nodo2344[label = "Vinilos"    group = 1 ];
+nodo2361[label = "Electrónicos para autos"    group = 1 ];
+nodo2363[label = "Otros"    group = 1 ];
+nodo2364[label = "Otros"    group = 1 ];
+nodo2366[label = "Consolas de videojuegos"    group = 1 ];
+nodo2408[label = "Vinilos"    group = 1 ];
+nodo2436[label = "Consolas de videojuegos"    group = 1 ];
+nodo2442[label = "Arte y Artesanias"    group = 1 ];
+nodo2458[label = "Arte y Artesanias"    group = 1 ];
+nodo2464[label = "Consolas de videojuegos"    group = 1 ];
+nodo2470[label = "Otros"    group = 1 ];
+nodo2474[label = "Otros"    group = 1 ];
+nodo2477[label = "Consolas de videojuegos"    group = 1 ];
+nodo2486[label = "Electrónicos para autos"    group = 1 ];
+nodo2556[label = "Otros"    group = 1 ];
+nodo2578[label = "Otros"    group = 1 ];
+nodo2584[label = "Vinilos"    group = 1 ];
+nodo2596[label = "Consolas de videojuegos"    group = 1 ];
+nodo2597[label = "Electrónicos para autos"    group = 1 ];
+nodo2611[label = "Vinilos"    group = 1 ];
+nodo2622[label = "Otros"    group = 1 ];
+nodo2625[label = "Arte y Artesanias"    group = 1 ];
+nodo2633[label = "Otros"    group = 1 ];
+nodo2642[label = "Otros"    group = 1 ];
+nodo2669[label = "Otros"    group = 1 ];
+nodo2674[label = "Arte y Artesanias"    group = 1 ];
+nodo2675[label = "Arte y Artesanias"    group = 1 ];
+nodo2696[label = "Electrónicos para autos"    group = 1 ];
+nodo2697[label = "Arte y Artesanias"    group = 1 ];
+nodo2703[label = "Electrónicos para autos"    group = 1 ];
+nodo2710[label = "Electrónicos para autos"    group = 1 ];
+nodo2726[label = "Otros"    group = 1 ];
+nodo2733[label = "Otros"    group = 1 ];
+nodo2734[label = "Consolas de videojuegos"    group = 1 ];
+nodo2735[label = "Otros"    group = 1 ];
+nodo2769[label = "Arte y Artesanias"    group = 1 ];
+nodo2776[label = "Electrónicos para autos"    group = 1 ];
+nodo2779[label = "Arte y Artesanias"    group = 1 ];
+nodo2781[label = "Otros"    group = 1 ];
+nodo2784[label = "Consolas de videojuegos"    group = 1 ];
+nodo2787[label = "Vinilos"    group = 1 ];
+nodo2799[label = "Consolas de videojuegos"    group = 1 ];
+nodo2837[label = "Otros"    group = 1 ];
+nodo2839[label = "Electrónicos para autos"    group = 1 ];
+nodo2840[label = "Otros"    group = 1 ];
+nodo2846[label = "Vinilos"    group = 1 ];
+nodo2894[label = "Otros"    group = 1 ];
+nodo2913[label = "Electrónicos para autos"    group = 1 ];
+nodo2920[label = "Electrónicos para autos"    group = 1 ];
+nodo2930[label = "Consolas de videojuegos"    group = 1 ];
+nodo2950[label = "Otros"    group = 1 ];
+nodo2957[label = "Otros"    group = 1 ];
+nodo2962[label = "Otros"    group = 1 ];
+nodo2976[label = "Arte y Artesanias"    group = 1 ];
+nodo3018[label = "Otros"    group = 1 ];
+nodo3047[label = "Electrónicos para autos"    group = 1 ];
+nodo3052[label = "Electrónicos para autos"    group = 1 ];
+nodo3058[label = "Otros"    group = 1 ];
+nodo3074[label = "Electrónicos para autos"    group = 1 ];
+nodo3115[label = "Consolas de videojuegos"    group = 1 ];
+nodo3153[label = "Otros"    group = 1 ];
+nodo3160[label = "Consolas de videojuegos"    group = 1 ];
+nodo3166[label = "Consolas de videojuegos"    group = 1 ];
+nodo3182[label = "Otros"    group = 1 ];
+nodo3197[label = "Otros"    group = 1 ];
+nodo3198[label = "Otros"    group = 1 ];
+nodo3205[label = "Electrónicos para autos"    group = 1 ];
+nodo3207[label = "Electrónicos para autos"    group = 1 ];
+nodo3223[label = "Consolas de videojuegos"    group = 1 ];
+nodo3233[label = "Otros"    group = 1 ];
+nodo3235[label = "Arte y Artesanias"    group = 1 ];
+nodo3238[label = "Arte y Artesanias"    group = 1 ];
+nodo3248[label = "Otros"    group = 1 ];
+nodo3250[label = "Otros"    group = 1 ];
+nodo3255[label = "Otros"    group = 1 ];
+nodo3267[label = "Electrónicos para autos"    group = 1 ];
+nodo3278[label = "Vinilos"    group = 1 ];
+nodo3293[label = "Otros"    group = 1 ];
+nodo3314[label = "Vinilos"    group = 1 ];
+nodo3359[label = "Arte y Artesanias"    group = 1 ];
+nodo3381[label = "Otros"    group = 1 ];
+nodo3389[label = "Arte y Artesanias"    group = 1 ];
+nodo3405[label = "Arte y Artesanias"    group = 1 ];
+nodo3407[label = "Electrónicos para autos"    group = 1 ];
+nodo3428[label = "Arte y Artesanias"    group = 1 ];
+nodo3449[label = "Electrónicos para autos"    group = 1 ];
+nodo3467[label = "Otros"    group = 1 ];
+nodo3488[label = "Consolas de videojuegos"    group = 1 ];
+nodo3493[label = "Electrónicos para autos"    group = 1 ];
+nodo3502[label = "Consolas de videojuegos"    group = 1 ];
+nodo3506[label = "Otros"    group = 1 ];
+nodo3523[label = "Electrónicos para autos"    group = 1 ];
+nodo3542[label = "Otros"    group = 1 ];
+nodo3566[label = "Arte y Artesanias"    group = 1 ];
+nodo3588[label = "Consolas de videojuegos"    group = 1 ];
+nodo3592[label = "Arte y Artesanias"    group = 1 ];
+nodo3613[label = "Arte y Artesanias"    group = 1 ];
+nodo3621[label = "Electrónicos para autos"    group = 1 ];
+nodo3641[label = "Otros"    group = 1 ];
+nodo3642[label = "Vinilos"    group = 1 ];
+nodo3650[label = "Consolas de videojuegos"    group = 1 ];
+nodo3653[label = "Arte y Artesanias"    group = 1 ];
+nodo3674[label = "Consolas de videojuegos"    group = 1 ];
+nodo3683[label = "Consolas de videojuegos"    group = 1 ];
+nodo3685[label = "Otros"    group = 1 ];
+nodo3689[label = "Otros"    group = 1 ];
+nodo3697[label = "Otros"    group = 1 ];
+nodo3713[label = "Otros"    group = 1 ];
+nodo3719[label = "Arte y Artesanias"    group = 1 ];
+nodo3728[label = "Consolas de videojuegos"    group = 1 ];
+nodo3730[label = "Consolas de videojuegos"    group = 1 ];
+nodo3734[label = "Otros"    group = 1 ];
+nodo3735[label = "Vinilos"    group = 1 ];
+nodo3751[label = "Vinilos"    group = 1 ];
+nodo3760[label = "Vinilos"    group = 1 ];
+nodo3763[label = "Electrónicos para autos"    group = 1 ];
+nodo3764[label = "Otros"    group = 1 ];
+nodo3774[label = "Vinilos"    group = 1 ];
+nodo3775[label = "Otros"    group = 1 ];
+nodo3796[label = "Otros"    group = 1 ];
+nodo3800[label = "Arte y Artesanias"    group = 1 ];
+nodo3837[label = "Electrónicos para autos"    group = 1 ];
+nodo3839[label = "Otros"    group = 1 ];
+nodo3842[label = "Consolas de videojuegos"    group = 1 ];
+nodo3850[label = "Otros"    group = 1 ];
+nodo3851[label = "Electrónicos para autos"    group = 1 ];
+nodo3858[label = "Otros"    group = 1 ];
+nodo3871[label = "Otros"    group = 1 ];
+nodo3876[label = "Consolas de videojuegos"    group = 1 ];
+nodo3929[label = "Arte y Artesanias"    group = 1 ];
+nodo3936[label = "Otros"    group = 1 ];
+nodo3963[label = "Consolas de videojuegos"    group = 1 ];
+nodo3965[label = "Electrónicos para autos"    group = 1 ];
+nodo3970[label = "Consolas de videojuegos"    group = 1 ];
+nodo3975[label = "Electrónicos para autos"    group = 1 ];
+nodo3978[label = "Otros"    group = 1 ];
+nodo3979[label = "Otros"    group = 1 ];
+nodo3990[label = "Otros"    group = 1 ];
+nodo4007[label = "Consolas de videojuegos"    group = 1 ];
+nodo4009[label = "Electrónicos para autos"    group = 1 ];
+nodo4047[label = "Electrónicos para autos"    group = 1 ];
+nodo4068[label = "Consolas de videojuegos"    group = 1 ];
+nodo4070[label = "Arte y Artesanias"    group = 1 ];
+nodo4124[label = "Consolas de videojuegos"    group = 1 ];
+nodo4150[label = "Arte y Artesanias"    group = 1 ];
+nodo4152[label = "Otros"    group = 1 ];
+nodo4155[label = "Vinilos"    group = 1 ];
+nodo4165[label = "Otros"    group = 1 ];
+nodo4169[label = "Otros"    group = 1 ];
+nodo4187[label = "Arte y Artesanias"    group = 1 ];
+D16[label = "16"    group = 16 ];
+D3[label = "3"    group = 3 ];
+D25[label = "25"    group = 25 ];
+D16[label = "16"    group = 16 ];
+D27[label = "27"    group = 27 ];
+D20[label = "20"    group = 20 ];
+D19[label = "19"    group = 19 ];
+D21[label = "21"    group = 21 ];
+D13[label = "13"    group = 13 ];
+D3[label = "3"    group = 3 ];
+D31[label = "31"    group = 31 ];
+D22[label = "22"    group = 22 ];
+D25[label = "25"    group = 25 ];
+D7[label = "7"    group = 7 ];
+D13[label = "13"    group = 13 ];
+D12[label = "12"    group = 12 ];
+D29[label = "29"    group = 29 ];
+D24[label = "24"    group = 24 ];
+D2[label = "2"    group = 2 ];
+D14[label = "14"    group = 14 ];
+D3[label = "3"    group = 3 ];
+D30[label = "30"    group = 30 ];
+D4[label = "4"    group = 4 ];
+D19[label = "19"    group = 19 ];
+D7[label = "7"    group = 7 ];
+D31[label = "31"    group = 31 ];
+D8[label = "8"    group = 8 ];
+D19[label = "19"    group = 19 ];
+D13[label = "13"    group = 13 ];
+D23[label = "23"    group = 23 ];
+D31[label = "31"    group = 31 ];
+D2[label = "2"    group = 2 ];
+D23[label = "23"    group = 23 ];
+D31[label = "31"    group = 31 ];
+D11[label = "11"    group = 11 ];
+D26[label = "26"    group = 26 ];
+D29[label = "29"    group = 29 ];
+D19[label = "19"    group = 19 ];
+D23[label = "23"    group = 23 ];
+D12[label = "12"    group = 12 ];
+D15[label = "15"    group = 15 ];
+D2[label = "2"    group = 2 ];
+D20[label = "20"    group = 20 ];
+D23[label = "23"    group = 23 ];
+D8[label = "8"    group = 8 ];
+D14[label = "14"    group = 14 ];
+D9[label = "9"    group = 9 ];
+D17[label = "17"    group = 17 ];
+D26[label = "26"    group = 26 ];
+D17[label = "17"    group = 17 ];
+D10[label = "10"    group = 10 ];
+D26[label = "26"    group = 26 ];
+D20[label = "20"    group = 20 ];
+D29[label = "29"    group = 29 ];
+D1[label = "1"    group = 1 ];
+D7[label = "7"    group = 7 ];
+D11[label = "11"    group = 11 ];
+D11[label = "11"    group = 11 ];
+D9[label = "9"    group = 9 ];
+D7[label = "7"    group = 7 ];
+D8[label = "8"    group = 8 ];
+D10[label = "10"    group = 10 ];
+D2[label = "2"    group = 2 ];
+D26[label = "26"    group = 26 ];
+D6[label = "6"    group = 6 ];
+D12[label = "12"    group = 12 ];
+D17[label = "17"    group = 17 ];
+D13[label = "13"    group = 13 ];
+D30[label = "30"    group = 30 ];
 D1[label = "1"    group = 1 ];
 D10[label = "10"    group = 10 ];
+D19[label = "19"    group = 19 ];
+D25[label = "25"    group = 25 ];
+D1[label = "1"    group = 1 ];
+D20[label = "20"    group = 20 ];
+D10[label = "10"    group = 10 ];
 D7[label = "7"    group = 7 ];
+D22[label = "22"    group = 22 ];
+D14[label = "14"    group = 14 ];
+D17[label = "17"    group = 17 ];
+D31[label = "31"    group = 31 ];
+D15[label = "15"    group = 15 ];
+D27[label = "27"    group = 27 ];
+D20[label = "20"    group = 20 ];
+D19[label = "19"    group = 19 ];
+D6[label = "6"    group = 6 ];
+D9[label = "9"    group = 9 ];
+D29[label = "29"    group = 29 ];
+D1[label = "1"    group = 1 ];
+D12[label = "12"    group = 12 ];
+D17[label = "17"    group = 17 ];
+D23[label = "23"    group = 23 ];
+D8[label = "8"    group = 8 ];
+D3[label = "3"    group = 3 ];
+D3[label = "3"    group = 3 ];
+D18[label = "18"    group = 18 ];
+D13[label = "13"    group = 13 ];
+D3[label = "3"    group = 3 ];
+D17[label = "17"    group = 17 ];
 D5[label = "5"    group = 5 ];
-D7[label = "7"    group = 7 ];
-D7[label = "7"    group = 7 ];
+D8[label = "8"    group = 8 ];
+D29[label = "29"    group = 29 ];
+D20[label = "20"    group = 20 ];
 D1[label = "1"    group = 1 ];
-D10[label = "10"    group = 10 ];
+D24[label = "24"    group = 24 ];
+D31[label = "31"    group = 31 ];
+D3[label = "3"    group = 3 ];
+D11[label = "11"    group = 11 ];
+D2[label = "2"    group = 2 ];
+D13[label = "13"    group = 13 ];
+D23[label = "23"    group = 23 ];
+D30[label = "30"    group = 30 ];
+D25[label = "25"    group = 25 ];
+D30[label = "30"    group = 30 ];
+D28[label = "28"    group = 28 ];
+D22[label = "22"    group = 22 ];
+D14[label = "14"    group = 14 ];
+D31[label = "31"    group = 31 ];
+D28[label = "28"    group = 28 ];
+D23[label = "23"    group = 23 ];
+D24[label = "24"    group = 24 ];
 D7[label = "7"    group = 7 ];
-D10[label = "10"    group = 10 ];
+D23[label = "23"    group = 23 ];
+D23[label = "23"    group = 23 ];
+D16[label = "16"    group = 16 ];
+D28[label = "28"    group = 28 ];
+D2[label = "2"    group = 2 ];
+D22[label = "22"    group = 22 ];
+D24[label = "24"    group = 24 ];
+D23[label = "23"    group = 23 ];
 D7[label = "7"    group = 7 ];
+D22[label = "22"    group = 22 ];
+D7[label = "7"    group = 7 ];
+D7[label = "7"    group = 7 ];
+D21[label = "21"    group = 21 ];
+D4[label = "4"    group = 4 ];
+D7[label = "7"    group = 7 ];
+D3[label = "3"    group = 3 ];
+D12[label = "12"    group = 12 ];
+D22[label = "22"    group = 22 ];
+D20[label = "20"    group = 20 ];
+D28[label = "28"    group = 28 ];
+D11[label = "11"    group = 11 ];
+D10[label = "10"    group = 10 ];
+D9[label = "9"    group = 9 ];
+D11[label = "11"    group = 11 ];
+D11[label = "11"    group = 11 ];
+D2[label = "2"    group = 2 ];
+D5[label = "5"    group = 5 ];
+D15[label = "15"    group = 15 ];
 D5[label = "5"    group = 5 ];
 D1[label = "1"    group = 1 ];
-C4232[label = "4232"    group = 1 ];
-C5[label = "5"    group = 10 ];
-C110[label = "110"    group = 7 ];
-C2313[label = "2313"    group = 5 ];
-C500[label = "500"    group = 7 ];
-C562[label = "562"    group = 7 ];
-C2389[label = "2389"    group = 1 ];
-C344[label = "344"    group = 10 ];
-C3298[label = "3298"    group = 7 ];
-C777[label = "777"    group = 10 ];
-C82[label = "82"    group = 7 ];
-C367[label = "367"    group = 5 ];
-C482[label = "482"    group = 1 ];
-nodo0 ->C4232;
-C4232 ->nodo0;
-D1 ->C4232;
-C4232 ->D1;
-nodo1 ->C5;
-C5 ->nodo1;
-D10 ->C5;
-C5 ->D10;
-nodo2 ->C110;
-C110 ->nodo2;
-D7 ->C110;
-C110 ->D7;
-nodo3 ->C2313;
-C2313 ->nodo3;
-D5 ->C2313;
-C2313 ->D5;
-nodo4 ->C500;
-C500 ->nodo4;
-D7 ->C500;
-C500 ->D7;
-nodo5 ->C562;
-C562 ->nodo5;
-D7 ->C562;
-C562 ->D7;
-nodo6 ->C2389;
-C2389 ->nodo6;
-D1 ->C2389;
-C2389 ->D1;
-nodo7 ->C344;
-C344 ->nodo7;
-D10 ->C344;
-C344 ->D10;
-nodo8 ->C3298;
-C3298 ->nodo8;
-D7 ->C3298;
-C3298 ->D7;
-nodo9 ->C777;
-C777 ->nodo9;
-D10 ->C777;
-C777 ->D10;
-nodo10 ->C82;
-C82 ->nodo10;
-D7 ->C82;
-C82 ->D7;
-nodo11 ->C367;
-C367 ->nodo11;
-D5 ->C367;
-C367 ->D5;
-nodo12 ->C482;
-C482 ->nodo12;
-D1 ->C482;
-C482 ->D1;
-{ rank = same; Mt;D1;D10;D7;D5;D7;D7;D1;D10;D7;D10;D7;D5;D1;}
-nodo0 ->nodo1;
-nodo1 ->nodo2;
-nodo2 ->nodo3;
-nodo3 ->nodo4;
-nodo4 ->nodo5;
-nodo5 ->nodo6;
-nodo6 ->nodo7;
-nodo7 ->nodo8;
+D5[label = "5"    group = 5 ];
+D12[label = "12"    group = 12 ];
+D2[label = "2"    group = 2 ];
+D10[label = "10"    group = 10 ];
+D30[label = "30"    group = 30 ];
+D11[label = "11"    group = 11 ];
+D25[label = "25"    group = 25 ];
+D15[label = "15"    group = 15 ];
+D7[label = "7"    group = 7 ];
+D18[label = "18"    group = 18 ];
+D29[label = "29"    group = 29 ];
+D9[label = "9"    group = 9 ];
+D3[label = "3"    group = 3 ];
+D28[label = "28"    group = 28 ];
+D22[label = "22"    group = 22 ];
+D19[label = "19"    group = 19 ];
+D24[label = "24"    group = 24 ];
+D8[label = "8"    group = 8 ];
+D29[label = "29"    group = 29 ];
+D31[label = "31"    group = 31 ];
+D9[label = "9"    group = 9 ];
+D24[label = "24"    group = 24 ];
+D27[label = "27"    group = 27 ];
+D21[label = "21"    group = 21 ];
+D4[label = "4"    group = 4 ];
+D4[label = "4"    group = 4 ];
+D24[label = "24"    group = 24 ];
+D26[label = "26"    group = 26 ];
+D27[label = "27"    group = 27 ];
+D31[label = "31"    group = 31 ];
+D12[label = "12"    group = 12 ];
+D6[label = "6"    group = 6 ];
+D15[label = "15"    group = 15 ];
+D27[label = "27"    group = 27 ];
+D18[label = "18"    group = 18 ];
+D7[label = "7"    group = 7 ];
+D19[label = "19"    group = 19 ];
+D6[label = "6"    group = 6 ];
+D7[label = "7"    group = 7 ];
+D10[label = "10"    group = 10 ];
+D26[label = "26"    group = 26 ];
+D5[label = "5"    group = 5 ];
+D2[label = "2"    group = 2 ];
+D12[label = "12"    group = 12 ];
+D1[label = "1"    group = 1 ];
+D7[label = "7"    group = 7 ];
+D15[label = "15"    group = 15 ];
+D20[label = "20"    group = 20 ];
+D24[label = "24"    group = 24 ];
+D19[label = "19"    group = 19 ];
+D17[label = "17"    group = 17 ];
+D25[label = "25"    group = 25 ];
+D31[label = "31"    group = 31 ];
+D28[label = "28"    group = 28 ];
+D27[label = "27"    group = 27 ];
+D21[label = "21"    group = 21 ];
+D4[label = "4"    group = 4 ];
+D27[label = "27"    group = 27 ];
+D20[label = "20"    group = 20 ];
+D28[label = "28"    group = 28 ];
+D20[label = "20"    group = 20 ];
+D19[label = "19"    group = 19 ];
+D3[label = "3"    group = 3 ];
+D4[label = "4"    group = 4 ];
+D15[label = "15"    group = 15 ];
+D10[label = "10"    group = 10 ];
+D23[label = "23"    group = 23 ];
+D17[label = "17"    group = 17 ];
+D29[label = "29"    group = 29 ];
+D18[label = "18"    group = 18 ];
+D12[label = "12"    group = 12 ];
+D25[label = "25"    group = 25 ];
+D4[label = "4"    group = 4 ];
+D7[label = "7"    group = 7 ];
+D1[label = "1"    group = 1 ];
+D15[label = "15"    group = 15 ];
+D27[label = "27"    group = 27 ];
+D10[label = "10"    group = 10 ];
+D16[label = "16"    group = 16 ];
+D7[label = "7"    group = 7 ];
+D2[label = "2"    group = 2 ];
+D23[label = "23"    group = 23 ];
+D16[label = "16"    group = 16 ];
+D2[label = "2"    group = 2 ];
+D26[label = "26"    group = 26 ];
+D5[label = "5"    group = 5 ];
+D2[label = "2"    group = 2 ];
+D23[label = "23"    group = 23 ];
+D25[label = "25"    group = 25 ];
+D21[label = "21"    group = 21 ];
+D14[label = "14"    group = 14 ];
+D1[label = "1"    group = 1 ];
+D3[label = "3"    group = 3 ];
+D21[label = "21"    group = 21 ];
+D4[label = "4"    group = 4 ];
+D23[label = "23"    group = 23 ];
+D14[label = "14"    group = 14 ];
+D12[label = "12"    group = 12 ];
+D17[label = "17"    group = 17 ];
+D9[label = "9"    group = 9 ];
+D22[label = "22"    group = 22 ];
+D1[label = "1"    group = 1 ];
+D10[label = "10"    group = 10 ];
+D7[label = "7"    group = 7 ];
+D22[label = "22"    group = 22 ];
+D21[label = "21"    group = 21 ];
+D9[label = "9"    group = 9 ];
+D9[label = "9"    group = 9 ];
+D11[label = "11"    group = 11 ];
+D20[label = "20"    group = 20 ];
+D16[label = "16"    group = 16 ];
+D30[label = "30"    group = 30 ];
+D1[label = "1"    group = 1 ];
+D6[label = "6"    group = 6 ];
+D26[label = "26"    group = 26 ];
+D1[label = "1"    group = 1 ];
+D31[label = "31"    group = 31 ];
+D11[label = "11"    group = 11 ];
+D22[label = "22"    group = 22 ];
+D12[label = "12"    group = 12 ];
+D1[label = "1"    group = 1 ];
+D17[label = "17"    group = 17 ];
+D12[label = "12"    group = 12 ];
+D11[label = "11"    group = 11 ];
+D28[label = "28"    group = 28 ];
+D4[label = "4"    group = 4 ];
+D15[label = "15"    group = 15 ];
+D9[label = "9"    group = 9 ];
+D22[label = "22"    group = 22 ];
+D19[label = "19"    group = 19 ];
+D21[label = "21"    group = 21 ];
+D26[label = "26"    group = 26 ];
+D19[label = "19"    group = 19 ];
+D19[label = "19"    group = 19 ];
+D27[label = "27"    group = 27 ];
+D6[label = "6"    group = 6 ];
+D3[label = "3"    group = 3 ];
+D6[label = "6"    group = 6 ];
+D8[label = "8"    group = 8 ];
+D23[label = "23"    group = 23 ];
+D27[label = "27"    group = 27 ];
+D23[label = "23"    group = 23 ];
+D15[label = "15"    group = 15 ];
+D26[label = "26"    group = 26 ];
+D25[label = "25"    group = 25 ];
+D30[label = "30"    group = 30 ];
+D26[label = "26"    group = 26 ];
+D8[label = "8"    group = 8 ];
+D19[label = "19"    group = 19 ];
+D15[label = "15"    group = 15 ];
+D2[label = "2"    group = 2 ];
+D15[label = "15"    group = 15 ];
+D21[label = "21"    group = 21 ];
+D11[label = "11"    group = 11 ];
+D8[label = "8"    group = 8 ];
+D25[label = "25"    group = 25 ];
+D8[label = "8"    group = 8 ];
+D24[label = "24"    group = 24 ];
+D30[label = "30"    group = 30 ];
+D12[label = "12"    group = 12 ];
+D10[label = "10"    group = 10 ];
+D30[label = "30"    group = 30 ];
+D18[label = "18"    group = 18 ];
+D2[label = "2"    group = 2 ];
+D30[label = "30"    group = 30 ];
+D24[label = "24"    group = 24 ];
+D15[label = "15"    group = 15 ];
+D26[label = "26"    group = 26 ];
+D24[label = "24"    group = 24 ];
+D2[label = "2"    group = 2 ];
+D18[label = "18"    group = 18 ];
+D31[label = "31"    group = 31 ];
+D13[label = "13"    group = 13 ];
+D25[label = "25"    group = 25 ];
+D30[label = "30"    group = 30 ];
+D31[label = "31"    group = 31 ];
+D20[label = "20"    group = 20 ];
+D8[label = "8"    group = 8 ];
+D30[label = "30"    group = 30 ];
+D13[label = "13"    group = 13 ];
+D30[label = "30"    group = 30 ];
+D31[label = "31"    group = 31 ];
+D10[label = "10"    group = 10 ];
+D19[label = "19"    group = 19 ];
+D28[label = "28"    group = 28 ];
+D5[label = "5"    group = 5 ];
+D6[label = "6"    group = 6 ];
+D3[label = "3"    group = 3 ];
+D23[label = "23"    group = 23 ];
+D17[label = "17"    group = 17 ];
+D30[label = "30"    group = 30 ];
+D28[label = "28"    group = 28 ];
+D23[label = "23"    group = 23 ];
+D12[label = "12"    group = 12 ];
+D30[label = "30"    group = 30 ];
+D8[label = "8"    group = 8 ];
+D15[label = "15"    group = 15 ];
+D20[label = "20"    group = 20 ];
+D7[label = "7"    group = 7 ];
+D28[label = "28"    group = 28 ];
+D24[label = "24"    group = 24 ];
+D19[label = "19"    group = 19 ];
+D21[label = "21"    group = 21 ];
+D16[label = "16"    group = 16 ];
+D18[label = "18"    group = 18 ];
+C284[label = "284"    group = 16 ];
+C278[label = "278"    group = 3 ];
+C60[label = "60"    group = 25 ];
+C285[label = "285"    group = 16 ];
+C632[label = "632"    group = 27 ];
+C287[label = "287"    group = 20 ];
+C44[label = "44"    group = 19 ];
+C924[label = "924"    group = 21 ];
+C297[label = "297"    group = 13 ];
+C783[label = "783"    group = 3 ];
+C943[label = "943"    group = 31 ];
+C508[label = "508"    group = 22 ];
+C68[label = "68"    group = 25 ];
+C298[label = "298"    group = 7 ];
+C878[label = "878"    group = 13 ];
+C823[label = "823"    group = 12 ];
+C971[label = "971"    group = 29 ];
+C766[label = "766"    group = 24 ];
+C19[label = "19"    group = 2 ];
+C921[label = "921"    group = 14 ];
+C850[label = "850"    group = 3 ];
+C749[label = "749"    group = 30 ];
+C346[label = "346"    group = 4 ];
+C911[label = "911"    group = 19 ];
+C678[label = "678"    group = 7 ];
+C412[label = "412"    group = 31 ];
+C848[label = "848"    group = 8 ];
+C122[label = "122"    group = 19 ];
+C87[label = "87"    group = 13 ];
+C908[label = "908"    group = 23 ];
+C129[label = "129"    group = 31 ];
+C745[label = "745"    group = 2 ];
+C83[label = "83"    group = 23 ];
+C314[label = "314"    group = 31 ];
+C648[label = "648"    group = 11 ];
+C298[label = "298"    group = 26 ];
+C782[label = "782"    group = 29 ];
+C393[label = "393"    group = 19 ];
+C26[label = "26"    group = 23 ];
+C766[label = "766"    group = 12 ];
+C19[label = "19"    group = 15 ];
+C848[label = "848"    group = 2 ];
+C306[label = "306"    group = 20 ];
+C769[label = "769"    group = 23 ];
+C298[label = "298"    group = 8 ];
+C629[label = "629"    group = 14 ];
+C319[label = "319"    group = 9 ];
+C557[label = "557"    group = 17 ];
+C351[label = "351"    group = 26 ];
+C446[label = "446"    group = 17 ];
+C759[label = "759"    group = 10 ];
+C608[label = "608"    group = 26 ];
+C784[label = "784"    group = 20 ];
+C625[label = "625"    group = 29 ];
+C836[label = "836"    group = 1 ];
+C945[label = "945"    group = 7 ];
+C297[label = "297"    group = 11 ];
+C914[label = "914"    group = 11 ];
+C381[label = "381"    group = 9 ];
+C124[label = "124"    group = 7 ];
+C392[label = "392"    group = 8 ];
+C930[label = "930"    group = 10 ];
+C282[label = "282"    group = 2 ];
+C677[label = "677"    group = 26 ];
+C539[label = "539"    group = 6 ];
+C908[label = "908"    group = 12 ];
+C18[label = "18"    group = 17 ];
+C308[label = "308"    group = 13 ];
+C99[label = "99"    group = 30 ];
+C131[label = "131"    group = 1 ];
+C932[label = "932"    group = 10 ];
+C434[label = "434"    group = 19 ];
+C766[label = "766"    group = 25 ];
+C323[label = "323"    group = 1 ];
+C557[label = "557"    group = 20 ];
+C183[label = "183"    group = 10 ];
+C347[label = "347"    group = 7 ];
+C358[label = "358"    group = 22 ];
+C846[label = "846"    group = 14 ];
+C141[label = "141"    group = 17 ];
+C188[label = "188"    group = 31 ];
+C913[label = "913"    group = 15 ];
+C149[label = "149"    group = 27 ];
+C125[label = "125"    group = 20 ];
+C292[label = "292"    group = 19 ];
+C302[label = "302"    group = 6 ];
+C780[label = "780"    group = 9 ];
+C410[label = "410"    group = 29 ];
+C69[label = "69"    group = 1 ];
+C832[label = "832"    group = 12 ];
+C537[label = "537"    group = 17 ];
+C322[label = "322"    group = 23 ];
+C499[label = "499"    group = 8 ];
+C880[label = "880"    group = 3 ];
+C539[label = "539"    group = 3 ];
+C907[label = "907"    group = 18 ];
+C424[label = "424"    group = 13 ];
+C300[label = "300"    group = 3 ];
+C538[label = "538"    group = 17 ];
+C849[label = "849"    group = 5 ];
+C768[label = "768"    group = 8 ];
+C821[label = "821"    group = 29 ];
+C434[label = "434"    group = 20 ];
+C533[label = "533"    group = 1 ];
+C851[label = "851"    group = 24 ];
+C364[label = "364"    group = 31 ];
+C849[label = "849"    group = 3 ];
+C319[label = "319"    group = 11 ];
+C764[label = "764"    group = 2 ];
+C94[label = "94"    group = 13 ];
+C289[label = "289"    group = 23 ];
+C654[label = "654"    group = 30 ];
+C93[label = "93"    group = 25 ];
+C364[label = "364"    group = 30 ];
+C784[label = "784"    group = 28 ];
+C826[label = "826"    group = 22 ];
+C540[label = "540"    group = 14 ];
+C632[label = "632"    group = 31 ];
+C886[label = "886"    group = 28 ];
+C278[label = "278"    group = 23 ];
+C654[label = "654"    group = 24 ];
+C411[label = "411"    group = 7 ];
+C82[label = "82"    group = 23 ];
+C348[label = "348"    group = 23 ];
+C87[label = "87"    group = 16 ];
+C389[label = "389"    group = 28 ];
+C213[label = "213"    group = 2 ];
+C318[label = "318"    group = 22 ];
+C767[label = "767"    group = 24 ];
+C292[label = "292"    group = 23 ];
+C381[label = "381"    group = 7 ];
+C141[label = "141"    group = 22 ];
+C912[label = "912"    group = 7 ];
+C547[label = "547"    group = 7 ];
+C55[label = "55"    group = 21 ];
+C781[label = "781"    group = 4 ];
+C349[label = "349"    group = 7 ];
+C616[label = "616"    group = 3 ];
+C667[label = "667"    group = 12 ];
+C315[label = "315"    group = 22 ];
+C782[label = "782"    group = 20 ];
+C927[label = "927"    group = 28 ];
+C377[label = "377"    group = 11 ];
+C320[label = "320"    group = 10 ];
+C82[label = "82"    group = 9 ];
+C355[label = "355"    group = 11 ];
+C840[label = "840"    group = 11 ];
+C524[label = "524"    group = 2 ];
+C445[label = "445"    group = 5 ];
+C760[label = "760"    group = 15 ];
+C364[label = "364"    group = 5 ];
+C820[label = "820"    group = 1 ];
+C308[label = "308"    group = 5 ];
+C836[label = "836"    group = 12 ];
+C652[label = "652"    group = 2 ];
+C637[label = "637"    group = 10 ];
+C315[label = "315"    group = 30 ];
+C784[label = "784"    group = 11 ];
+C564[label = "564"    group = 25 ];
+C289[label = "289"    group = 15 ];
+C104[label = "104"    group = 7 ];
+C373[label = "373"    group = 18 ];
+C891[label = "891"    group = 29 ];
+C880[label = "880"    group = 9 ];
+C881[label = "881"    group = 3 ];
+C284[label = "284"    group = 28 ];
+C453[label = "453"    group = 22 ];
+C442[label = "442"    group = 19 ];
+C949[label = "949"    group = 24 ];
+C131[label = "131"    group = 8 ];
+C364[label = "364"    group = 29 ];
+C762[label = "762"    group = 31 ];
+C85[label = "85"    group = 9 ];
+C648[label = "648"    group = 24 ];
+C513[label = "513"    group = 27 ];
+C836[label = "836"    group = 21 ];
+C358[label = "358"    group = 4 ];
+C344[label = "344"    group = 4 ];
+C918[label = "918"    group = 24 ];
+C346[label = "346"    group = 26 ];
+C559[label = "559"    group = 27 ];
+C881[label = "881"    group = 31 ];
+C843[label = "843"    group = 12 ];
+C80[label = "80"    group = 6 ];
+C782[label = "782"    group = 15 ];
+C81[label = "81"    group = 27 ];
+C945[label = "945"    group = 18 ];
+C399[label = "399"    group = 7 ];
+C918[label = "918"    group = 19 ];
+C880[label = "880"    group = 6 ];
+C539[label = "539"    group = 7 ];
+C499[label = "499"    group = 10 ];
+C848[label = "848"    group = 26 ];
+C196[label = "196"    group = 5 ];
+C353[label = "353"    group = 2 ];
+C525[label = "525"    group = 12 ];
+C178[label = "178"    group = 1 ];
+C838[label = "838"    group = 7 ];
+C413[label = "413"    group = 15 ];
+C209[label = "209"    group = 20 ];
+C783[label = "783"    group = 24 ];
+C830[label = "830"    group = 19 ];
+C693[label = "693"    group = 17 ];
+C767[label = "767"    group = 25 ];
+C510[label = "510"    group = 31 ];
+C762[label = "762"    group = 28 ];
+C766[label = "766"    group = 27 ];
+C847[label = "847"    group = 21 ];
+C595[label = "595"    group = 4 ];
+C776[label = "776"    group = 27 ];
+C855[label = "855"    group = 20 ];
+C970[label = "970"    group = 28 ];
+C842[label = "842"    group = 20 ];
+C900[label = "900"    group = 19 ];
+C885[label = "885"    group = 3 ];
+C681[label = "681"    group = 4 ];
+C919[label = "919"    group = 15 ];
+C654[label = "654"    group = 10 ];
+C842[label = "842"    group = 23 ];
+C539[label = "539"    group = 17 ];
+C367[label = "367"    group = 29 ];
+C836[label = "836"    group = 18 ];
+C767[label = "767"    group = 12 ];
+C364[label = "364"    group = 25 ];
+C527[label = "527"    group = 4 ];
+C409[label = "409"    group = 7 ];
+C837[label = "837"    group = 1 ];
+C392[label = "392"    group = 15 ];
+C83[label = "83"    group = 27 ];
+C883[label = "883"    group = 10 ];
+C20[label = "20"    group = 16 ];
+C316[label = "316"    group = 7 ];
+C279[label = "279"    group = 2 ];
+C50[label = "50"    group = 23 ];
+C439[label = "439"    group = 16 ];
+C885[label = "885"    group = 2 ];
+C27[label = "27"    group = 26 ];
+C354[label = "354"    group = 5 ];
+C210[label = "210"    group = 2 ];
+C775[label = "775"    group = 23 ];
+C925[label = "925"    group = 25 ];
+C880[label = "880"    group = 21 ];
+C302[label = "302"    group = 14 ];
+C753[label = "753"    group = 1 ];
+C308[label = "308"    group = 3 ];
+C316[label = "316"    group = 21 ];
+C537[label = "537"    group = 4 ];
+C552[label = "552"    group = 23 ];
+C540[label = "540"    group = 14 ];
+C754[label = "754"    group = 12 ];
+C407[label = "407"    group = 17 ];
+C654[label = "654"    group = 9 ];
+C538[label = "538"    group = 22 ];
+C192[label = "192"    group = 1 ];
+C356[label = "356"    group = 10 ];
+C756[label = "756"    group = 7 ];
+C924[label = "924"    group = 22 ];
+C657[label = "657"    group = 21 ];
+C391[label = "391"    group = 9 ];
+C454[label = "454"    group = 9 ];
+C65[label = "65"    group = 11 ];
+C766[label = "766"    group = 20 ];
+C628[label = "628"    group = 16 ];
+C621[label = "621"    group = 30 ];
+C479[label = "479"    group = 1 ];
+C416[label = "416"    group = 6 ];
+C923[label = "923"    group = 26 ];
+C210[label = "210"    group = 1 ];
+C540[label = "540"    group = 31 ];
+C783[label = "783"    group = 11 ];
+C472[label = "472"    group = 22 ];
+C212[label = "212"    group = 12 ];
+C835[label = "835"    group = 1 ];
+C348[label = "348"    group = 17 ];
+C950[label = "950"    group = 12 ];
+C540[label = "540"    group = 11 ];
+C127[label = "127"    group = 28 ];
+C372[label = "372"    group = 4 ];
+C880[label = "880"    group = 15 ];
+C755[label = "755"    group = 9 ];
+C193[label = "193"    group = 22 ];
+C94[label = "94"    group = 19 ];
+C751[label = "751"    group = 21 ];
+C367[label = "367"    group = 26 ];
+C829[label = "829"    group = 19 ];
+C366[label = "366"    group = 19 ];
+C296[label = "296"    group = 27 ];
+C884[label = "884"    group = 6 ];
+C310[label = "310"    group = 3 ];
+C667[label = "667"    group = 6 ];
+C769[label = "769"    group = 8 ];
+C84[label = "84"    group = 23 ];
+C788[label = "788"    group = 27 ];
+C185[label = "185"    group = 23 ];
+C509[label = "509"    group = 15 ];
+C408[label = "408"    group = 26 ];
+C537[label = "537"    group = 25 ];
+C209[label = "209"    group = 30 ];
+C398[label = "398"    group = 26 ];
+C464[label = "464"    group = 8 ];
+C376[label = "376"    group = 19 ];
+C926[label = "926"    group = 15 ];
+C308[label = "308"    group = 2 ];
+C382[label = "382"    group = 15 ];
+C759[label = "759"    group = 21 ];
+C656[label = "656"    group = 11 ];
+C371[label = "371"    group = 8 ];
+C912[label = "912"    group = 25 ];
+C874[label = "874"    group = 8 ];
+C350[label = "350"    group = 24 ];
+C537[label = "537"    group = 30 ];
+C209[label = "209"    group = 12 ];
+C392[label = "392"    group = 10 ];
+C764[label = "764"    group = 30 ];
+C353[label = "353"    group = 18 ];
+C92[label = "92"    group = 2 ];
+C352[label = "352"    group = 30 ];
+C841[label = "841"    group = 24 ];
+C766[label = "766"    group = 15 ];
+C520[label = "520"    group = 26 ];
+C857[label = "857"    group = 24 ];
+C835[label = "835"    group = 2 ];
+C627[label = "627"    group = 18 ];
+C940[label = "940"    group = 31 ];
+C544[label = "544"    group = 13 ];
+C766[label = "766"    group = 25 ];
+C879[label = "879"    group = 30 ];
+C55[label = "55"    group = 31 ];
+C754[label = "754"    group = 20 ];
+C925[label = "925"    group = 8 ];
+C784[label = "784"    group = 30 ];
+C841[label = "841"    group = 13 ];
+C440[label = "440"    group = 30 ];
+C646[label = "646"    group = 31 ];
+C449[label = "449"    group = 10 ];
+C160[label = "160"    group = 19 ];
+C296[label = "296"    group = 28 ];
+C837[label = "837"    group = 5 ];
+C540[label = "540"    group = 6 ];
+C402[label = "402"    group = 3 ];
+C851[label = "851"    group = 23 ];
+C438[label = "438"    group = 17 ];
+C317[label = "317"    group = 30 ];
+C319[label = "319"    group = 28 ];
+C316[label = "316"    group = 23 ];
+C344[label = "344"    group = 12 ];
+C357[label = "357"    group = 30 ];
+C138[label = "138"    group = 8 ];
+C849[label = "849"    group = 15 ];
+C672[label = "672"    group = 20 ];
+C313[label = "313"    group = 7 ];
+C92[label = "92"    group = 28 ];
+C654[label = "654"    group = 24 ];
+C554[label = "554"    group = 19 ];
+C193[label = "193"    group = 21 ];
+C443[label = "443"    group = 16 ];
+C665[label = "665"    group = 18 ];
+nodo8 ->C284;
+C284 ->nodo8;
+D16 ->C284;
+C284 ->D16;
+nodo70 ->C278;
+C278 ->nodo70;
+D3 ->C278;
+C278 ->D3;
+nodo101 ->C60;
+C60 ->nodo101;
+D25 ->C60;
+C60 ->D25;
+nodo103 ->C285;
+C285 ->nodo103;
+D16 ->C285;
+C285 ->D16;
+nodo107 ->C632;
+C632 ->nodo107;
+D27 ->C632;
+C632 ->D27;
+nodo119 ->C287;
+C287 ->nodo119;
+D20 ->C287;
+C287 ->D20;
+nodo128 ->C44;
+C44 ->nodo128;
+D19 ->C44;
+C44 ->D19;
+nodo129 ->C924;
+C924 ->nodo129;
+D21 ->C924;
+C924 ->D21;
+nodo132 ->C297;
+C297 ->nodo132;
+D13 ->C297;
+C297 ->D13;
+nodo150 ->C783;
+C783 ->nodo150;
+D3 ->C783;
+C783 ->D3;
+nodo154 ->C943;
+C943 ->nodo154;
+D31 ->C943;
+C943 ->D31;
+nodo166 ->C508;
+C508 ->nodo166;
+D22 ->C508;
+C508 ->D22;
+nodo175 ->C68;
+C68 ->nodo175;
+D25 ->C68;
+C68 ->D25;
+nodo181 ->C298;
+C298 ->nodo181;
+D7 ->C298;
+C298 ->D7;
+nodo182 ->C878;
+C878 ->nodo182;
+D13 ->C878;
+C878 ->D13;
+nodo208 ->C823;
+C823 ->nodo208;
+D12 ->C823;
+C823 ->D12;
+nodo237 ->C971;
+C971 ->nodo237;
+D29 ->C971;
+C971 ->D29;
+nodo253 ->C766;
+C766 ->nodo253;
+D24 ->C766;
+C766 ->D24;
+nodo254 ->C19;
+C19 ->nodo254;
+D2 ->C19;
+C19 ->D2;
+nodo261 ->C921;
+C921 ->nodo261;
+D14 ->C921;
+C921 ->D14;
+nodo288 ->C850;
+C850 ->nodo288;
+D3 ->C850;
+C850 ->D3;
+nodo308 ->C749;
+C749 ->nodo308;
+D30 ->C749;
+C749 ->D30;
+nodo312 ->C346;
+C346 ->nodo312;
+D4 ->C346;
+C346 ->D4;
+nodo313 ->C911;
+C911 ->nodo313;
+D19 ->C911;
+C911 ->D19;
+nodo327 ->C678;
+C678 ->nodo327;
+D7 ->C678;
+C678 ->D7;
+nodo344 ->C412;
+C412 ->nodo344;
+D31 ->C412;
+C412 ->D31;
+nodo355 ->C848;
+C848 ->nodo355;
+D8 ->C848;
+C848 ->D8;
+nodo366 ->C122;
+C122 ->nodo366;
+D19 ->C122;
+C122 ->D19;
+nodo377 ->C87;
+C87 ->nodo377;
+D13 ->C87;
+C87 ->D13;
+nodo390 ->C908;
+C908 ->nodo390;
+D23 ->C908;
+C908 ->D23;
+nodo396 ->C129;
+C129 ->nodo396;
+D31 ->C129;
+C129 ->D31;
+nodo415 ->C745;
+C745 ->nodo415;
+D2 ->C745;
+C745 ->D2;
+nodo435 ->C83;
+C83 ->nodo435;
+D23 ->C83;
+C83 ->D23;
+nodo445 ->C314;
+C314 ->nodo445;
+D31 ->C314;
+C314 ->D31;
+nodo484 ->C648;
+C648 ->nodo484;
+D11 ->C648;
+C648 ->D11;
+nodo495 ->C298;
+C298 ->nodo495;
+D26 ->C298;
+C298 ->D26;
+nodo501 ->C782;
+C782 ->nodo501;
+D29 ->C782;
+C782 ->D29;
+nodo513 ->C393;
+C393 ->nodo513;
+D19 ->C393;
+C393 ->D19;
+nodo527 ->C26;
+C26 ->nodo527;
+D23 ->C26;
+C26 ->D23;
+nodo532 ->C766;
+C766 ->nodo532;
+D12 ->C766;
+C766 ->D12;
+nodo544 ->C19;
+C19 ->nodo544;
+D15 ->C19;
+C19 ->D15;
+nodo561 ->C848;
+C848 ->nodo561;
+D2 ->C848;
+C848 ->D2;
+nodo567 ->C306;
+C306 ->nodo567;
+D20 ->C306;
+C306 ->D20;
+nodo571 ->C769;
+C769 ->nodo571;
+D23 ->C769;
+C769 ->D23;
+nodo574 ->C298;
+C298 ->nodo574;
+D8 ->C298;
+C298 ->D8;
+nodo578 ->C629;
+C629 ->nodo578;
+D14 ->C629;
+C629 ->D14;
+nodo579 ->C319;
+C319 ->nodo579;
+D9 ->C319;
+C319 ->D9;
+nodo585 ->C557;
+C557 ->nodo585;
+D17 ->C557;
+C557 ->D17;
+nodo586 ->C351;
+C351 ->nodo586;
+D26 ->C351;
+C351 ->D26;
+nodo599 ->C446;
+C446 ->nodo599;
+D17 ->C446;
+C446 ->D17;
+nodo615 ->C759;
+C759 ->nodo615;
+D10 ->C759;
+C759 ->D10;
+nodo625 ->C608;
+C608 ->nodo625;
+D26 ->C608;
+C608 ->D26;
+nodo639 ->C784;
+C784 ->nodo639;
+D20 ->C784;
+C784 ->D20;
+nodo651 ->C625;
+C625 ->nodo651;
+D29 ->C625;
+C625 ->D29;
+nodo654 ->C836;
+C836 ->nodo654;
+D1 ->C836;
+C836 ->D1;
+nodo663 ->C945;
+C945 ->nodo663;
+D7 ->C945;
+C945 ->D7;
+nodo680 ->C297;
+C297 ->nodo680;
+D11 ->C297;
+C297 ->D11;
+nodo686 ->C914;
+C914 ->nodo686;
+D11 ->C914;
+C914 ->D11;
+nodo692 ->C381;
+C381 ->nodo692;
+D9 ->C381;
+C381 ->D9;
+nodo709 ->C124;
+C124 ->nodo709;
+D7 ->C124;
+C124 ->D7;
+nodo751 ->C392;
+C392 ->nodo751;
+D8 ->C392;
+C392 ->D8;
+nodo759 ->C930;
+C930 ->nodo759;
+D10 ->C930;
+C930 ->D10;
+nodo777 ->C282;
+C282 ->nodo777;
+D2 ->C282;
+C282 ->D2;
+nodo796 ->C677;
+C677 ->nodo796;
+D26 ->C677;
+C677 ->D26;
+nodo800 ->C539;
+C539 ->nodo800;
+D6 ->C539;
+C539 ->D6;
+nodo802 ->C908;
+C908 ->nodo802;
+D12 ->C908;
+C908 ->D12;
+nodo814 ->C18;
+C18 ->nodo814;
+D17 ->C18;
+C18 ->D17;
+nodo816 ->C308;
+C308 ->nodo816;
+D13 ->C308;
+C308 ->D13;
+nodo824 ->C99;
+C99 ->nodo824;
+D30 ->C99;
+C99 ->D30;
+nodo835 ->C131;
+C131 ->nodo835;
+D1 ->C131;
+C131 ->D1;
+nodo839 ->C932;
+C932 ->nodo839;
+D10 ->C932;
+C932 ->D10;
+nodo846 ->C434;
+C434 ->nodo846;
+D19 ->C434;
+C434 ->D19;
+nodo849 ->C766;
+C766 ->nodo849;
+D25 ->C766;
+C766 ->D25;
+nodo852 ->C323;
+C323 ->nodo852;
+D1 ->C323;
+C323 ->D1;
+nodo858 ->C557;
+C557 ->nodo858;
+D20 ->C557;
+C557 ->D20;
+nodo861 ->C183;
+C183 ->nodo861;
+D10 ->C183;
+C183 ->D10;
+nodo884 ->C347;
+C347 ->nodo884;
+D7 ->C347;
+C347 ->D7;
+nodo892 ->C358;
+C358 ->nodo892;
+D22 ->C358;
+C358 ->D22;
+nodo905 ->C846;
+C846 ->nodo905;
+D14 ->C846;
+C846 ->D14;
+nodo918 ->C141;
+C141 ->nodo918;
+D17 ->C141;
+C141 ->D17;
+nodo923 ->C188;
+C188 ->nodo923;
+D31 ->C188;
+C188 ->D31;
+nodo932 ->C913;
+C913 ->nodo932;
+D15 ->C913;
+C913 ->D15;
+nodo955 ->C149;
+C149 ->nodo955;
+D27 ->C149;
+C149 ->D27;
+nodo978 ->C125;
+C125 ->nodo978;
+D20 ->C125;
+C125 ->D20;
+nodo979 ->C292;
+C292 ->nodo979;
+D19 ->C292;
+C292 ->D19;
+nodo980 ->C302;
+C302 ->nodo980;
+D6 ->C302;
+C302 ->D6;
+nodo1006 ->C780;
+C780 ->nodo1006;
+D9 ->C780;
+C780 ->D9;
+nodo1010 ->C410;
+C410 ->nodo1010;
+D29 ->C410;
+C410 ->D29;
+nodo1019 ->C69;
+C69 ->nodo1019;
+D1 ->C69;
+C69 ->D1;
+nodo1025 ->C832;
+C832 ->nodo1025;
+D12 ->C832;
+C832 ->D12;
+nodo1039 ->C537;
+C537 ->nodo1039;
+D17 ->C537;
+C537 ->D17;
+nodo1050 ->C322;
+C322 ->nodo1050;
+D23 ->C322;
+C322 ->D23;
+nodo1056 ->C499;
+C499 ->nodo1056;
+D8 ->C499;
+C499 ->D8;
+nodo1058 ->C880;
+C880 ->nodo1058;
+D3 ->C880;
+C880 ->D3;
+nodo1065 ->C539;
+C539 ->nodo1065;
+D3 ->C539;
+C539 ->D3;
+nodo1077 ->C907;
+C907 ->nodo1077;
+D18 ->C907;
+C907 ->D18;
+nodo1081 ->C424;
+C424 ->nodo1081;
+D13 ->C424;
+C424 ->D13;
+nodo1087 ->C300;
+C300 ->nodo1087;
+D3 ->C300;
+C300 ->D3;
+nodo1103 ->C538;
+C538 ->nodo1103;
+D17 ->C538;
+C538 ->D17;
+nodo1113 ->C849;
+C849 ->nodo1113;
+D5 ->C849;
+C849 ->D5;
+nodo1133 ->C768;
+C768 ->nodo1133;
+D8 ->C768;
+C768 ->D8;
+nodo1148 ->C821;
+C821 ->nodo1148;
+D29 ->C821;
+C821 ->D29;
+nodo1149 ->C434;
+C434 ->nodo1149;
+D20 ->C434;
+C434 ->D20;
+nodo1195 ->C533;
+C533 ->nodo1195;
+D1 ->C533;
+C533 ->D1;
+nodo1217 ->C851;
+C851 ->nodo1217;
+D24 ->C851;
+C851 ->D24;
+nodo1224 ->C364;
+C364 ->nodo1224;
+D31 ->C364;
+C364 ->D31;
+nodo1233 ->C849;
+C849 ->nodo1233;
+D3 ->C849;
+C849 ->D3;
+nodo1243 ->C319;
+C319 ->nodo1243;
+D11 ->C319;
+C319 ->D11;
+nodo1246 ->C764;
+C764 ->nodo1246;
+D2 ->C764;
+C764 ->D2;
+nodo1266 ->C94;
+C94 ->nodo1266;
+D13 ->C94;
+C94 ->D13;
+nodo1280 ->C289;
+C289 ->nodo1280;
+D23 ->C289;
+C289 ->D23;
+nodo1285 ->C654;
+C654 ->nodo1285;
+D30 ->C654;
+C654 ->D30;
+nodo1296 ->C93;
+C93 ->nodo1296;
+D25 ->C93;
+C93 ->D25;
+nodo1328 ->C364;
+C364 ->nodo1328;
+D30 ->C364;
+C364 ->D30;
+nodo1331 ->C784;
+C784 ->nodo1331;
+D28 ->C784;
+C784 ->D28;
+nodo1332 ->C826;
+C826 ->nodo1332;
+D22 ->C826;
+C826 ->D22;
+nodo1339 ->C540;
+C540 ->nodo1339;
+D14 ->C540;
+C540 ->D14;
+nodo1345 ->C632;
+C632 ->nodo1345;
+D31 ->C632;
+C632 ->D31;
+nodo1359 ->C886;
+C886 ->nodo1359;
+D28 ->C886;
+C886 ->D28;
+nodo1395 ->C278;
+C278 ->nodo1395;
+D23 ->C278;
+C278 ->D23;
+nodo1400 ->C654;
+C654 ->nodo1400;
+D24 ->C654;
+C654 ->D24;
+nodo1401 ->C411;
+C411 ->nodo1401;
+D7 ->C411;
+C411 ->D7;
+nodo1416 ->C82;
+C82 ->nodo1416;
+D23 ->C82;
+C82 ->D23;
+nodo1428 ->C348;
+C348 ->nodo1428;
+D23 ->C348;
+C348 ->D23;
+nodo1429 ->C87;
+C87 ->nodo1429;
+D16 ->C87;
+C87 ->D16;
+nodo1434 ->C389;
+C389 ->nodo1434;
+D28 ->C389;
+C389 ->D28;
+nodo1436 ->C213;
+C213 ->nodo1436;
+D2 ->C213;
+C213 ->D2;
+nodo1446 ->C318;
+C318 ->nodo1446;
+D22 ->C318;
+C318 ->D22;
+nodo1453 ->C767;
+C767 ->nodo1453;
+D24 ->C767;
+C767 ->D24;
+nodo1457 ->C292;
+C292 ->nodo1457;
+D23 ->C292;
+C292 ->D23;
+nodo1462 ->C381;
+C381 ->nodo1462;
+D7 ->C381;
+C381 ->D7;
+nodo1463 ->C141;
+C141 ->nodo1463;
+D22 ->C141;
+C141 ->D22;
+nodo1466 ->C912;
+C912 ->nodo1466;
+D7 ->C912;
+C912 ->D7;
+nodo1470 ->C547;
+C547 ->nodo1470;
+D7 ->C547;
+C547 ->D7;
+nodo1471 ->C55;
+C55 ->nodo1471;
+D21 ->C55;
+C55 ->D21;
+nodo1474 ->C781;
+C781 ->nodo1474;
+D4 ->C781;
+C781 ->D4;
+nodo1515 ->C349;
+C349 ->nodo1515;
+D7 ->C349;
+C349 ->D7;
+nodo1517 ->C616;
+C616 ->nodo1517;
+D3 ->C616;
+C616 ->D3;
+nodo1522 ->C667;
+C667 ->nodo1522;
+D12 ->C667;
+C667 ->D12;
+nodo1532 ->C315;
+C315 ->nodo1532;
+D22 ->C315;
+C315 ->D22;
+nodo1540 ->C782;
+C782 ->nodo1540;
+D20 ->C782;
+C782 ->D20;
+nodo1556 ->C927;
+C927 ->nodo1556;
+D28 ->C927;
+C927 ->D28;
+nodo1562 ->C377;
+C377 ->nodo1562;
+D11 ->C377;
+C377 ->D11;
+nodo1570 ->C320;
+C320 ->nodo1570;
+D10 ->C320;
+C320 ->D10;
+nodo1572 ->C82;
+C82 ->nodo1572;
+D9 ->C82;
+C82 ->D9;
+nodo1578 ->C355;
+C355 ->nodo1578;
+D11 ->C355;
+C355 ->D11;
+nodo1579 ->C840;
+C840 ->nodo1579;
+D11 ->C840;
+C840 ->D11;
+nodo1587 ->C524;
+C524 ->nodo1587;
+D2 ->C524;
+C524 ->D2;
+nodo1626 ->C445;
+C445 ->nodo1626;
+D5 ->C445;
+C445 ->D5;
+nodo1645 ->C760;
+C760 ->nodo1645;
+D15 ->C760;
+C760 ->D15;
+nodo1660 ->C364;
+C364 ->nodo1660;
+D5 ->C364;
+C364 ->D5;
+nodo1669 ->C820;
+C820 ->nodo1669;
+D1 ->C820;
+C820 ->D1;
+nodo1674 ->C308;
+C308 ->nodo1674;
+D5 ->C308;
+C308 ->D5;
+nodo1685 ->C836;
+C836 ->nodo1685;
+D12 ->C836;
+C836 ->D12;
+nodo1690 ->C652;
+C652 ->nodo1690;
+D2 ->C652;
+C652 ->D2;
+nodo1696 ->C637;
+C637 ->nodo1696;
+D10 ->C637;
+C637 ->D10;
+nodo1719 ->C315;
+C315 ->nodo1719;
+D30 ->C315;
+C315 ->D30;
+nodo1736 ->C784;
+C784 ->nodo1736;
+D11 ->C784;
+C784 ->D11;
+nodo1741 ->C564;
+C564 ->nodo1741;
+D25 ->C564;
+C564 ->D25;
+nodo1742 ->C289;
+C289 ->nodo1742;
+D15 ->C289;
+C289 ->D15;
+nodo1744 ->C104;
+C104 ->nodo1744;
+D7 ->C104;
+C104 ->D7;
+nodo1760 ->C373;
+C373 ->nodo1760;
+D18 ->C373;
+C373 ->D18;
+nodo1767 ->C891;
+C891 ->nodo1767;
+D29 ->C891;
+C891 ->D29;
+nodo1831 ->C880;
+C880 ->nodo1831;
+D9 ->C880;
+C880 ->D9;
+nodo1834 ->C881;
+C881 ->nodo1834;
+D3 ->C881;
+C881 ->D3;
+nodo1848 ->C284;
+C284 ->nodo1848;
+D28 ->C284;
+C284 ->D28;
+nodo1851 ->C453;
+C453 ->nodo1851;
+D22 ->C453;
+C453 ->D22;
+nodo1858 ->C442;
+C442 ->nodo1858;
+D19 ->C442;
+C442 ->D19;
+nodo1876 ->C949;
+C949 ->nodo1876;
+D24 ->C949;
+C949 ->D24;
+nodo1881 ->C131;
+C131 ->nodo1881;
+D8 ->C131;
+C131 ->D8;
+nodo1892 ->C364;
+C364 ->nodo1892;
+D29 ->C364;
+C364 ->D29;
+nodo1913 ->C762;
+C762 ->nodo1913;
+D31 ->C762;
+C762 ->D31;
+nodo1923 ->C85;
+C85 ->nodo1923;
+D9 ->C85;
+C85 ->D9;
+nodo1927 ->C648;
+C648 ->nodo1927;
+D24 ->C648;
+C648 ->D24;
+nodo1941 ->C513;
+C513 ->nodo1941;
+D27 ->C513;
+C513 ->D27;
+nodo1954 ->C836;
+C836 ->nodo1954;
+D21 ->C836;
+C836 ->D21;
+nodo1975 ->C358;
+C358 ->nodo1975;
+D4 ->C358;
+C358 ->D4;
+nodo1985 ->C344;
+C344 ->nodo1985;
+D4 ->C344;
+C344 ->D4;
+nodo1987 ->C918;
+C918 ->nodo1987;
+D24 ->C918;
+C918 ->D24;
+nodo1991 ->C346;
+C346 ->nodo1991;
+D26 ->C346;
+C346 ->D26;
+nodo1998 ->C559;
+C559 ->nodo1998;
+D27 ->C559;
+C559 ->D27;
+nodo2032 ->C881;
+C881 ->nodo2032;
+D31 ->C881;
+C881 ->D31;
+nodo2039 ->C843;
+C843 ->nodo2039;
+D12 ->C843;
+C843 ->D12;
+nodo2051 ->C80;
+C80 ->nodo2051;
+D6 ->C80;
+C80 ->D6;
+nodo2071 ->C782;
+C782 ->nodo2071;
+D15 ->C782;
+C782 ->D15;
+nodo2094 ->C81;
+C81 ->nodo2094;
+D27 ->C81;
+C81 ->D27;
+nodo2096 ->C945;
+C945 ->nodo2096;
+D18 ->C945;
+C945 ->D18;
+nodo2097 ->C399;
+C399 ->nodo2097;
+D7 ->C399;
+C399 ->D7;
+nodo2104 ->C918;
+C918 ->nodo2104;
+D19 ->C918;
+C918 ->D19;
+nodo2113 ->C880;
+C880 ->nodo2113;
+D6 ->C880;
+C880 ->D6;
+nodo2128 ->C539;
+C539 ->nodo2128;
+D7 ->C539;
+C539 ->D7;
+nodo2130 ->C499;
+C499 ->nodo2130;
+D10 ->C499;
+C499 ->D10;
+nodo2131 ->C848;
+C848 ->nodo2131;
+D26 ->C848;
+C848 ->D26;
+nodo2139 ->C196;
+C196 ->nodo2139;
+D5 ->C196;
+C196 ->D5;
+nodo2147 ->C353;
+C353 ->nodo2147;
+D2 ->C353;
+C353 ->D2;
+nodo2176 ->C525;
+C525 ->nodo2176;
+D12 ->C525;
+C525 ->D12;
+nodo2206 ->C178;
+C178 ->nodo2206;
+D1 ->C178;
+C178 ->D1;
+nodo2210 ->C838;
+C838 ->nodo2210;
+D7 ->C838;
+C838 ->D7;
+nodo2218 ->C413;
+C413 ->nodo2218;
+D15 ->C413;
+C413 ->D15;
+nodo2232 ->C209;
+C209 ->nodo2232;
+D20 ->C209;
+C209 ->D20;
+nodo2247 ->C783;
+C783 ->nodo2247;
+D24 ->C783;
+C783 ->D24;
+nodo2254 ->C830;
+C830 ->nodo2254;
+D19 ->C830;
+C830 ->D19;
+nodo2255 ->C693;
+C693 ->nodo2255;
+D17 ->C693;
+C693 ->D17;
+nodo2259 ->C767;
+C767 ->nodo2259;
+D25 ->C767;
+C767 ->D25;
+nodo2269 ->C510;
+C510 ->nodo2269;
+D31 ->C510;
+C510 ->D31;
+nodo2308 ->C762;
+C762 ->nodo2308;
+D28 ->C762;
+C762 ->D28;
+nodo2338 ->C766;
+C766 ->nodo2338;
+D27 ->C766;
+C766 ->D27;
+nodo2344 ->C847;
+C847 ->nodo2344;
+D21 ->C847;
+C847 ->D21;
+nodo2361 ->C595;
+C595 ->nodo2361;
+D4 ->C595;
+C595 ->D4;
+nodo2363 ->C776;
+C776 ->nodo2363;
+D27 ->C776;
+C776 ->D27;
+nodo2364 ->C855;
+C855 ->nodo2364;
+D20 ->C855;
+C855 ->D20;
+nodo2366 ->C970;
+C970 ->nodo2366;
+D28 ->C970;
+C970 ->D28;
+nodo2408 ->C842;
+C842 ->nodo2408;
+D20 ->C842;
+C842 ->D20;
+nodo2436 ->C900;
+C900 ->nodo2436;
+D19 ->C900;
+C900 ->D19;
+nodo2442 ->C885;
+C885 ->nodo2442;
+D3 ->C885;
+C885 ->D3;
+nodo2458 ->C681;
+C681 ->nodo2458;
+D4 ->C681;
+C681 ->D4;
+nodo2464 ->C919;
+C919 ->nodo2464;
+D15 ->C919;
+C919 ->D15;
+nodo2470 ->C654;
+C654 ->nodo2470;
+D10 ->C654;
+C654 ->D10;
+nodo2474 ->C842;
+C842 ->nodo2474;
+D23 ->C842;
+C842 ->D23;
+nodo2477 ->C539;
+C539 ->nodo2477;
+D17 ->C539;
+C539 ->D17;
+nodo2486 ->C367;
+C367 ->nodo2486;
+D29 ->C367;
+C367 ->D29;
+nodo2556 ->C836;
+C836 ->nodo2556;
+D18 ->C836;
+C836 ->D18;
+nodo2578 ->C767;
+C767 ->nodo2578;
+D12 ->C767;
+C767 ->D12;
+nodo2584 ->C364;
+C364 ->nodo2584;
+D25 ->C364;
+C364 ->D25;
+nodo2596 ->C527;
+C527 ->nodo2596;
+D4 ->C527;
+C527 ->D4;
+nodo2597 ->C409;
+C409 ->nodo2597;
+D7 ->C409;
+C409 ->D7;
+nodo2611 ->C837;
+C837 ->nodo2611;
+D1 ->C837;
+C837 ->D1;
+nodo2622 ->C392;
+C392 ->nodo2622;
+D15 ->C392;
+C392 ->D15;
+nodo2625 ->C83;
+C83 ->nodo2625;
+D27 ->C83;
+C83 ->D27;
+nodo2633 ->C883;
+C883 ->nodo2633;
+D10 ->C883;
+C883 ->D10;
+nodo2642 ->C20;
+C20 ->nodo2642;
+D16 ->C20;
+C20 ->D16;
+nodo2669 ->C316;
+C316 ->nodo2669;
+D7 ->C316;
+C316 ->D7;
+nodo2674 ->C279;
+C279 ->nodo2674;
+D2 ->C279;
+C279 ->D2;
+nodo2675 ->C50;
+C50 ->nodo2675;
+D23 ->C50;
+C50 ->D23;
+nodo2696 ->C439;
+C439 ->nodo2696;
+D16 ->C439;
+C439 ->D16;
+nodo2697 ->C885;
+C885 ->nodo2697;
+D2 ->C885;
+C885 ->D2;
+nodo2703 ->C27;
+C27 ->nodo2703;
+D26 ->C27;
+C27 ->D26;
+nodo2710 ->C354;
+C354 ->nodo2710;
+D5 ->C354;
+C354 ->D5;
+nodo2726 ->C210;
+C210 ->nodo2726;
+D2 ->C210;
+C210 ->D2;
+nodo2733 ->C775;
+C775 ->nodo2733;
+D23 ->C775;
+C775 ->D23;
+nodo2734 ->C925;
+C925 ->nodo2734;
+D25 ->C925;
+C925 ->D25;
+nodo2735 ->C880;
+C880 ->nodo2735;
+D21 ->C880;
+C880 ->D21;
+nodo2769 ->C302;
+C302 ->nodo2769;
+D14 ->C302;
+C302 ->D14;
+nodo2776 ->C753;
+C753 ->nodo2776;
+D1 ->C753;
+C753 ->D1;
+nodo2779 ->C308;
+C308 ->nodo2779;
+D3 ->C308;
+C308 ->D3;
+nodo2781 ->C316;
+C316 ->nodo2781;
+D21 ->C316;
+C316 ->D21;
+nodo2784 ->C537;
+C537 ->nodo2784;
+D4 ->C537;
+C537 ->D4;
+nodo2787 ->C552;
+C552 ->nodo2787;
+D23 ->C552;
+C552 ->D23;
+nodo2799 ->C540;
+C540 ->nodo2799;
+D14 ->C540;
+C540 ->D14;
+nodo2837 ->C754;
+C754 ->nodo2837;
+D12 ->C754;
+C754 ->D12;
+nodo2839 ->C407;
+C407 ->nodo2839;
+D17 ->C407;
+C407 ->D17;
+nodo2840 ->C654;
+C654 ->nodo2840;
+D9 ->C654;
+C654 ->D9;
+nodo2846 ->C538;
+C538 ->nodo2846;
+D22 ->C538;
+C538 ->D22;
+nodo2894 ->C192;
+C192 ->nodo2894;
+D1 ->C192;
+C192 ->D1;
+nodo2913 ->C356;
+C356 ->nodo2913;
+D10 ->C356;
+C356 ->D10;
+nodo2920 ->C756;
+C756 ->nodo2920;
+D7 ->C756;
+C756 ->D7;
+nodo2930 ->C924;
+C924 ->nodo2930;
+D22 ->C924;
+C924 ->D22;
+nodo2950 ->C657;
+C657 ->nodo2950;
+D21 ->C657;
+C657 ->D21;
+nodo2957 ->C391;
+C391 ->nodo2957;
+D9 ->C391;
+C391 ->D9;
+nodo2962 ->C454;
+C454 ->nodo2962;
+D9 ->C454;
+C454 ->D9;
+nodo2976 ->C65;
+C65 ->nodo2976;
+D11 ->C65;
+C65 ->D11;
+nodo3018 ->C766;
+C766 ->nodo3018;
+D20 ->C766;
+C766 ->D20;
+nodo3047 ->C628;
+C628 ->nodo3047;
+D16 ->C628;
+C628 ->D16;
+nodo3052 ->C621;
+C621 ->nodo3052;
+D30 ->C621;
+C621 ->D30;
+nodo3058 ->C479;
+C479 ->nodo3058;
+D1 ->C479;
+C479 ->D1;
+nodo3074 ->C416;
+C416 ->nodo3074;
+D6 ->C416;
+C416 ->D6;
+nodo3115 ->C923;
+C923 ->nodo3115;
+D26 ->C923;
+C923 ->D26;
+nodo3153 ->C210;
+C210 ->nodo3153;
+D1 ->C210;
+C210 ->D1;
+nodo3160 ->C540;
+C540 ->nodo3160;
+D31 ->C540;
+C540 ->D31;
+nodo3166 ->C783;
+C783 ->nodo3166;
+D11 ->C783;
+C783 ->D11;
+nodo3182 ->C472;
+C472 ->nodo3182;
+D22 ->C472;
+C472 ->D22;
+nodo3197 ->C212;
+C212 ->nodo3197;
+D12 ->C212;
+C212 ->D12;
+nodo3198 ->C835;
+C835 ->nodo3198;
+D1 ->C835;
+C835 ->D1;
+nodo3205 ->C348;
+C348 ->nodo3205;
+D17 ->C348;
+C348 ->D17;
+nodo3207 ->C950;
+C950 ->nodo3207;
+D12 ->C950;
+C950 ->D12;
+nodo3223 ->C540;
+C540 ->nodo3223;
+D11 ->C540;
+C540 ->D11;
+nodo3233 ->C127;
+C127 ->nodo3233;
+D28 ->C127;
+C127 ->D28;
+nodo3235 ->C372;
+C372 ->nodo3235;
+D4 ->C372;
+C372 ->D4;
+nodo3238 ->C880;
+C880 ->nodo3238;
+D15 ->C880;
+C880 ->D15;
+nodo3248 ->C755;
+C755 ->nodo3248;
+D9 ->C755;
+C755 ->D9;
+nodo3250 ->C193;
+C193 ->nodo3250;
+D22 ->C193;
+C193 ->D22;
+nodo3255 ->C94;
+C94 ->nodo3255;
+D19 ->C94;
+C94 ->D19;
+nodo3267 ->C751;
+C751 ->nodo3267;
+D21 ->C751;
+C751 ->D21;
+nodo3278 ->C367;
+C367 ->nodo3278;
+D26 ->C367;
+C367 ->D26;
+nodo3293 ->C829;
+C829 ->nodo3293;
+D19 ->C829;
+C829 ->D19;
+nodo3314 ->C366;
+C366 ->nodo3314;
+D19 ->C366;
+C366 ->D19;
+nodo3359 ->C296;
+C296 ->nodo3359;
+D27 ->C296;
+C296 ->D27;
+nodo3381 ->C884;
+C884 ->nodo3381;
+D6 ->C884;
+C884 ->D6;
+nodo3389 ->C310;
+C310 ->nodo3389;
+D3 ->C310;
+C310 ->D3;
+nodo3405 ->C667;
+C667 ->nodo3405;
+D6 ->C667;
+C667 ->D6;
+nodo3407 ->C769;
+C769 ->nodo3407;
+D8 ->C769;
+C769 ->D8;
+nodo3428 ->C84;
+C84 ->nodo3428;
+D23 ->C84;
+C84 ->D23;
+nodo3449 ->C788;
+C788 ->nodo3449;
+D27 ->C788;
+C788 ->D27;
+nodo3467 ->C185;
+C185 ->nodo3467;
+D23 ->C185;
+C185 ->D23;
+nodo3488 ->C509;
+C509 ->nodo3488;
+D15 ->C509;
+C509 ->D15;
+nodo3493 ->C408;
+C408 ->nodo3493;
+D26 ->C408;
+C408 ->D26;
+nodo3502 ->C537;
+C537 ->nodo3502;
+D25 ->C537;
+C537 ->D25;
+nodo3506 ->C209;
+C209 ->nodo3506;
+D30 ->C209;
+C209 ->D30;
+nodo3523 ->C398;
+C398 ->nodo3523;
+D26 ->C398;
+C398 ->D26;
+nodo3542 ->C464;
+C464 ->nodo3542;
+D8 ->C464;
+C464 ->D8;
+nodo3566 ->C376;
+C376 ->nodo3566;
+D19 ->C376;
+C376 ->D19;
+nodo3588 ->C926;
+C926 ->nodo3588;
+D15 ->C926;
+C926 ->D15;
+nodo3592 ->C308;
+C308 ->nodo3592;
+D2 ->C308;
+C308 ->D2;
+nodo3613 ->C382;
+C382 ->nodo3613;
+D15 ->C382;
+C382 ->D15;
+nodo3621 ->C759;
+C759 ->nodo3621;
+D21 ->C759;
+C759 ->D21;
+nodo3641 ->C656;
+C656 ->nodo3641;
+D11 ->C656;
+C656 ->D11;
+nodo3642 ->C371;
+C371 ->nodo3642;
+D8 ->C371;
+C371 ->D8;
+nodo3650 ->C912;
+C912 ->nodo3650;
+D25 ->C912;
+C912 ->D25;
+nodo3653 ->C874;
+C874 ->nodo3653;
+D8 ->C874;
+C874 ->D8;
+nodo3674 ->C350;
+C350 ->nodo3674;
+D24 ->C350;
+C350 ->D24;
+nodo3683 ->C537;
+C537 ->nodo3683;
+D30 ->C537;
+C537 ->D30;
+nodo3685 ->C209;
+C209 ->nodo3685;
+D12 ->C209;
+C209 ->D12;
+nodo3689 ->C392;
+C392 ->nodo3689;
+D10 ->C392;
+C392 ->D10;
+nodo3697 ->C764;
+C764 ->nodo3697;
+D30 ->C764;
+C764 ->D30;
+nodo3713 ->C353;
+C353 ->nodo3713;
+D18 ->C353;
+C353 ->D18;
+nodo3719 ->C92;
+C92 ->nodo3719;
+D2 ->C92;
+C92 ->D2;
+nodo3728 ->C352;
+C352 ->nodo3728;
+D30 ->C352;
+C352 ->D30;
+nodo3730 ->C841;
+C841 ->nodo3730;
+D24 ->C841;
+C841 ->D24;
+nodo3734 ->C766;
+C766 ->nodo3734;
+D15 ->C766;
+C766 ->D15;
+nodo3735 ->C520;
+C520 ->nodo3735;
+D26 ->C520;
+C520 ->D26;
+nodo3751 ->C857;
+C857 ->nodo3751;
+D24 ->C857;
+C857 ->D24;
+nodo3760 ->C835;
+C835 ->nodo3760;
+D2 ->C835;
+C835 ->D2;
+nodo3763 ->C627;
+C627 ->nodo3763;
+D18 ->C627;
+C627 ->D18;
+nodo3764 ->C940;
+C940 ->nodo3764;
+D31 ->C940;
+C940 ->D31;
+nodo3774 ->C544;
+C544 ->nodo3774;
+D13 ->C544;
+C544 ->D13;
+nodo3775 ->C766;
+C766 ->nodo3775;
+D25 ->C766;
+C766 ->D25;
+nodo3796 ->C879;
+C879 ->nodo3796;
+D30 ->C879;
+C879 ->D30;
+nodo3800 ->C55;
+C55 ->nodo3800;
+D31 ->C55;
+C55 ->D31;
+nodo3837 ->C754;
+C754 ->nodo3837;
+D20 ->C754;
+C754 ->D20;
+nodo3839 ->C925;
+C925 ->nodo3839;
+D8 ->C925;
+C925 ->D8;
+nodo3842 ->C784;
+C784 ->nodo3842;
+D30 ->C784;
+C784 ->D30;
+nodo3850 ->C841;
+C841 ->nodo3850;
+D13 ->C841;
+C841 ->D13;
+nodo3851 ->C440;
+C440 ->nodo3851;
+D30 ->C440;
+C440 ->D30;
+nodo3858 ->C646;
+C646 ->nodo3858;
+D31 ->C646;
+C646 ->D31;
+nodo3871 ->C449;
+C449 ->nodo3871;
+D10 ->C449;
+C449 ->D10;
+nodo3876 ->C160;
+C160 ->nodo3876;
+D19 ->C160;
+C160 ->D19;
+nodo3929 ->C296;
+C296 ->nodo3929;
+D28 ->C296;
+C296 ->D28;
+nodo3936 ->C837;
+C837 ->nodo3936;
+D5 ->C837;
+C837 ->D5;
+nodo3963 ->C540;
+C540 ->nodo3963;
+D6 ->C540;
+C540 ->D6;
+nodo3965 ->C402;
+C402 ->nodo3965;
+D3 ->C402;
+C402 ->D3;
+nodo3970 ->C851;
+C851 ->nodo3970;
+D23 ->C851;
+C851 ->D23;
+nodo3975 ->C438;
+C438 ->nodo3975;
+D17 ->C438;
+C438 ->D17;
+nodo3978 ->C317;
+C317 ->nodo3978;
+D30 ->C317;
+C317 ->D30;
+nodo3979 ->C319;
+C319 ->nodo3979;
+D28 ->C319;
+C319 ->D28;
+nodo3990 ->C316;
+C316 ->nodo3990;
+D23 ->C316;
+C316 ->D23;
+nodo4007 ->C344;
+C344 ->nodo4007;
+D12 ->C344;
+C344 ->D12;
+nodo4009 ->C357;
+C357 ->nodo4009;
+D30 ->C357;
+C357 ->D30;
+nodo4047 ->C138;
+C138 ->nodo4047;
+D8 ->C138;
+C138 ->D8;
+nodo4068 ->C849;
+C849 ->nodo4068;
+D15 ->C849;
+C849 ->D15;
+nodo4070 ->C672;
+C672 ->nodo4070;
+D20 ->C672;
+C672 ->D20;
+nodo4124 ->C313;
+C313 ->nodo4124;
+D7 ->C313;
+C313 ->D7;
+nodo4150 ->C92;
+C92 ->nodo4150;
+D28 ->C92;
+C92 ->D28;
+nodo4152 ->C654;
+C654 ->nodo4152;
+D24 ->C654;
+C654 ->D24;
+nodo4155 ->C554;
+C554 ->nodo4155;
+D19 ->C554;
+C554 ->D19;
+nodo4165 ->C193;
+C193 ->nodo4165;
+D21 ->C193;
+C193 ->D21;
+nodo4169 ->C443;
+C443 ->nodo4169;
+D16 ->C443;
+C443 ->D16;
+nodo4187 ->C665;
+C665 ->nodo4187;
+D18 ->C665;
+C665 ->D18;
+{ rank = same; Mt;D16;D3;D25;D16;D27;D20;D19;D21;D13;D3;D31;D22;D25;D7;D13;D12;D29;D24;D2;D14;D3;D30;D4;D19;D7;D31;D8;D19;D13;D23;D31;D2;D23;D31;D11;D26;D29;D19;D23;D12;D15;D2;D20;D23;D8;D14;D9;D17;D26;D17;D10;D26;D20;D29;D1;D7;D11;D11;D9;D7;D8;D10;D2;D26;D6;D12;D17;D13;D30;D1;D10;D19;D25;D1;D20;D10;D7;D22;D14;D17;D31;D15;D27;D20;D19;D6;D9;D29;D1;D12;D17;D23;D8;D3;D3;D18;D13;D3;D17;D5;D8;D29;D20;D1;D24;D31;D3;D11;D2;D13;D23;D30;D25;D30;D28;D22;D14;D31;D28;D23;D24;D7;D23;D23;D16;D28;D2;D22;D24;D23;D7;D22;D7;D7;D21;D4;D7;D3;D12;D22;D20;D28;D11;D10;D9;D11;D11;D2;D5;D15;D5;D1;D5;D12;D2;D10;D30;D11;D25;D15;D7;D18;D29;D9;D3;D28;D22;D19;D24;D8;D29;D31;D9;D24;D27;D21;D4;D4;D24;D26;D27;D31;D12;D6;D15;D27;D18;D7;D19;D6;D7;D10;D26;D5;D2;D12;D1;D7;D15;D20;D24;D19;D17;D25;D31;D28;D27;D21;D4;D27;D20;D28;D20;D19;D3;D4;D15;D10;D23;D17;D29;D18;D12;D25;D4;D7;D1;D15;D27;D10;D16;D7;D2;D23;D16;D2;D26;D5;D2;D23;D25;D21;D14;D1;D3;D21;D4;D23;D14;D12;D17;D9;D22;D1;D10;D7;D22;D21;D9;D9;D11;D20;D16;D30;D1;D6;D26;D1;D31;D11;D22;D12;D1;D17;D12;D11;D28;D4;D15;D9;D22;D19;D21;D26;D19;D19;D27;D6;D3;D6;D8;D23;D27;D23;D15;D26;D25;D30;D26;D8;D19;D15;D2;D15;D21;D11;D8;D25;D8;D24;D30;D12;D10;D30;D18;D2;D30;D24;D15;D26;D24;D2;D18;D31;D13;D25;D30;D31;D20;D8;D30;D13;D30;D31;D10;D19;D28;D5;D6;D3;D23;D17;D30;D28;D23;D12;D30;D8;D15;D20;D7;D28;D24;D19;D21;D16;D18;}
 nodo8 ->nodo9;
-nodo9 ->nodo10;
-nodo10 ->nodo11;
-nodo11 ->nodo12;
-nodo12 ->nodo13;
-{ rank = same; C4232;nodo0;}
-{ rank = same; C5;nodo1;}
-{ rank = same; C110;nodo2;}
-{ rank = same; C2313;nodo3;}
-{ rank = same; C500;nodo4;}
-{ rank = same; C562;nodo5;}
-{ rank = same; C2389;nodo6;}
-{ rank = same; C344;nodo7;}
-{ rank = same; C3298;nodo8;}
-{ rank = same; C777;nodo9;}
-{ rank = same; C82;nodo10;}
-{ rank = same; C367;nodo11;}
-{ rank = same; C482;nodo12;}
-Mt -> D1;
-  Mt -> nodo0;
+nodo70 ->nodo71;
+nodo101 ->nodo102;
+nodo103 ->nodo104;
+nodo107 ->nodo108;
+nodo119 ->nodo120;
+nodo128 ->nodo129;
+nodo129 ->nodo130;
+nodo132 ->nodo133;
+nodo150 ->nodo151;
+nodo154 ->nodo155;
+nodo166 ->nodo167;
+nodo175 ->nodo176;
+nodo181 ->nodo182;
+nodo182 ->nodo183;
+nodo208 ->nodo209;
+nodo237 ->nodo238;
+nodo253 ->nodo254;
+nodo254 ->nodo255;
+nodo261 ->nodo262;
+nodo288 ->nodo289;
+nodo308 ->nodo309;
+nodo312 ->nodo313;
+nodo313 ->nodo314;
+nodo327 ->nodo328;
+nodo344 ->nodo345;
+nodo355 ->nodo356;
+nodo366 ->nodo367;
+nodo377 ->nodo378;
+nodo390 ->nodo391;
+nodo396 ->nodo397;
+nodo415 ->nodo416;
+nodo435 ->nodo436;
+nodo445 ->nodo446;
+nodo484 ->nodo485;
+nodo495 ->nodo496;
+nodo501 ->nodo502;
+nodo513 ->nodo514;
+nodo527 ->nodo528;
+nodo532 ->nodo533;
+nodo544 ->nodo545;
+nodo561 ->nodo562;
+nodo567 ->nodo568;
+nodo571 ->nodo572;
+nodo574 ->nodo575;
+nodo578 ->nodo579;
+nodo579 ->nodo580;
+nodo585 ->nodo586;
+nodo586 ->nodo587;
+nodo599 ->nodo600;
+nodo615 ->nodo616;
+nodo625 ->nodo626;
+nodo639 ->nodo640;
+nodo651 ->nodo652;
+nodo654 ->nodo655;
+nodo663 ->nodo664;
+nodo680 ->nodo681;
+nodo686 ->nodo687;
+nodo692 ->nodo693;
+nodo709 ->nodo710;
+nodo751 ->nodo752;
+nodo759 ->nodo760;
+nodo777 ->nodo778;
+nodo796 ->nodo797;
+nodo800 ->nodo801;
+nodo802 ->nodo803;
+nodo814 ->nodo815;
+nodo816 ->nodo817;
+nodo824 ->nodo825;
+nodo835 ->nodo836;
+nodo839 ->nodo840;
+nodo846 ->nodo847;
+nodo849 ->nodo850;
+nodo852 ->nodo853;
+nodo858 ->nodo859;
+nodo861 ->nodo862;
+nodo884 ->nodo885;
+nodo892 ->nodo893;
+nodo905 ->nodo906;
+nodo918 ->nodo919;
+nodo923 ->nodo924;
+nodo932 ->nodo933;
+nodo955 ->nodo956;
+nodo978 ->nodo979;
+nodo979 ->nodo980;
+nodo980 ->nodo981;
+nodo1006 ->nodo1007;
+nodo1010 ->nodo1011;
+nodo1019 ->nodo1020;
+nodo1025 ->nodo1026;
+nodo1039 ->nodo1040;
+nodo1050 ->nodo1051;
+nodo1056 ->nodo1057;
+nodo1058 ->nodo1059;
+nodo1065 ->nodo1066;
+nodo1077 ->nodo1078;
+nodo1081 ->nodo1082;
+nodo1087 ->nodo1088;
+nodo1103 ->nodo1104;
+nodo1113 ->nodo1114;
+nodo1133 ->nodo1134;
+nodo1148 ->nodo1149;
+nodo1149 ->nodo1150;
+nodo1195 ->nodo1196;
+nodo1217 ->nodo1218;
+nodo1224 ->nodo1225;
+nodo1233 ->nodo1234;
+nodo1243 ->nodo1244;
+nodo1246 ->nodo1247;
+nodo1266 ->nodo1267;
+nodo1280 ->nodo1281;
+nodo1285 ->nodo1286;
+nodo1296 ->nodo1297;
+nodo1328 ->nodo1329;
+nodo1331 ->nodo1332;
+nodo1332 ->nodo1333;
+nodo1339 ->nodo1340;
+nodo1345 ->nodo1346;
+nodo1359 ->nodo1360;
+nodo1395 ->nodo1396;
+nodo1400 ->nodo1401;
+nodo1401 ->nodo1402;
+nodo1416 ->nodo1417;
+nodo1428 ->nodo1429;
+nodo1429 ->nodo1430;
+nodo1434 ->nodo1435;
+nodo1436 ->nodo1437;
+nodo1446 ->nodo1447;
+nodo1453 ->nodo1454;
+nodo1457 ->nodo1458;
+nodo1462 ->nodo1463;
+nodo1463 ->nodo1464;
+nodo1466 ->nodo1467;
+nodo1470 ->nodo1471;
+nodo1471 ->nodo1472;
+nodo1474 ->nodo1475;
+nodo1515 ->nodo1516;
+nodo1517 ->nodo1518;
+nodo1522 ->nodo1523;
+nodo1532 ->nodo1533;
+nodo1540 ->nodo1541;
+nodo1556 ->nodo1557;
+nodo1562 ->nodo1563;
+nodo1570 ->nodo1571;
+nodo1572 ->nodo1573;
+nodo1578 ->nodo1579;
+nodo1579 ->nodo1580;
+nodo1587 ->nodo1588;
+nodo1626 ->nodo1627;
+nodo1645 ->nodo1646;
+nodo1660 ->nodo1661;
+nodo1669 ->nodo1670;
+nodo1674 ->nodo1675;
+nodo1685 ->nodo1686;
+nodo1690 ->nodo1691;
+nodo1696 ->nodo1697;
+nodo1719 ->nodo1720;
+nodo1736 ->nodo1737;
+nodo1741 ->nodo1742;
+nodo1742 ->nodo1743;
+nodo1744 ->nodo1745;
+nodo1760 ->nodo1761;
+nodo1767 ->nodo1768;
+nodo1831 ->nodo1832;
+nodo1834 ->nodo1835;
+nodo1848 ->nodo1849;
+nodo1851 ->nodo1852;
+nodo1858 ->nodo1859;
+nodo1876 ->nodo1877;
+nodo1881 ->nodo1882;
+nodo1892 ->nodo1893;
+nodo1913 ->nodo1914;
+nodo1923 ->nodo1924;
+nodo1927 ->nodo1928;
+nodo1941 ->nodo1942;
+nodo1954 ->nodo1955;
+nodo1975 ->nodo1976;
+nodo1985 ->nodo1986;
+nodo1987 ->nodo1988;
+nodo1991 ->nodo1992;
+nodo1998 ->nodo1999;
+nodo2032 ->nodo2033;
+nodo2039 ->nodo2040;
+nodo2051 ->nodo2052;
+nodo2071 ->nodo2072;
+nodo2094 ->nodo2095;
+nodo2096 ->nodo2097;
+nodo2097 ->nodo2098;
+nodo2104 ->nodo2105;
+nodo2113 ->nodo2114;
+nodo2128 ->nodo2129;
+nodo2130 ->nodo2131;
+nodo2131 ->nodo2132;
+nodo2139 ->nodo2140;
+nodo2147 ->nodo2148;
+nodo2176 ->nodo2177;
+nodo2206 ->nodo2207;
+nodo2210 ->nodo2211;
+nodo2218 ->nodo2219;
+nodo2232 ->nodo2233;
+nodo2247 ->nodo2248;
+nodo2254 ->nodo2255;
+nodo2255 ->nodo2256;
+nodo2259 ->nodo2260;
+nodo2269 ->nodo2270;
+nodo2308 ->nodo2309;
+nodo2338 ->nodo2339;
+nodo2344 ->nodo2345;
+nodo2361 ->nodo2362;
+nodo2363 ->nodo2364;
+nodo2364 ->nodo2365;
+nodo2366 ->nodo2367;
+nodo2408 ->nodo2409;
+nodo2436 ->nodo2437;
+nodo2442 ->nodo2443;
+nodo2458 ->nodo2459;
+nodo2464 ->nodo2465;
+nodo2470 ->nodo2471;
+nodo2474 ->nodo2475;
+nodo2477 ->nodo2478;
+nodo2486 ->nodo2487;
+nodo2556 ->nodo2557;
+nodo2578 ->nodo2579;
+nodo2584 ->nodo2585;
+nodo2596 ->nodo2597;
+nodo2597 ->nodo2598;
+nodo2611 ->nodo2612;
+nodo2622 ->nodo2623;
+nodo2625 ->nodo2626;
+nodo2633 ->nodo2634;
+nodo2642 ->nodo2643;
+nodo2669 ->nodo2670;
+nodo2674 ->nodo2675;
+nodo2675 ->nodo2676;
+nodo2696 ->nodo2697;
+nodo2697 ->nodo2698;
+nodo2703 ->nodo2704;
+nodo2710 ->nodo2711;
+nodo2726 ->nodo2727;
+nodo2733 ->nodo2734;
+nodo2734 ->nodo2735;
+nodo2735 ->nodo2736;
+nodo2769 ->nodo2770;
+nodo2776 ->nodo2777;
+nodo2779 ->nodo2780;
+nodo2781 ->nodo2782;
+nodo2784 ->nodo2785;
+nodo2787 ->nodo2788;
+nodo2799 ->nodo2800;
+nodo2837 ->nodo2838;
+nodo2839 ->nodo2840;
+nodo2840 ->nodo2841;
+nodo2846 ->nodo2847;
+nodo2894 ->nodo2895;
+nodo2913 ->nodo2914;
+nodo2920 ->nodo2921;
+nodo2930 ->nodo2931;
+nodo2950 ->nodo2951;
+nodo2957 ->nodo2958;
+nodo2962 ->nodo2963;
+nodo2976 ->nodo2977;
+nodo3018 ->nodo3019;
+nodo3047 ->nodo3048;
+nodo3052 ->nodo3053;
+nodo3058 ->nodo3059;
+nodo3074 ->nodo3075;
+nodo3115 ->nodo3116;
+nodo3153 ->nodo3154;
+nodo3160 ->nodo3161;
+nodo3166 ->nodo3167;
+nodo3182 ->nodo3183;
+nodo3197 ->nodo3198;
+nodo3198 ->nodo3199;
+nodo3205 ->nodo3206;
+nodo3207 ->nodo3208;
+nodo3223 ->nodo3224;
+nodo3233 ->nodo3234;
+nodo3235 ->nodo3236;
+nodo3238 ->nodo3239;
+nodo3248 ->nodo3249;
+nodo3250 ->nodo3251;
+nodo3255 ->nodo3256;
+nodo3267 ->nodo3268;
+nodo3278 ->nodo3279;
+nodo3293 ->nodo3294;
+nodo3314 ->nodo3315;
+nodo3359 ->nodo3360;
+nodo3381 ->nodo3382;
+nodo3389 ->nodo3390;
+nodo3405 ->nodo3406;
+nodo3407 ->nodo3408;
+nodo3428 ->nodo3429;
+nodo3449 ->nodo3450;
+nodo3467 ->nodo3468;
+nodo3488 ->nodo3489;
+nodo3493 ->nodo3494;
+nodo3502 ->nodo3503;
+nodo3506 ->nodo3507;
+nodo3523 ->nodo3524;
+nodo3542 ->nodo3543;
+nodo3566 ->nodo3567;
+nodo3588 ->nodo3589;
+nodo3592 ->nodo3593;
+nodo3613 ->nodo3614;
+nodo3621 ->nodo3622;
+nodo3641 ->nodo3642;
+nodo3642 ->nodo3643;
+nodo3650 ->nodo3651;
+nodo3653 ->nodo3654;
+nodo3674 ->nodo3675;
+nodo3683 ->nodo3684;
+nodo3685 ->nodo3686;
+nodo3689 ->nodo3690;
+nodo3697 ->nodo3698;
+nodo3713 ->nodo3714;
+nodo3719 ->nodo3720;
+nodo3728 ->nodo3729;
+nodo3730 ->nodo3731;
+nodo3734 ->nodo3735;
+nodo3735 ->nodo3736;
+nodo3751 ->nodo3752;
+nodo3760 ->nodo3761;
+nodo3763 ->nodo3764;
+nodo3764 ->nodo3765;
+nodo3774 ->nodo3775;
+nodo3775 ->nodo3776;
+nodo3796 ->nodo3797;
+nodo3800 ->nodo3801;
+nodo3837 ->nodo3838;
+nodo3839 ->nodo3840;
+nodo3842 ->nodo3843;
+nodo3850 ->nodo3851;
+nodo3851 ->nodo3852;
+nodo3858 ->nodo3859;
+nodo3871 ->nodo3872;
+nodo3876 ->nodo3877;
+nodo3929 ->nodo3930;
+nodo3936 ->nodo3937;
+nodo3963 ->nodo3964;
+nodo3965 ->nodo3966;
+nodo3970 ->nodo3971;
+nodo3975 ->nodo3976;
+nodo3978 ->nodo3979;
+nodo3979 ->nodo3980;
+nodo3990 ->nodo3991;
+nodo4007 ->nodo4008;
+nodo4009 ->nodo4010;
+nodo4047 ->nodo4048;
+nodo4068 ->nodo4069;
+nodo4070 ->nodo4071;
+nodo4124 ->nodo4125;
+nodo4150 ->nodo4151;
+nodo4152 ->nodo4153;
+nodo4155 ->nodo4156;
+nodo4165 ->nodo4166;
+nodo4169 ->nodo4170;
+nodo4187 ->nodo4188;
+{ rank = same; C284;nodo8;}
+{ rank = same; C278;nodo70;}
+{ rank = same; C60;nodo101;}
+{ rank = same; C285;nodo103;}
+{ rank = same; C632;nodo107;}
+{ rank = same; C287;nodo119;}
+{ rank = same; C44;nodo128;}
+{ rank = same; C924;nodo129;}
+{ rank = same; C297;nodo132;}
+{ rank = same; C783;nodo150;}
+{ rank = same; C943;nodo154;}
+{ rank = same; C508;nodo166;}
+{ rank = same; C68;nodo175;}
+{ rank = same; C298;nodo181;}
+{ rank = same; C878;nodo182;}
+{ rank = same; C823;nodo208;}
+{ rank = same; C971;nodo237;}
+{ rank = same; C766;nodo253;}
+{ rank = same; C19;nodo254;}
+{ rank = same; C921;nodo261;}
+{ rank = same; C850;nodo288;}
+{ rank = same; C749;nodo308;}
+{ rank = same; C346;nodo312;}
+{ rank = same; C911;nodo313;}
+{ rank = same; C678;nodo327;}
+{ rank = same; C412;nodo344;}
+{ rank = same; C848;nodo355;}
+{ rank = same; C122;nodo366;}
+{ rank = same; C87;nodo377;}
+{ rank = same; C908;nodo390;}
+{ rank = same; C129;nodo396;}
+{ rank = same; C745;nodo415;}
+{ rank = same; C83;nodo435;}
+{ rank = same; C314;nodo445;}
+{ rank = same; C648;nodo484;}
+{ rank = same; C298;nodo495;}
+{ rank = same; C782;nodo501;}
+{ rank = same; C393;nodo513;}
+{ rank = same; C26;nodo527;}
+{ rank = same; C766;nodo532;}
+{ rank = same; C19;nodo544;}
+{ rank = same; C848;nodo561;}
+{ rank = same; C306;nodo567;}
+{ rank = same; C769;nodo571;}
+{ rank = same; C298;nodo574;}
+{ rank = same; C629;nodo578;}
+{ rank = same; C319;nodo579;}
+{ rank = same; C557;nodo585;}
+{ rank = same; C351;nodo586;}
+{ rank = same; C446;nodo599;}
+{ rank = same; C759;nodo615;}
+{ rank = same; C608;nodo625;}
+{ rank = same; C784;nodo639;}
+{ rank = same; C625;nodo651;}
+{ rank = same; C836;nodo654;}
+{ rank = same; C945;nodo663;}
+{ rank = same; C297;nodo680;}
+{ rank = same; C914;nodo686;}
+{ rank = same; C381;nodo692;}
+{ rank = same; C124;nodo709;}
+{ rank = same; C392;nodo751;}
+{ rank = same; C930;nodo759;}
+{ rank = same; C282;nodo777;}
+{ rank = same; C677;nodo796;}
+{ rank = same; C539;nodo800;}
+{ rank = same; C908;nodo802;}
+{ rank = same; C18;nodo814;}
+{ rank = same; C308;nodo816;}
+{ rank = same; C99;nodo824;}
+{ rank = same; C131;nodo835;}
+{ rank = same; C932;nodo839;}
+{ rank = same; C434;nodo846;}
+{ rank = same; C766;nodo849;}
+{ rank = same; C323;nodo852;}
+{ rank = same; C557;nodo858;}
+{ rank = same; C183;nodo861;}
+{ rank = same; C347;nodo884;}
+{ rank = same; C358;nodo892;}
+{ rank = same; C846;nodo905;}
+{ rank = same; C141;nodo918;}
+{ rank = same; C188;nodo923;}
+{ rank = same; C913;nodo932;}
+{ rank = same; C149;nodo955;}
+{ rank = same; C125;nodo978;}
+{ rank = same; C292;nodo979;}
+{ rank = same; C302;nodo980;}
+{ rank = same; C780;nodo1006;}
+{ rank = same; C410;nodo1010;}
+{ rank = same; C69;nodo1019;}
+{ rank = same; C832;nodo1025;}
+{ rank = same; C537;nodo1039;}
+{ rank = same; C322;nodo1050;}
+{ rank = same; C499;nodo1056;}
+{ rank = same; C880;nodo1058;}
+{ rank = same; C539;nodo1065;}
+{ rank = same; C907;nodo1077;}
+{ rank = same; C424;nodo1081;}
+{ rank = same; C300;nodo1087;}
+{ rank = same; C538;nodo1103;}
+{ rank = same; C849;nodo1113;}
+{ rank = same; C768;nodo1133;}
+{ rank = same; C821;nodo1148;}
+{ rank = same; C434;nodo1149;}
+{ rank = same; C533;nodo1195;}
+{ rank = same; C851;nodo1217;}
+{ rank = same; C364;nodo1224;}
+{ rank = same; C849;nodo1233;}
+{ rank = same; C319;nodo1243;}
+{ rank = same; C764;nodo1246;}
+{ rank = same; C94;nodo1266;}
+{ rank = same; C289;nodo1280;}
+{ rank = same; C654;nodo1285;}
+{ rank = same; C93;nodo1296;}
+{ rank = same; C364;nodo1328;}
+{ rank = same; C784;nodo1331;}
+{ rank = same; C826;nodo1332;}
+{ rank = same; C540;nodo1339;}
+{ rank = same; C632;nodo1345;}
+{ rank = same; C886;nodo1359;}
+{ rank = same; C278;nodo1395;}
+{ rank = same; C654;nodo1400;}
+{ rank = same; C411;nodo1401;}
+{ rank = same; C82;nodo1416;}
+{ rank = same; C348;nodo1428;}
+{ rank = same; C87;nodo1429;}
+{ rank = same; C389;nodo1434;}
+{ rank = same; C213;nodo1436;}
+{ rank = same; C318;nodo1446;}
+{ rank = same; C767;nodo1453;}
+{ rank = same; C292;nodo1457;}
+{ rank = same; C381;nodo1462;}
+{ rank = same; C141;nodo1463;}
+{ rank = same; C912;nodo1466;}
+{ rank = same; C547;nodo1470;}
+{ rank = same; C55;nodo1471;}
+{ rank = same; C781;nodo1474;}
+{ rank = same; C349;nodo1515;}
+{ rank = same; C616;nodo1517;}
+{ rank = same; C667;nodo1522;}
+{ rank = same; C315;nodo1532;}
+{ rank = same; C782;nodo1540;}
+{ rank = same; C927;nodo1556;}
+{ rank = same; C377;nodo1562;}
+{ rank = same; C320;nodo1570;}
+{ rank = same; C82;nodo1572;}
+{ rank = same; C355;nodo1578;}
+{ rank = same; C840;nodo1579;}
+{ rank = same; C524;nodo1587;}
+{ rank = same; C445;nodo1626;}
+{ rank = same; C760;nodo1645;}
+{ rank = same; C364;nodo1660;}
+{ rank = same; C820;nodo1669;}
+{ rank = same; C308;nodo1674;}
+{ rank = same; C836;nodo1685;}
+{ rank = same; C652;nodo1690;}
+{ rank = same; C637;nodo1696;}
+{ rank = same; C315;nodo1719;}
+{ rank = same; C784;nodo1736;}
+{ rank = same; C564;nodo1741;}
+{ rank = same; C289;nodo1742;}
+{ rank = same; C104;nodo1744;}
+{ rank = same; C373;nodo1760;}
+{ rank = same; C891;nodo1767;}
+{ rank = same; C880;nodo1831;}
+{ rank = same; C881;nodo1834;}
+{ rank = same; C284;nodo1848;}
+{ rank = same; C453;nodo1851;}
+{ rank = same; C442;nodo1858;}
+{ rank = same; C949;nodo1876;}
+{ rank = same; C131;nodo1881;}
+{ rank = same; C364;nodo1892;}
+{ rank = same; C762;nodo1913;}
+{ rank = same; C85;nodo1923;}
+{ rank = same; C648;nodo1927;}
+{ rank = same; C513;nodo1941;}
+{ rank = same; C836;nodo1954;}
+{ rank = same; C358;nodo1975;}
+{ rank = same; C344;nodo1985;}
+{ rank = same; C918;nodo1987;}
+{ rank = same; C346;nodo1991;}
+{ rank = same; C559;nodo1998;}
+{ rank = same; C881;nodo2032;}
+{ rank = same; C843;nodo2039;}
+{ rank = same; C80;nodo2051;}
+{ rank = same; C782;nodo2071;}
+{ rank = same; C81;nodo2094;}
+{ rank = same; C945;nodo2096;}
+{ rank = same; C399;nodo2097;}
+{ rank = same; C918;nodo2104;}
+{ rank = same; C880;nodo2113;}
+{ rank = same; C539;nodo2128;}
+{ rank = same; C499;nodo2130;}
+{ rank = same; C848;nodo2131;}
+{ rank = same; C196;nodo2139;}
+{ rank = same; C353;nodo2147;}
+{ rank = same; C525;nodo2176;}
+{ rank = same; C178;nodo2206;}
+{ rank = same; C838;nodo2210;}
+{ rank = same; C413;nodo2218;}
+{ rank = same; C209;nodo2232;}
+{ rank = same; C783;nodo2247;}
+{ rank = same; C830;nodo2254;}
+{ rank = same; C693;nodo2255;}
+{ rank = same; C767;nodo2259;}
+{ rank = same; C510;nodo2269;}
+{ rank = same; C762;nodo2308;}
+{ rank = same; C766;nodo2338;}
+{ rank = same; C847;nodo2344;}
+{ rank = same; C595;nodo2361;}
+{ rank = same; C776;nodo2363;}
+{ rank = same; C855;nodo2364;}
+{ rank = same; C970;nodo2366;}
+{ rank = same; C842;nodo2408;}
+{ rank = same; C900;nodo2436;}
+{ rank = same; C885;nodo2442;}
+{ rank = same; C681;nodo2458;}
+{ rank = same; C919;nodo2464;}
+{ rank = same; C654;nodo2470;}
+{ rank = same; C842;nodo2474;}
+{ rank = same; C539;nodo2477;}
+{ rank = same; C367;nodo2486;}
+{ rank = same; C836;nodo2556;}
+{ rank = same; C767;nodo2578;}
+{ rank = same; C364;nodo2584;}
+{ rank = same; C527;nodo2596;}
+{ rank = same; C409;nodo2597;}
+{ rank = same; C837;nodo2611;}
+{ rank = same; C392;nodo2622;}
+{ rank = same; C83;nodo2625;}
+{ rank = same; C883;nodo2633;}
+{ rank = same; C20;nodo2642;}
+{ rank = same; C316;nodo2669;}
+{ rank = same; C279;nodo2674;}
+{ rank = same; C50;nodo2675;}
+{ rank = same; C439;nodo2696;}
+{ rank = same; C885;nodo2697;}
+{ rank = same; C27;nodo2703;}
+{ rank = same; C354;nodo2710;}
+{ rank = same; C210;nodo2726;}
+{ rank = same; C775;nodo2733;}
+{ rank = same; C925;nodo2734;}
+{ rank = same; C880;nodo2735;}
+{ rank = same; C302;nodo2769;}
+{ rank = same; C753;nodo2776;}
+{ rank = same; C308;nodo2779;}
+{ rank = same; C316;nodo2781;}
+{ rank = same; C537;nodo2784;}
+{ rank = same; C552;nodo2787;}
+{ rank = same; C540;nodo2799;}
+{ rank = same; C754;nodo2837;}
+{ rank = same; C407;nodo2839;}
+{ rank = same; C654;nodo2840;}
+{ rank = same; C538;nodo2846;}
+{ rank = same; C192;nodo2894;}
+{ rank = same; C356;nodo2913;}
+{ rank = same; C756;nodo2920;}
+{ rank = same; C924;nodo2930;}
+{ rank = same; C657;nodo2950;}
+{ rank = same; C391;nodo2957;}
+{ rank = same; C454;nodo2962;}
+{ rank = same; C65;nodo2976;}
+{ rank = same; C766;nodo3018;}
+{ rank = same; C628;nodo3047;}
+{ rank = same; C621;nodo3052;}
+{ rank = same; C479;nodo3058;}
+{ rank = same; C416;nodo3074;}
+{ rank = same; C923;nodo3115;}
+{ rank = same; C210;nodo3153;}
+{ rank = same; C540;nodo3160;}
+{ rank = same; C783;nodo3166;}
+{ rank = same; C472;nodo3182;}
+{ rank = same; C212;nodo3197;}
+{ rank = same; C835;nodo3198;}
+{ rank = same; C348;nodo3205;}
+{ rank = same; C950;nodo3207;}
+{ rank = same; C540;nodo3223;}
+{ rank = same; C127;nodo3233;}
+{ rank = same; C372;nodo3235;}
+{ rank = same; C880;nodo3238;}
+{ rank = same; C755;nodo3248;}
+{ rank = same; C193;nodo3250;}
+{ rank = same; C94;nodo3255;}
+{ rank = same; C751;nodo3267;}
+{ rank = same; C367;nodo3278;}
+{ rank = same; C829;nodo3293;}
+{ rank = same; C366;nodo3314;}
+{ rank = same; C296;nodo3359;}
+{ rank = same; C884;nodo3381;}
+{ rank = same; C310;nodo3389;}
+{ rank = same; C667;nodo3405;}
+{ rank = same; C769;nodo3407;}
+{ rank = same; C84;nodo3428;}
+{ rank = same; C788;nodo3449;}
+{ rank = same; C185;nodo3467;}
+{ rank = same; C509;nodo3488;}
+{ rank = same; C408;nodo3493;}
+{ rank = same; C537;nodo3502;}
+{ rank = same; C209;nodo3506;}
+{ rank = same; C398;nodo3523;}
+{ rank = same; C464;nodo3542;}
+{ rank = same; C376;nodo3566;}
+{ rank = same; C926;nodo3588;}
+{ rank = same; C308;nodo3592;}
+{ rank = same; C382;nodo3613;}
+{ rank = same; C759;nodo3621;}
+{ rank = same; C656;nodo3641;}
+{ rank = same; C371;nodo3642;}
+{ rank = same; C912;nodo3650;}
+{ rank = same; C874;nodo3653;}
+{ rank = same; C350;nodo3674;}
+{ rank = same; C537;nodo3683;}
+{ rank = same; C209;nodo3685;}
+{ rank = same; C392;nodo3689;}
+{ rank = same; C764;nodo3697;}
+{ rank = same; C353;nodo3713;}
+{ rank = same; C92;nodo3719;}
+{ rank = same; C352;nodo3728;}
+{ rank = same; C841;nodo3730;}
+{ rank = same; C766;nodo3734;}
+{ rank = same; C520;nodo3735;}
+{ rank = same; C857;nodo3751;}
+{ rank = same; C835;nodo3760;}
+{ rank = same; C627;nodo3763;}
+{ rank = same; C940;nodo3764;}
+{ rank = same; C544;nodo3774;}
+{ rank = same; C766;nodo3775;}
+{ rank = same; C879;nodo3796;}
+{ rank = same; C55;nodo3800;}
+{ rank = same; C754;nodo3837;}
+{ rank = same; C925;nodo3839;}
+{ rank = same; C784;nodo3842;}
+{ rank = same; C841;nodo3850;}
+{ rank = same; C440;nodo3851;}
+{ rank = same; C646;nodo3858;}
+{ rank = same; C449;nodo3871;}
+{ rank = same; C160;nodo3876;}
+{ rank = same; C296;nodo3929;}
+{ rank = same; C837;nodo3936;}
+{ rank = same; C540;nodo3963;}
+{ rank = same; C402;nodo3965;}
+{ rank = same; C851;nodo3970;}
+{ rank = same; C438;nodo3975;}
+{ rank = same; C317;nodo3978;}
+{ rank = same; C319;nodo3979;}
+{ rank = same; C316;nodo3990;}
+{ rank = same; C344;nodo4007;}
+{ rank = same; C357;nodo4009;}
+{ rank = same; C138;nodo4047;}
+{ rank = same; C849;nodo4068;}
+{ rank = same; C672;nodo4070;}
+{ rank = same; C313;nodo4124;}
+{ rank = same; C92;nodo4150;}
+{ rank = same; C654;nodo4152;}
+{ rank = same; C554;nodo4155;}
+{ rank = same; C193;nodo4165;}
+{ rank = same; C443;nodo4169;}
+{ rank = same; C665;nodo4187;}
+Mt -> D16;
+  Mt -> nodo8;
 }
