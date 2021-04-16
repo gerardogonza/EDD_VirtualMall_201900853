@@ -85,6 +85,17 @@ type contenido struct {
 type producto struct {
 	Codigo int
 }
+type carritoo struct {
+	Nombre          string
+	Descripcion     string
+	Codigo          int
+	Precio          int
+	Cantidad        int
+	Cantidad_pedida int
+	Imagen          string
+}
+
+var carrito1 carritoo
 
 var pedidos pedido
 var indices indice
@@ -101,11 +112,53 @@ func main() {
 	router.HandleFunc("/mostrarinventario/{numero}", mostrarinventario).Methods("GET")
 	router.HandleFunc("/cargarpedido", cargarpedido).Methods("POST")
 	router.HandleFunc("/mostrarpedido/{numero}", mostrarpedido).Methods("GET")
+	router.HandleFunc("/carrito", carrito).Methods("POST")
+	router.HandleFunc("/mostrarcarrito", mostrarcarrito).Methods("GET")
 	//log.Fatal(http.ListenAndServe(":3000", router))
 	log.Fatal(http.ListenAndServe(":3000", handlers.CORS(handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}), handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"}), handlers.AllowedOrigins([]string{"*"}))(router)))
 }
 func home(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Servidor Funcionando :D")
+}
+
+var lista_carrito []carritoo
+var primerprodcuto = 1
+
+func carrito(w http.ResponseWriter, r *http.Request) {
+	reqBody, err := ioutil.ReadAll(r.Body)
+	json.Unmarshal(reqBody, &carrito1)
+	if err != nil {
+		log.Fatal("Error")
+	}
+	var nuevoProdcuto = 0
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	for i := 0; i < len(lista_carrito); i++ {
+		if lista_carrito[i].Codigo == carrito1.Codigo {
+			lista_carrito[i].Cantidad_pedida = lista_carrito[i].Cantidad_pedida + 1
+			nuevoProdcuto = 1
+			break
+		}
+	}
+	if nuevoProdcuto == 0 {
+		carrito1 = carritoo{
+			Cantidad_pedida: 1,
+			Nombre:          carrito1.Nombre,
+			Descripcion:     carrito1.Descripcion,
+			Codigo:          carrito1.Codigo,
+			Precio:          carrito1.Precio,
+			Cantidad:        carrito1.Cantidad,
+			Imagen:          carrito1.Imagen,
+		}
+		lista_carrito = append(lista_carrito, carrito1)
+	}
+	json.NewEncoder(w).Encode(lista_carrito)
+}
+
+func mostrarcarrito(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(lista_carrito)
 }
 
 func cargartienda(w http.ResponseWriter, r *http.Request) {
@@ -117,7 +170,7 @@ func cargartienda(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(indices)
-
+	fmt.Println("tiendascargagas")
 }
 
 func cargarInventario(w http.ResponseWriter, r *http.Request) {
@@ -312,7 +365,7 @@ func cargarpedido(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal("Error")
 	}
-
+	fmt.Println("pedidocargado")
 }
 func mostrarpedido(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
