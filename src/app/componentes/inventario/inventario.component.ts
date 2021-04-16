@@ -28,7 +28,11 @@ export class InventarioComponent implements OnInit {
   }
 
 addCarrito(index:number){
-this.carritoServices.addProducto(this.conversion[index]);
+  this.http.post('http://localhost:3000/carrito', this.conversion[index]).toPromise().then((data:any)=>{
+      console.log(data);
+      // this.json=JSON.stringify(data.json);
+    });
+
 }
 getIndex(Codigo:number):number{
   for(var i = 0; i < this.conversion.length; i++){
@@ -38,8 +42,6 @@ getIndex(Codigo:number):number{
   }
   return 0 
 }
-verCarrito(){
-  this.carritoServices.realizarPedido(this.conversion);
-}
+
 
 }

@@ -5,6 +5,7 @@ import{ InicioComponent } from "./componentes/inicio/inicio.component";
 import{InventarioComponent}from "./componentes/inventario/inventario.component";
 import { CarritoComprasComponent } from "./componentes/carrito-compras/carrito-compras.component";
 import { PedidoComponent } from './componentes/pedido/pedido.component';
+import { CargaJSONComponent } from './componentes/carga-json/carga-json.component';
 const routes: Routes = [
  
   {
@@ -22,6 +23,10 @@ const routes: Routes = [
   {
     path:'carrito-compras',
     component:CarritoComprasComponent
+  },
+  {
+    path:'cargarjson',
+    component:CargaJSONComponent
   },
   {
     path:'pedido/:nombre',

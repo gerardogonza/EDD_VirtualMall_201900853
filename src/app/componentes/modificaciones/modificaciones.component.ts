@@ -15,8 +15,6 @@ export class ModificacionesComponent implements OnInit {
   
   archivoEntrada: any=[];
 
-
-
   ngOnInit(): void {
   }
 
@@ -28,5 +26,4 @@ mostrarTiendas(){
     console.log('Tiendas',this.tiendas)
   });
 }
-
 }
