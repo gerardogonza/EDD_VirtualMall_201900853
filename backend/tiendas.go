@@ -3,6 +3,7 @@ package main
 import (
 	"./archivos"
 	"./matriz"
+	"./mingrafo"
 	"encoding/json"
 	"fmt"
 	"github.com/gorilla/handlers"
@@ -16,9 +17,10 @@ import (
 	"strings"
 )
 
-var path = "grafo.dot"
+var path = "matriz.dot"
 var file, err = os.OpenFile(path, os.O_RDWR, 0644)
-var path1 = "documento.json"
+
+var path1 = "graph.dot"
 var file1, err1 = os.OpenFile(path1, os.O_RDWR, 0644)
 var tiendas_grafo, conexiones_grafo, datos_tiendas string
 var nodo, valor int
@@ -94,9 +96,22 @@ type carritoo struct {
 	Cantidad_pedida int
 	Imagen          string
 }
+type grafo struct {
+	Nodos                []nodos
+	PosicionInicialRobot string
+	Entrega              string
+}
+type nodos struct {
+	Nombre  string
+	Enlaces []enlaces
+}
+type enlaces struct {
+	Nombre    string
+	Distancia int
+}
 
+var grafos grafo
 var carrito1 carritoo
-
 var pedidos pedido
 var indices indice
 var datosInventario arbol
@@ -104,6 +119,13 @@ var datosTiendas tiendas
 var avl = archivos.NewAVL()
 
 func main() {
+	graph := mingrafo.NewGraph()
+	graph.AddEdge("Despacho", "Aranceles", 5)
+	graph.AddEdge("Despacho", "Reparaciones", 6)
+	graph.AddEdge("Despacho", "Textiles", 100)
+	graph.AddEdge("Aranceles", "Textiles", 10)
+	graph.AddEdge("Textiles", "Reparaciones", 7)
+	fmt.Println(graph.GetPath("Textiles", "Despacho"))
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", home)
 	router.HandleFunc("/cargartienda", cargartienda).Methods("POST")
@@ -114,6 +136,7 @@ func main() {
 	router.HandleFunc("/mostrarpedido/{numero}", mostrarpedido).Methods("GET")
 	router.HandleFunc("/carrito", carrito).Methods("POST")
 	router.HandleFunc("/mostrarcarrito", mostrarcarrito).Methods("GET")
+	router.HandleFunc("/cargargrafo", cargargrafo).Methods("POST")
 	//log.Fatal(http.ListenAndServe(":3000", router))
 	log.Fatal(http.ListenAndServe(":3000", handlers.CORS(handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}), handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"}), handlers.AllowedOrigins([]string{"*"}))(router)))
 }
@@ -154,7 +177,37 @@ func carrito(w http.ResponseWriter, r *http.Request) {
 	}
 	json.NewEncoder(w).Encode(lista_carrito)
 }
+func cargargrafo(w http.ResponseWriter, r *http.Request) {
+	reqBody, err := ioutil.ReadAll(r.Body)
+	json.Unmarshal(reqBody, &grafos)
+	if err != nil {
+		log.Fatal("Error")
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(grafos)
+	fmt.Println("grafos cargados ")
+	crearArchivo()
+	generargrafo()
+}
 
+func generargrafo() {
+	if existeError(err) {
+		return
+	}
+	defer file1.Close()
+	_, err = file1.WriteString("digraph grafica{ \n node [shape=box]\n")
+	for i := 0; i < len(grafos.Nodos); i++ {
+		for j := 0; j < len(grafos.Nodos[i].Enlaces); j++ {
+			t := strconv.Itoa(grafos.Nodos[i].Enlaces[j].Distancia)
+			_, err = file1.WriteString(grafos.Nodos[i].Nombre + "->" + grafos.Nodos[i].Enlaces[j].Nombre + "[label=\"" + t + "\"];\n")
+		}
+	}
+	_, err = file1.WriteString(grafos.PosicionInicialRobot + "[fillcolor=blue, style=\"rounded,filled\"]\n")
+	_, err = file1.WriteString(grafos.Entrega + "[fillcolor=green, style=\"rounded,filled\"]\n")
+	_, err = file1.WriteString("}")
+
+}
 func mostrarcarrito(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
@@ -167,6 +220,7 @@ func cargartienda(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal("Error")
 	}
+
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(indices)
@@ -407,6 +461,7 @@ func mostrarpedido(w http.ResponseWriter, r *http.Request) {
 
 func crearArchivo() {
 	var _, err = os.Create(path)
+	var _, err1 = os.Create(path1)
 	//Crea el archivo si no existe
 	if os.IsNotExist(err) {
 		var file, err = os.Create(path)
@@ -414,6 +469,14 @@ func crearArchivo() {
 			return
 		}
 		defer file.Close()
+	}
+
+	if os.IsNotExist(err1) {
+		var file1, err = os.Create(path)
+		if existeError(err) {
+			return
+		}
+		defer file1.Close()
 	}
 }
 func escribeArchivo() {
