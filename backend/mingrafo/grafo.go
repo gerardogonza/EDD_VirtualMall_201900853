@@ -26,10 +26,10 @@ var Hola []int
 var Rutas []string
 var RutaFinally []string
 var S string
-var Rutstring string
 
 func (g *graph) GetPath(origin, destiny string) (int, []string) {
 	h := newHeap()
+	var rutstring string
 	h.push(path{value: 0, nodes: []string{origin}})
 	visited := make(map[string]bool)
 
@@ -46,9 +46,9 @@ func (g *graph) GetPath(origin, destiny string) (int, []string) {
 			//ComparadordeRutas()
 			for i := 0; i < len(p.nodes); i++ {
 				S = S + p.nodes[i] + "[fillcolor=red, style=\"rounded,filled\"];\n"
-				Rutstring = Rutstring + p.nodes[i] + "|"
+				rutstring = rutstring + p.nodes[i] + "--"
 			}
-
+			RutaFinally = append(RutaFinally, rutstring)
 			return p.value, p.nodes
 		}
 

@@ -743,7 +743,11 @@ func generarRuta(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	graph.GetPath(lista_carrito[len(lista_carrito)-1].Almacenamiento, grafos.Entrega)
-	_, err = file3.WriteString("1[label=\"" + mingrafo.Rutstring + "\"];\n")
+	_, err = file3.WriteString("tabla[shape=plaintext,fontsize=10, label=<\n<TABLE BORDER=\"3\">\n")
+	for i := 0; i < len(mingrafo.RutaFinally); i++ {
+		_, err = file3.WriteString("<TR><TD>" + mingrafo.RutaFinally[i] + "</TD></TR>\n")
+	}
+	_, err = file3.WriteString("</TABLE>>];")
 	_, err = file3.WriteString("}")
 	fmt.Println("Ruta Generada")
 	s := "dot.exe -Tpng graphrutes.dot -o frontend/src/assets/rutmin.png"
