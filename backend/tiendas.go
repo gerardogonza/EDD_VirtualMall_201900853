@@ -19,12 +19,23 @@ import (
 
 var path = "matriz.dot"
 var file, err = os.OpenFile(path, os.O_RDWR, 0644)
-
 var path1 = "graph.dot"
 var file1, err1 = os.OpenFile(path1, os.O_RDWR, 0644)
+var path2 = "tiendalinealizada.dot"
+var file2, err2 = os.OpenFile(path2, os.O_RDWR, 0644)
+var path3 = "graphrutes.dot"
+var file3, err3 = os.OpenFile(path3, os.O_RDWR, 0644)
 var tiendas_grafo, conexiones_grafo, datos_tiendas string
-var nodo, valor int
+var nodo, valor, nodo1 int
 var espacio []listD
+var espacio1 []listE
+var grafos grafo
+var carrito1 carritoo
+var pedidos pedido
+var indices indice
+var datosInventario arbol
+var datosTiendas tiendas
+var avl = archivos.NewAVL()
 
 type indice struct {
 	Datos []indicess
@@ -56,12 +67,13 @@ type Inventarios struct {
 	Productos    []productos
 }
 type productos struct {
-	Nombre      string
-	Codigo      int
-	Descripcion string
-	Precio      float64
-	Cantidad    int
-	Imagen      string
+	Nombre         string
+	Codigo         int
+	Descripcion    string
+	Precio         float64
+	Cantidad       int
+	Imagen         string
+	Almacenamiento string
 }
 
 //esta estructura es la mando al front
@@ -90,11 +102,13 @@ type producto struct {
 type carritoo struct {
 	Nombre          string
 	Descripcion     string
+	Departamento    string
 	Codigo          int
 	Precio          int
 	Cantidad        int
 	Cantidad_pedida int
 	Imagen          string
+	Almacenamiento  string
 }
 type grafo struct {
 	Nodos                []nodos
@@ -110,22 +124,9 @@ type enlaces struct {
 	Distancia int
 }
 
-var grafos grafo
-var carrito1 carritoo
-var pedidos pedido
-var indices indice
-var datosInventario arbol
-var datosTiendas tiendas
-var avl = archivos.NewAVL()
-
 func main() {
-	graph := mingrafo.NewGraph()
-	graph.AddEdge("Despacho", "Aranceles", 5)
-	graph.AddEdge("Despacho", "Reparaciones", 6)
-	graph.AddEdge("Despacho", "Textiles", 100)
-	graph.AddEdge("Aranceles", "Textiles", 10)
-	graph.AddEdge("Textiles", "Reparaciones", 7)
-	fmt.Println(graph.GetPath("Textiles", "Despacho"))
+
+	//mingrafo.Min()
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", home)
 	router.HandleFunc("/cargartienda", cargartienda).Methods("POST")
@@ -137,9 +138,12 @@ func main() {
 	router.HandleFunc("/carrito", carrito).Methods("POST")
 	router.HandleFunc("/mostrarcarrito", mostrarcarrito).Methods("GET")
 	router.HandleFunc("/cargargrafo", cargargrafo).Methods("POST")
+	router.HandleFunc("/mostrarlinealizacion", linealizacion).Methods("GET")
+	router.HandleFunc("/rutamin", generarRuta).Methods("POST")
 	//log.Fatal(http.ListenAndServe(":3000", router))
 	log.Fatal(http.ListenAndServe(":3000", handlers.CORS(handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}), handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"}), handlers.AllowedOrigins([]string{"*"}))(router)))
 }
+
 func home(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Servidor Funcionando :D")
 }
@@ -171,7 +175,9 @@ func carrito(w http.ResponseWriter, r *http.Request) {
 			Codigo:          carrito1.Codigo,
 			Precio:          carrito1.Precio,
 			Cantidad:        carrito1.Cantidad,
+			Departamento:    carrito1.Departamento,
 			Imagen:          carrito1.Imagen,
+			Almacenamiento:  carrito1.Almacenamiento,
 		}
 		lista_carrito = append(lista_carrito, carrito1)
 	}
@@ -206,7 +212,14 @@ func generargrafo() {
 	_, err = file1.WriteString(grafos.PosicionInicialRobot + "[fillcolor=blue, style=\"rounded,filled\"]\n")
 	_, err = file1.WriteString(grafos.Entrega + "[fillcolor=green, style=\"rounded,filled\"]\n")
 	_, err = file1.WriteString("}")
-
+	s := "dot.exe -Tpng graph.dot -o frontend/src/assets/graph.png"
+	args := strings.Split(s, " ")
+	cmd := exec.Command(args[0], args[1:]...)
+	b, err := cmd.CombinedOutput()
+	if err != nil {
+		log.Println("Ejecucicion Fallo", err)
+	}
+	fmt.Println("generarndo Imagen...", b)
 }
 func mostrarcarrito(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
@@ -224,7 +237,35 @@ func cargartienda(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(indices)
-	fmt.Println("tiendascargagas")
+	fmt.Println("tiendas cargadas")
+}
+func linealizacion(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("generando linealizacion ")
+	linealizar()
+	crearArchivo()
+	if existeError(err2) {
+		return
+	}
+	defer file.Close()
+	_, err2 = file2.WriteString("digraph grafica{ \nnode [shape=plaintext]\n")
+	_, err2 = file2.WriteString(" vector [label=<<TABLE BORDER=\"0\" CELLBORDER=\"1\" CELLSPACING=\"0\">\n")
+	_, err2 = file2.WriteString("<TR>\n")
+	for i := 0; i < len(indices.Datos[0].Departamentos)*len(indices.Datos)*7; i++ { //letra
+		t := strconv.Itoa(i)
+		_, err2 = file2.WriteString("<TD PORT=\"" + t + "\">" + t + "</TD>\n")
+	}
+	_, err2 = file2.WriteString("</TR></TABLE>>];\n")
+	_, err2 = file2.WriteString(tiendas_grafo)
+	_, err2 = file2.WriteString(conexiones_grafo)
+	_, err2 = file2.WriteString("}")
+	s := "dot.exe -Tpng tiendalinealizada.dot -o frontend/src/assets/linealizacion.png"
+	args := strings.Split(s, " ")
+	cmd := exec.Command(args[0], args[1:]...)
+	b, err := cmd.CombinedOutput()
+	if err != nil {
+		log.Println("Ejecucicion Fallo", err)
+	}
+	fmt.Println("generarndo Imagen...", b)
 }
 
 func cargarInventario(w http.ResponseWriter, r *http.Request) {
@@ -302,13 +343,15 @@ func mostrarinventario(w http.ResponseWriter, r *http.Request) {
 			for j := 0; j < len(datosInventario.Inventarios[i].Productos); j++ {
 				if archivos.List[nodoo] == datosInventario.Inventarios[i].Productos[j].Nombre {
 					datostiendasInventario = productosInventario{
-						Tienda:      datosInventario.Inventarios[i].Tienda,
-						Nombre:      datosInventario.Inventarios[i].Productos[j].Nombre,
-						Codigo:      datosInventario.Inventarios[i].Productos[j].Codigo,
-						Descripcion: datosInventario.Inventarios[i].Productos[j].Descripcion,
-						Precio:      datosInventario.Inventarios[i].Productos[j].Precio,
-						Cantidad:    datosInventario.Inventarios[i].Productos[j].Cantidad,
-						Imagen:      datosInventario.Inventarios[i].Productos[j].Imagen,
+						Tienda:         datosInventario.Inventarios[i].Tienda,
+						Nombre:         datosInventario.Inventarios[i].Productos[j].Nombre,
+						Codigo:         datosInventario.Inventarios[i].Productos[j].Codigo,
+						Descripcion:    datosInventario.Inventarios[i].Productos[j].Descripcion,
+						Precio:         datosInventario.Inventarios[i].Productos[j].Precio,
+						Cantidad:       datosInventario.Inventarios[i].Productos[j].Cantidad,
+						Departamento:   datosInventario.Inventarios[i].Departamento,
+						Imagen:         datosInventario.Inventarios[i].Productos[j].Imagen,
+						Almacenamiento: datosInventario.Inventarios[i].Productos[j].Almacenamiento,
 					}
 					lista_productos = append(lista_productos, datostiendasInventario)
 				}
@@ -318,12 +361,14 @@ func mostrarinventario(w http.ResponseWriter, r *http.Request) {
 	for nodoo := 0; nodoo < len(archivos.List); nodoo++ {
 		if lista_tiendas[taskID].Nombre == lista_productos[nodoo].Tienda {
 			productosTemporales = productotemporales{
-				Nombre:      lista_productos[nodoo].Nombre,
-				Codigo:      lista_productos[nodoo].Codigo,
-				Descripcion: lista_productos[nodoo].Descripcion,
-				Precio:      lista_productos[nodoo].Precio,
-				Cantidad:    lista_productos[nodoo].Cantidad,
-				Imagen:      lista_productos[nodoo].Imagen,
+				Nombre:         lista_productos[nodoo].Nombre,
+				Codigo:         lista_productos[nodoo].Codigo,
+				Descripcion:    lista_productos[nodoo].Descripcion,
+				Precio:         lista_productos[nodoo].Precio,
+				Cantidad:       lista_productos[nodoo].Cantidad,
+				Departamento:   lista_productos[nodoo].Departamento,
+				Imagen:         lista_productos[nodoo].Imagen,
+				Almacenamiento: lista_productos[nodoo].Almacenamiento,
 			}
 			lista_temporal = append(lista_temporal, productosTemporales)
 		}
@@ -334,24 +379,28 @@ func mostrarinventario(w http.ResponseWriter, r *http.Request) {
 var productosTemporales productotemporales
 
 type productotemporales struct {
-	Nombre      string
-	Codigo      int
-	Descripcion string
-	Precio      float64
-	Cantidad    int
-	Imagen      string
+	Nombre         string
+	Codigo         int
+	Descripcion    string
+	Precio         float64
+	Cantidad       int
+	Imagen         string
+	Departamento   string
+	Almacenamiento string
 }
 
 var datostiendasInventario productosInventario
 
 type productosInventario struct {
-	Tienda      string
-	Nombre      string
-	Codigo      int
-	Descripcion string
-	Precio      float64
-	Cantidad    int
-	Imagen      string
+	Tienda         string
+	Nombre         string
+	Codigo         int
+	Descripcion    string
+	Precio         float64
+	Cantidad       int
+	Imagen         string
+	Departamento   string
+	Almacenamiento string
 }
 
 type nodeD struct {
@@ -462,6 +511,8 @@ func mostrarpedido(w http.ResponseWriter, r *http.Request) {
 func crearArchivo() {
 	var _, err = os.Create(path)
 	var _, err1 = os.Create(path1)
+	var _, err2 = os.Create(path2)
+	var _, err3 = os.Create(path3)
 	//Crea el archivo si no existe
 	if os.IsNotExist(err) {
 		var file, err = os.Create(path)
@@ -477,6 +528,20 @@ func crearArchivo() {
 			return
 		}
 		defer file1.Close()
+	}
+	if os.IsNotExist(err2) {
+		var file, err2 = os.Create(path2)
+		if existeError(err2) {
+			return
+		}
+		defer file.Close()
+	}
+	if os.IsNotExist(err3) {
+		var file, err3 = os.Create(path3)
+		if existeError(err3) {
+			return
+		}
+		defer file.Close()
 	}
 }
 func escribeArchivo() {
@@ -545,18 +610,155 @@ func escribeArchivo() {
 	fmt.Println("Grafo editado correctamente.")
 }
 func generarImagen() {
-	s := "dot.exe -Tpng grafo.dot -o frontend/src/assets/imagengrafo.png"
+	s := "dot.exe -Tpng matriz.dot -o frontend/src/assets/matix.png"
 	args := strings.Split(s, " ")
 	cmd := exec.Command(args[0], args[1:]...)
 	b, err := cmd.CombinedOutput()
 	if err != nil {
-		log.Println("Ejucicion Fallo", err)
+		log.Println("Ejecucicion Fallo", err)
 	}
-	fmt.Println("%s\n", b)
+	fmt.Println("generarndo Imagen...", b)
 }
 func existeError(err error) bool {
 	if err != nil {
 		fmt.Println(err.Error())
 	}
 	return (err != nil)
+}
+
+func (elist_e *listE) ShowData() {
+	auxiliar := elist_e.first
+	var temp, temp1 int
+	for auxiliar != nil {
+		if temp == nodo1 {
+			temp1 = temp1 + 1
+			if temp1 > 1 {
+				t := strconv.Itoa(nodo1)
+				g := strconv.Itoa(temp1)
+				h := strconv.Itoa(temp1 - 1)
+				tiendas_grafo = tiendas_grafo + "nodo" + t + "o" + g + "[shape=box label=\"" + auxiliar.Nombre + "\"];\n"
+				conexiones_grafo = conexiones_grafo + "nodo" + t + "o" + h + " -> nodo" + t + "o" + g + "\n"
+				conexiones_grafo = conexiones_grafo + "nodo" + t + "o" + g + " -> nodo" + t + "o" + h + "\n"
+			}
+			if temp1 == 1 {
+				t := strconv.Itoa(nodo1)
+				g := strconv.Itoa(temp1)
+				tiendas_grafo = tiendas_grafo + "nodo" + t + "o" + g + "[shape=box label=\"" + auxiliar.Nombre + "\"];\n"
+				conexiones_grafo = conexiones_grafo + "nodo" + t + " -> nodo" + t + "o" + g + "\n"
+				conexiones_grafo = conexiones_grafo + "nodo" + t + "o" + g + " -> nodo" + t + "\n"
+			}
+
+		} else {
+			t := strconv.Itoa(nodo1)
+			tiendas_grafo = tiendas_grafo + "nodo" + t + "[shape=box label=\"" + auxiliar.Nombre + "\"];\n"
+			conexiones_grafo = conexiones_grafo + "vector:" + t + " -> nodo" + t + "\n"
+
+			temp = nodo1
+
+		}
+		auxiliar = auxiliar.next
+	}
+}
+
+type nodeE struct {
+	next          *nodeE
+	previous      *nodeE
+	Indice        string
+	Departamentos string
+	Nombre        string
+	Descripcion   string
+	Contacto      string
+	Calificacion  int
+}
+
+type listE struct {
+	first *nodeE
+	last  *nodeE
+}
+
+func NewListE() *listE {
+	return &listE{nil, nil}
+}
+
+func (elist_e *listE) Insert(Nodo *nodeE) {
+
+	if elist_e.first == nil {
+		elist_e.last = Nodo
+		elist_e.first = elist_e.last
+	} else {
+		Nodo.previous = elist_e.last
+		elist_e.last.next = Nodo
+		elist_e.last = Nodo
+	}
+
+}
+func linealizar() {
+	espacio1 = make([]listE, len(indices.Datos[0].Departamentos)*len(indices.Datos)*10)
+	for i := 0; i < len(indices.Datos); i++ { //letra
+		for j := 0; j < len(indices.Datos[i].Departamentos); j++ { //departamento
+			for k := 0; k < len(indices.Datos[i].Departamentos[j].Tiendas); k++ { //tienda
+				Calificacion := indices.Datos[i].Departamentos[j].Tiendas[k].Calificacion - 1
+				colocacion := Calificacion + 5*(j+len(indices.Datos[i].Departamentos)*i)
+				newNode := nodeE{Indice: indices.Datos[i].Indice, Departamentos: indices.Datos[i].Departamentos[j].Nombre, Nombre: indices.Datos[i].Departamentos[j].Tiendas[k].Nombre, Descripcion: indices.Datos[i].Departamentos[j].Tiendas[k].Descripcion, Contacto: indices.Datos[i].Departamentos[j].Tiendas[k].Contacto, Calificacion: indices.Datos[i].Departamentos[j].Tiendas[k].Calificacion}
+				espacio1[colocacion].Insert(&newNode)
+			}
+		}
+	}
+
+	for nodo1 = 0; nodo1 < len(indices.Datos[0].Departamentos)*len(indices.Datos)*5; nodo1++ {
+		espacio1[nodo1].ShowData()
+	}
+
+}
+func generarRuta(w http.ResponseWriter, r *http.Request) {
+
+	if err != nil {
+		log.Fatal("Error")
+	}
+	if existeError(err3) {
+		return
+	}
+	defer file3.Close()
+	_, err = file3.WriteString("graph grafica{ \n node [shape=\"record\"]\n")
+	for i := 0; i < len(grafos.Nodos); i++ {
+		for j := 0; j < len(grafos.Nodos[i].Enlaces); j++ {
+			t := strconv.Itoa(grafos.Nodos[i].Enlaces[j].Distancia)
+			_, err = file3.WriteString("\"" + grafos.Nodos[i].Nombre + "\"--" + "\"" + grafos.Nodos[i].Enlaces[j].Nombre + "\"" + "[label=\"" + t + "\"];\n")
+		}
+	}
+	graph := mingrafo.NewGraph()
+	for i := 0; i < len(grafos.Nodos); i++ {
+		for j := 0; j < len(grafos.Nodos[i].Enlaces); j++ {
+			graph.AddEdge(grafos.Nodos[i].Nombre, grafos.Nodos[i].Enlaces[j].Nombre, grafos.Nodos[i].Enlaces[j].Distancia)
+
+		}
+	}
+	for i := 0; i < len(lista_carrito); i++ {
+		if i == 0 {
+			graph.GetPath(grafos.PosicionInicialRobot, lista_carrito[0].Almacenamiento)
+			_, err = file3.WriteString(mingrafo.S)
+		} else {
+			graph.GetPath(lista_carrito[i-1].Almacenamiento, lista_carrito[i].Almacenamiento)
+			_, err = file3.WriteString(mingrafo.S)
+		}
+	}
+	graph.GetPath(lista_carrito[len(lista_carrito)-1].Almacenamiento, grafos.Entrega)
+	_, err = file3.WriteString("1[label=\"" + mingrafo.Rutstring + "\"];\n")
+	_, err = file3.WriteString("}")
+	fmt.Println("Ruta Generada")
+	s := "dot.exe -Tpng graphrutes.dot -o frontend/src/assets/rutmin.png"
+	args := strings.Split(s, " ")
+	cmd := exec.Command(args[0], args[1:]...)
+	b, err := cmd.CombinedOutput()
+	if err != nil {
+		log.Println("Ejecucicion Fallo", err)
+	}
+	fmt.Println("generando Imagen...", b)
+	//graph.AddEdge("Despacho", "Reparaciones", 6)
+	//graph.AddEdge("Despacho", "Textiles", 100)
+	//graph.AddEdge("Aranceles", "Textiles", 10)
+	//graph.AddEdge("Textiles", "Reparaciones", 7)
+	//fmt.Println(graph.GetPath("Aranceles", "Textiles"))
+	//fmt.Println(graph.GetPath("Aranceles", "Reparaciones" ))
+	//mingrafo.Min()
 }
