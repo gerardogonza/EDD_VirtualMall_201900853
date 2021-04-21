@@ -10,6 +10,7 @@ import { InicioComponent } from './componentes/inicio/inicio.component';
 import { CarritoComprasComponent } from './componentes/carrito-compras/carrito-compras.component';
 import { PedidoComponent } from './componentes/pedido/pedido.component';
 import { CargaJSONComponent } from './componentes/carga-json/carga-json.component';
+import { ReportesComponent } from './componentes/reportes/reportes.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CargaJSONComponent } from './componentes/carga-json/carga-json.componen
     InicioComponent,
     CarritoComprasComponent,
     PedidoComponent,
-    CargaJSONComponent
+    CargaJSONComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,

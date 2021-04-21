@@ -6,6 +6,7 @@ import{InventarioComponent}from "./componentes/inventario/inventario.component";
 import { CarritoComprasComponent } from "./componentes/carrito-compras/carrito-compras.component";
 import { PedidoComponent } from './componentes/pedido/pedido.component';
 import { CargaJSONComponent } from './componentes/carga-json/carga-json.component';
+import { ReportesComponent } from './componentes/reportes/reportes.component';
 const routes: Routes = [
  
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path:'cargarjson',
     component:CargaJSONComponent
+  },
+  {
+    path:'reportes',
+    component:ReportesComponent
   },
   {
     path:'pedido/:nombre',
