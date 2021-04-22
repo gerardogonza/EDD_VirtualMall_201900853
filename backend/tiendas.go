@@ -4,6 +4,7 @@ import (
 	"./archivos"
 	"./matriz"
 	"./mingrafo"
+	"crypto/sha256"
 	"encoding/json"
 	"fmt"
 	"github.com/gorilla/handlers"
@@ -25,6 +26,8 @@ var path2 = "tiendalinealizada.dot"
 var file2, err2 = os.OpenFile(path2, os.O_RDWR, 0644)
 var path3 = "graphrutes.dot"
 var file3, err3 = os.OpenFile(path3, os.O_RDWR, 0644)
+var path4 = "arbolB.dot"
+var file4, err4 = os.OpenFile(path4, os.O_RDWR, 0644)
 var tiendas_grafo, conexiones_grafo, datos_tiendas string
 var nodo, valor, nodo1 int
 var espacio []listD
@@ -165,6 +168,7 @@ func main() {
 	router.HandleFunc("/cargarusuarios", cargarUsuarios).Methods("POST")
 	router.HandleFunc("/mostrarusuarios", mostrarUsuarios).Methods("GET")
 	router.HandleFunc("/registrarusuario", registrarUsuario).Methods("POST")
+	router.HandleFunc("/creararbol", creararbol).Methods("GET")
 	//log.Fatal(http.ListenAndServe(":3000", router))
 	log.Fatal(http.ListenAndServe(":3000", handlers.CORS(handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}), handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"}), handlers.AllowedOrigins([]string{"*"}))(router)))
 }
@@ -568,6 +572,13 @@ func crearArchivo() {
 		}
 		defer file.Close()
 	}
+	if os.IsNotExist(err4) {
+		var file, err4 = os.Create(path4)
+		if existeError(err4) {
+			return
+		}
+		defer file.Close()
+	}
 }
 func escribeArchivo() {
 	if existeError(err) {
@@ -836,4 +847,64 @@ func registrarUsuario(w http.ResponseWriter, r *http.Request) {
 	}
 	lista_usuarios = append(lista_usuarios, user)
 	json.NewEncoder(w).Encode(ulogin)
+}
+func creararbol(w http.ResponseWriter, r *http.Request) {
+	if err != nil {
+		log.Fatal("Error")
+	}
+	if existeError(err3) {
+		return
+	}
+
+
+	_, err = file4.WriteString("graph grafica{ \n node [shape=\"record\"]\n")
+	_, err = file4.WriteString("tabla[shape=plaintext,fontsize=10, label=<\n<TABLE BORDER=\"3\">\n")
+	_, err = file4.WriteString("<TR><TD>Arbol Sin Cifrar</TD></TR>\n")
+	_, err = file4.WriteString("<TR><TD>DPI</TD><TD>Nombre</TD><TD>Password</TD><TD>Correo</TD></TR>\n")
+	for i := 0; i < len(lista_usuarios); i++ {
+		t := strconv.Itoa(lista_usuarios[i].Dpi)
+		_, err = file4.WriteString("<TR><TD>"+t+"</TD><TD>"+lista_usuarios[i].Nombre+"</TD><TD>"+lista_usuarios[i].Password+"</TD><TD>"+lista_usuarios[i].Correo+"</TD></TR>\n")
+	}
+	_, err = file4.WriteString("</TABLE>>];")
+	_, err = file4.WriteString("tabla1[shape=plaintext,fontsize=10, label=<\n<TABLE BORDER=\"3\">\n")
+	_, err = file4.WriteString("<TR><TD>Arbol Cifrado</TD></TR>\n")
+	_, err = file4.WriteString("<TR><TD>DPI</TD><TD>Nombre</TD><TD>Password</TD><TD>Correo</TD></TR>\n")
+	for i := 0; i < len(lista_usuarios); i++ {
+		t := strconv.Itoa(lista_usuarios[i].Dpi)
+		data := []byte(t)
+		dpi := fmt.Sprintf("x",sha256.Sum256(data))
+		data1 := []byte(lista_usuarios[i].Nombre)
+		name := fmt.Sprintf( "x",sha256.Sum256(data1))
+		data2 := []byte(lista_usuarios[i].Password)
+		password := fmt.Sprintf( "x",sha256.Sum256(data2))
+		data3 := []byte(lista_usuarios[i].Correo)
+		correo:= fmt.Sprintf( "x",sha256.Sum256(data3))
+		_, err = file4.WriteString("<TR><TD>"+dpi[:]+"</TD><TD>"+name[:]+"</TD><TD>"+password[:]+"</TD><TD>"+correo[:]+"</TD></TR>\n")
+	}
+	_, err = file4.WriteString("</TABLE>>];")
+	_, err = file4.WriteString("tabla2[shape=plaintext,fontsize=10, label=<\n<TABLE BORDER=\"3\">\n")
+	_, err = file4.WriteString("<TR><TD>Arbol Cifrado Sensible</TD></TR>\n")
+	_, err = file4.WriteString("<TR><TD>DPI</TD><TD>Nombre</TD><TD>Password</TD><TD>Correo</TD></TR>\n")
+	for i := 0; i < len(lista_usuarios); i++ {
+		t := strconv.Itoa(lista_usuarios[i].Dpi)
+		data := []byte(t)
+		dpi := fmt.Sprintf("x",sha256.Sum256(data))
+		data2 := []byte(lista_usuarios[i].Password)
+		password := fmt.Sprintf( "x",sha256.Sum256(data2))
+		data3 := []byte(lista_usuarios[i].Correo)
+		correo:= fmt.Sprintf( "x",sha256.Sum256(data3))
+		_, err = file4.WriteString("<TR><TD>"+dpi[:]+"</TD><TD>"+lista_usuarios[i].Nombre+"</TD><TD>"+password[:]+"</TD><TD>"+correo[:]+"</TD></TR>\n")
+	}
+	_, err = file4.WriteString("</TABLE>>];")
+	_, err = file4.WriteString("}")
+	crearArchivo()
+	s := "dot.exe -Tpng arbolB.dot -o frontend/src/assets/arbolB.png"
+	args := strings.Split(s, " ")
+	cmd := exec.Command(args[0], args[1:]...)
+	b, err := cmd.CombinedOutput()
+	if err != nil {
+		log.Println("Ejecucicion Fallo", err)
+	}
+	fmt.Println("generando arbol...", b)
+
 }

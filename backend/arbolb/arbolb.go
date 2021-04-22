@@ -20,17 +20,17 @@ type Nodo struct {
 	Parent       *Nodo
 }
 
-// constructor nodo para poner con un padre
+
 func Nodo_(Parent *Nodo) *Nodo {
 	return &Nodo{Parent: Parent, hoja: true, numero_users: 0}
 }
 
-// constructor para el arbol
+
 func Btree() *ArbolB {
 	return &ArbolB{Root: Nodo_(nil)}
 }
 
-// inserta los datos ordenado de una vez
+
 func (nodo *Nodo) Insert(user *User) {
 	nodo.numero_users++
 	for i := 0; i < nodo.numero_users; i++ {
@@ -56,7 +56,7 @@ func (nodo *Nodo) Find(dpi int) *User {
 	return nil
 }
 
-// insertar en el arbol
+// inserta en el arbol
 func (arbol *ArbolB) Insertar(user *User, tmp *Nodo) {
 	if tmp.hoja {
 		tmp.Insert(user)
