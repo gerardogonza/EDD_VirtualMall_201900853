@@ -836,5 +836,4 @@ func registrarUsuario(w http.ResponseWriter, r *http.Request) {
 	}
 	lista_usuarios = append(lista_usuarios, user)
 	json.NewEncoder(w).Encode(ulogin)
-
 }
