@@ -11,6 +11,7 @@ import { CarritoComprasComponent } from './componentes/carrito-compras/carrito-c
 import { PedidoComponent } from './componentes/pedido/pedido.component';
 import { CargaJSONComponent } from './componentes/carga-json/carga-json.component';
 import { ReportesComponent } from './componentes/reportes/reportes.component';
+import { RegistrarComponent } from './componentes/registrar/registrar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ReportesComponent } from './componentes/reportes/reportes.component';
     CarritoComprasComponent,
     PedidoComponent,
     CargaJSONComponent,
-    ReportesComponent
+    ReportesComponent,
+    RegistrarComponent
   ],
   imports: [
     BrowserModule,
