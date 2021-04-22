@@ -1,25 +1,25 @@
 package mingrafo
 
-type edge struct {
-	node   string
-	weight int
+type adya struct {
+	nodo      string
+	distancia int
 }
 
 type graph struct {
-	nodes map[string][]edge
+	nodos map[string][]adya
 }
 
 func NewGraph() *graph {
-	return &graph{nodes: make(map[string][]edge)}
+	return &graph{nodos: make(map[string][]adya)}
 }
 
-func (g *graph) AddEdge(origin, destiny string, weight int) {
-	g.nodes[origin] = append(g.nodes[origin], edge{node: destiny, weight: weight})
-	g.nodes[destiny] = append(g.nodes[destiny], edge{node: origin, weight: weight})
+func (g *graph) AgregarNodo(inicio, final string, distancia int) {
+	g.nodos[inicio] = append(g.nodos[inicio], adya{nodo: final, distancia: distancia})
+	g.nodos[final] = append(g.nodos[final], adya{nodo: inicio, distancia: distancia})
 }
 
-func (g *graph) getEdges(node string) []edge {
-	return g.nodes[node]
+func (g *graph) obtenerNodo(node string) []adya {
+	return g.nodos[node]
 }
 
 var Hola []int
@@ -27,10 +27,10 @@ var Rutas []string
 var RutaFinally []string
 var S string
 
-func (g *graph) GetPath(origin, destiny string) (int, []string) {
+func (g *graph) Obtenerruta(inicio, fin string) (int, []string) {
 	h := newHeap()
 	var rutstring string
-	h.push(path{value: 0, nodes: []string{origin}})
+	h.push(path{value: 0, nodes: []string{inicio}})
 	visited := make(map[string]bool)
 
 	for len(*h.values) > 0 {
@@ -40,7 +40,7 @@ func (g *graph) GetPath(origin, destiny string) (int, []string) {
 			continue
 		}
 
-		if node == destiny {
+		if node == fin {
 			//Hola=append(Hola,p.value)
 			//Rutas=append(Rutas,p.nodes[len(p.nodes)-1])
 			//ComparadordeRutas()
@@ -52,10 +52,10 @@ func (g *graph) GetPath(origin, destiny string) (int, []string) {
 			return p.value, p.nodes
 		}
 
-		for _, e := range g.getEdges(node) {
-			if !visited[e.node] {
+		for _, e := range g.obtenerNodo(node) {
+			if !visited[e.nodo] {
 
-				h.push(path{value: p.value + e.weight, nodes: append([]string{}, append(p.nodes, e.node)...)})
+				h.push(path{value: p.value + e.distancia, nodes: append([]string{}, append(p.nodes, e.nodo)...)})
 			}
 		}
 		visited[node] = true

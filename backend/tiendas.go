@@ -123,10 +123,32 @@ type enlaces struct {
 	Nombre    string
 	Distancia int
 }
+type users struct {
+	Usuarios []datos
+}
+type datos struct {
+	Dpi      int
+	Nombre   string
+	Correo   string
+	Password string
+	Cuenta   string
+}
+
+var usuarios users
+var ulogin login
+
+type login struct {
+	Dpi      int
+	Nombre   string
+	Correo   string
+	Password string
+	Cuenta   string
+}
 
 func main() {
 
 	//mingrafo.Min()
+
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", home)
 	router.HandleFunc("/cargartienda", cargartienda).Methods("POST")
@@ -140,6 +162,8 @@ func main() {
 	router.HandleFunc("/cargargrafo", cargargrafo).Methods("POST")
 	router.HandleFunc("/mostrarlinealizacion", linealizacion).Methods("GET")
 	router.HandleFunc("/rutamin", generarRuta).Methods("POST")
+	router.HandleFunc("/cargarusuarios", cargarUsuarios).Methods("POST")
+	router.HandleFunc("/mostrarusuarios", mostrarUsuarios).Methods("GET")
 	//log.Fatal(http.ListenAndServe(":3000", router))
 	log.Fatal(http.ListenAndServe(":3000", handlers.CORS(handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}), handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"}), handlers.AllowedOrigins([]string{"*"}))(router)))
 }
@@ -729,20 +753,20 @@ func generarRuta(w http.ResponseWriter, r *http.Request) {
 	graph := mingrafo.NewGraph()
 	for i := 0; i < len(grafos.Nodos); i++ {
 		for j := 0; j < len(grafos.Nodos[i].Enlaces); j++ {
-			graph.AddEdge(grafos.Nodos[i].Nombre, grafos.Nodos[i].Enlaces[j].Nombre, grafos.Nodos[i].Enlaces[j].Distancia)
+			graph.AgregarNodo(grafos.Nodos[i].Nombre, grafos.Nodos[i].Enlaces[j].Nombre, grafos.Nodos[i].Enlaces[j].Distancia)
 
 		}
 	}
 	for i := 0; i < len(lista_carrito); i++ {
 		if i == 0 {
-			graph.GetPath(grafos.PosicionInicialRobot, lista_carrito[0].Almacenamiento)
+			graph.Obtenerruta(grafos.PosicionInicialRobot, lista_carrito[0].Almacenamiento)
 			_, err = file3.WriteString(mingrafo.S)
 		} else {
-			graph.GetPath(lista_carrito[i-1].Almacenamiento, lista_carrito[i].Almacenamiento)
+			graph.Obtenerruta(lista_carrito[i-1].Almacenamiento, lista_carrito[i].Almacenamiento)
 			_, err = file3.WriteString(mingrafo.S)
 		}
 	}
-	graph.GetPath(lista_carrito[len(lista_carrito)-1].Almacenamiento, grafos.Entrega)
+	graph.Obtenerruta(lista_carrito[len(lista_carrito)-1].Almacenamiento, grafos.Entrega)
 	_, err = file3.WriteString("tabla[shape=plaintext,fontsize=10, label=<\n<TABLE BORDER=\"3\">\n")
 	for i := 0; i < len(mingrafo.RutaFinally); i++ {
 		_, err = file3.WriteString("<TR><TD>" + mingrafo.RutaFinally[i] + "</TD></TR>\n")
@@ -765,4 +789,33 @@ func generarRuta(w http.ResponseWriter, r *http.Request) {
 	//fmt.Println(graph.GetPath("Aranceles", "Textiles"))
 	//fmt.Println(graph.GetPath("Aranceles", "Reparaciones" ))
 	//mingrafo.Min()
+}
+
+func cargarUsuarios(w http.ResponseWriter, r *http.Request) {
+	reqBody, err := ioutil.ReadAll(r.Body)
+	json.Unmarshal(reqBody, &usuarios)
+	if err != nil {
+		log.Fatal("Error")
+	}
+	for i := 0; i < len(usuarios.Usuarios); i++ {
+		user := login{
+			Dpi:      usuarios.Usuarios[i].Dpi,
+			Password: usuarios.Usuarios[i].Password,
+			Correo:   usuarios.Usuarios[i].Correo,
+			Cuenta:   usuarios.Usuarios[i].Cuenta,
+			Nombre:   usuarios.Usuarios[i].Nombre,
+		}
+		lista_usuarios = append(lista_usuarios, user)
+	}
+	fmt.Println("Usuarios Cargados")
+	json.NewEncoder(w).Encode(usuarios)
+
+}
+
+var lista_usuarios []login
+
+func mostrarUsuarios(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(lista_usuarios)
 }
