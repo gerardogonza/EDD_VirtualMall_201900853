@@ -164,6 +164,7 @@ func main() {
 	router.HandleFunc("/rutamin", generarRuta).Methods("POST")
 	router.HandleFunc("/cargarusuarios", cargarUsuarios).Methods("POST")
 	router.HandleFunc("/mostrarusuarios", mostrarUsuarios).Methods("GET")
+	router.HandleFunc("/registrarusuario", registrarUsuario).Methods("POST")
 	//log.Fatal(http.ListenAndServe(":3000", router))
 	log.Fatal(http.ListenAndServe(":3000", handlers.CORS(handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}), handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"}), handlers.AllowedOrigins([]string{"*"}))(router)))
 }
@@ -818,4 +819,22 @@ func mostrarUsuarios(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(lista_usuarios)
+}
+func registrarUsuario(w http.ResponseWriter, r *http.Request) {
+	reqBody, err := ioutil.ReadAll(r.Body)
+	json.Unmarshal(reqBody, &ulogin)
+	if err != nil {
+		log.Fatal("Error")
+	}
+	fmt.Println(ulogin)
+	user := login{
+		Dpi:      ulogin.Dpi,
+		Password: ulogin.Password,
+		Correo:   ulogin.Correo,
+		Cuenta:   ulogin.Cuenta,
+		Nombre:   ulogin.Nombre,
+	}
+	lista_usuarios = append(lista_usuarios, user)
+	json.NewEncoder(w).Encode(ulogin)
+
 }
