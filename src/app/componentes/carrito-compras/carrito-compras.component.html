@@ -1,0 +1,35 @@
+<p class="fs-3">Carrito de Compras</p>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Productos</th>
+        <th scope="col">Cantidad</th>
+        <th scope="col">Costo</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let productos of carrito">
+        <th scope="row">
+          <img src={{productos.Imagen}} class="img-fluid" alt="..." width="100" height="150">
+          {{productos.Nombre}}  
+        </th>     
+        <td>{{productos.Cantidad_pedida}}</td>
+        <td>Q{{productos.Precio}}</td>
+        <td><a href="" type="submit" class="btn btn-danger">Eliminar</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <table class="table table-striped">
+      <tr>
+       
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <a href="" type="submit" class="btn btn-secondary" >Seguir Comprando</a>
+        <th scope="col"></th>
+        <button type="button" class="btn btn-success" (click)="generarPedido()" >Realizar Pedido</button>
+      </tr>   
+    
+  </table>
+  
+ 

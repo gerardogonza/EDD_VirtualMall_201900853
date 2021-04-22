@@ -1,0 +1,27 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<div class="container login-container">
+    <div class="row">
+        <div class="col-md-6 login-form-1">
+            <h3>Registrar Usuario</h3>
+            <form>
+                <div class="form-group">
+                    <input type="number" class="form-control" placeholder="Ingrese CUI" value="" name="DpiUser" [(ngModel)]="registrarU.Dpi"/>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Ingrese Contraseña" value=""   name="Password"  [(ngModel)]="registrarU.Password" />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Ingrese Correo" value=""   name="Correo"  [(ngModel)]="registrarU.Correo"  />
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Ingrese Nombre" value=""   name="Nombre"   [(ngModel)]="registrarU.Nombre"  />
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-dark" (click)="uregistras()" >Registrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
