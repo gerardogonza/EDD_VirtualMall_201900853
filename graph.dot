@@ -1,0 +1,10 @@
+digraph grafica{ 
+ node [shape=box]
+Despacho->Aranceles[label="5"];
+Despacho->Reparaciones[label="6"];
+Despacho->Textiles[label="100"];
+Aranceles->Textiles[label="10"];
+Textiles->Reparaciones[label="7"];
+Textiles[fillcolor=blue, style="rounded,filled"]
+Despacho[fillcolor=green, style="rounded,filled"]
+}

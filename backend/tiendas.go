@@ -1,8 +1,11 @@
 package main
 
 import (
+	"./MerkleInventario"
 	"./archivos"
+	"./markleUsuarios"
 	"./matriz"
+	"./merkleTiendas"
 	"./mingrafo"
 	"crypto/sha256"
 	"encoding/json"
@@ -149,9 +152,6 @@ type login struct {
 }
 
 func main() {
-
-	//mingrafo.Min()
-
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", home)
 	router.HandleFunc("/cargartienda", cargartienda).Methods("POST")
@@ -355,6 +355,28 @@ func mostrartiendas(w http.ResponseWriter, r *http.Request) {
 	}
 
 	json.NewEncoder(w).Encode(lista_tiendas1)
+
+	var list []merkleTiendas.Hashable
+	for i := 0; i < len(lista_tiendas1); i++ {
+		list = append(list, merkleTiendas.Bloque(lista_tiendas1[i].Nombre+" "+lista_tiendas1[i].Contacto))
+	}
+
+	completadomerkle := []int{2, 4, 8, 16, 32, 64, 128, 256, 512, 1024}
+
+	for i := 0; i < len(completadomerkle); i++ {
+		if len(list) < completadomerkle[i] {
+			g := completadomerkle[i] - len(list)
+			for j := 0; j < g; j++ {
+				t := strconv.Itoa(j)
+				list = append(list, merkleTiendas.Bloque("-1  "+t))
+			}
+			break
+		}
+	}
+	data := "tiendas"
+	merkleTiendas.RecorreTree(merkleTiendas.Tree(list)[0].(merkleTiendas.Node))
+
+	generarMerkle(data)
 }
 
 func mostrarinventario(w http.ResponseWriter, r *http.Request) {
@@ -403,6 +425,28 @@ func mostrarinventario(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	json.NewEncoder(w).Encode(lista_temporal)
+
+	var list []MerkleInventario.Hashable
+	for i := 0; i < len(lista_temporal); i++ {
+		t := strconv.Itoa(lista_temporal[i].Codigo)
+		list = append(list, MerkleInventario.Bloque(t+" "+lista_temporal[i].Nombre+" "+lista_temporal[i].Departamento))
+	}
+
+	completadomerkle := []int{4, 8, 16, 32, 64, 128, 256, 512, 1024}
+
+	for i := 0; i < len(completadomerkle); i++ {
+		if len(list) < completadomerkle[i] {
+			g := completadomerkle[i] - len(list)
+			for j := 0; j < g; j++ {
+				t := strconv.Itoa(j)
+				list = append(list, MerkleInventario.Bloque("-1  "+t))
+			}
+			break
+		}
+	}
+	datostree := "inventario"
+	MerkleInventario.RecorreTree(MerkleInventario.Tree(list)[0].(MerkleInventario.Node))
+	generarMerkle(datostree)
 }
 
 var productosTemporales productotemporales
@@ -822,6 +866,28 @@ func cargarUsuarios(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Usuarios Cargados")
 	json.NewEncoder(w).Encode(usuarios)
 
+	var list []markleUsuarios.Hashable
+	for i := 0; i < len(lista_usuarios); i++ {
+		t := strconv.Itoa(lista_usuarios[i].Dpi)
+		list = append(list, markleUsuarios.Bloque(lista_usuarios[i].Nombre+" "+t))
+	}
+
+	completadomerkle := []int{4, 8, 16, 32, 64, 128, 256, 512, 1024}
+
+	for i := 0; i < len(completadomerkle); i++ {
+		if len(list) < completadomerkle[i] {
+			g := completadomerkle[i] - len(list)
+			for j := 0; j < g; j++ {
+				t := strconv.Itoa(j)
+				list = append(list, markleUsuarios.Bloque("-1  "+t))
+			}
+			break
+		}
+	}
+	datostree := "usuarios"
+	markleUsuarios.RecorreTree(markleUsuarios.Tree(list)[0].(markleUsuarios.Node))
+
+	generarMerkle(datostree)
 }
 
 var lista_usuarios []login
@@ -830,6 +896,7 @@ func mostrarUsuarios(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(lista_usuarios)
+
 }
 func registrarUsuario(w http.ResponseWriter, r *http.Request) {
 	reqBody, err := ioutil.ReadAll(r.Body)
@@ -856,14 +923,13 @@ func creararbol(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-
 	_, err = file4.WriteString("graph grafica{ \n node [shape=\"record\"]\n")
 	_, err = file4.WriteString("tabla[shape=plaintext,fontsize=10, label=<\n<TABLE BORDER=\"3\">\n")
 	_, err = file4.WriteString("<TR><TD>Arbol Sin Cifrar</TD></TR>\n")
 	_, err = file4.WriteString("<TR><TD>DPI</TD><TD>Nombre</TD><TD>Password</TD><TD>Correo</TD></TR>\n")
 	for i := 0; i < len(lista_usuarios); i++ {
 		t := strconv.Itoa(lista_usuarios[i].Dpi)
-		_, err = file4.WriteString("<TR><TD>"+t+"</TD><TD>"+lista_usuarios[i].Nombre+"</TD><TD>"+lista_usuarios[i].Password+"</TD><TD>"+lista_usuarios[i].Correo+"</TD></TR>\n")
+		_, err = file4.WriteString("<TR><TD>" + t + "</TD><TD>" + lista_usuarios[i].Nombre + "</TD><TD>" + lista_usuarios[i].Password + "</TD><TD>" + lista_usuarios[i].Correo + "</TD></TR>\n")
 	}
 	_, err = file4.WriteString("</TABLE>>];")
 	_, err = file4.WriteString("tabla1[shape=plaintext,fontsize=10, label=<\n<TABLE BORDER=\"3\">\n")
@@ -872,14 +938,14 @@ func creararbol(w http.ResponseWriter, r *http.Request) {
 	for i := 0; i < len(lista_usuarios); i++ {
 		t := strconv.Itoa(lista_usuarios[i].Dpi)
 		data := []byte(t)
-		dpi := fmt.Sprintf("x",sha256.Sum256(data))
+		dpi := fmt.Sprintf("x", sha256.Sum256(data))
 		data1 := []byte(lista_usuarios[i].Nombre)
-		name := fmt.Sprintf( "x",sha256.Sum256(data1))
+		name := fmt.Sprintf("x", sha256.Sum256(data1))
 		data2 := []byte(lista_usuarios[i].Password)
-		password := fmt.Sprintf( "x",sha256.Sum256(data2))
+		password := fmt.Sprintf("x", sha256.Sum256(data2))
 		data3 := []byte(lista_usuarios[i].Correo)
-		correo:= fmt.Sprintf( "x",sha256.Sum256(data3))
-		_, err = file4.WriteString("<TR><TD>"+dpi[:]+"</TD><TD>"+name[:]+"</TD><TD>"+password[:]+"</TD><TD>"+correo[:]+"</TD></TR>\n")
+		correo := fmt.Sprintf("x", sha256.Sum256(data3))
+		_, err = file4.WriteString("<TR><TD>" + dpi[:] + "</TD><TD>" + name[:] + "</TD><TD>" + password[:] + "</TD><TD>" + correo[:] + "</TD></TR>\n")
 	}
 	_, err = file4.WriteString("</TABLE>>];")
 	_, err = file4.WriteString("tabla2[shape=plaintext,fontsize=10, label=<\n<TABLE BORDER=\"3\">\n")
@@ -888,12 +954,12 @@ func creararbol(w http.ResponseWriter, r *http.Request) {
 	for i := 0; i < len(lista_usuarios); i++ {
 		t := strconv.Itoa(lista_usuarios[i].Dpi)
 		data := []byte(t)
-		dpi := fmt.Sprintf("x",sha256.Sum256(data))
+		dpi := fmt.Sprintf("x", sha256.Sum256(data))
 		data2 := []byte(lista_usuarios[i].Password)
-		password := fmt.Sprintf( "x",sha256.Sum256(data2))
+		password := fmt.Sprintf("x", sha256.Sum256(data2))
 		data3 := []byte(lista_usuarios[i].Correo)
-		correo:= fmt.Sprintf( "x",sha256.Sum256(data3))
-		_, err = file4.WriteString("<TR><TD>"+dpi[:]+"</TD><TD>"+lista_usuarios[i].Nombre+"</TD><TD>"+password[:]+"</TD><TD>"+correo[:]+"</TD></TR>\n")
+		correo := fmt.Sprintf("x", sha256.Sum256(data3))
+		_, err = file4.WriteString("<TR><TD>" + dpi[:] + "</TD><TD>" + lista_usuarios[i].Nombre + "</TD><TD>" + password[:] + "</TD><TD>" + correo[:] + "</TD></TR>\n")
 	}
 	_, err = file4.WriteString("</TABLE>>];")
 	_, err = file4.WriteString("}")
@@ -906,5 +972,32 @@ func creararbol(w http.ResponseWriter, r *http.Request) {
 		log.Println("Ejecucicion Fallo", err)
 	}
 	fmt.Println("generando arbol...", b)
+}
 
+//func TreeMerkle()  {
+//	var list []arbolmerkle.Hashable
+//	list=append(list,arbolmerkle.Bloque("a"))
+//	completadomerkle := []int{4,8,16,32,64,128,256,512,1024}
+//
+//	for i := 0; i < len(completadomerkle); i++ {
+//		if len(list)<completadomerkle[i]{
+//			g:=completadomerkle[i]-len(list)
+//			for j := 0; j < g; j++ {
+//				t := strconv.Itoa(j)
+//				list=append(list,arbolmerkle.Bloque("-1  "+t))
+//			}
+//			break
+//		}
+//	}
+//	arbolmerkle.RecorreTree(arbolmerkle.Tree(list)[0].(arbolmerkle.Node))
+//}
+func generarMerkle(data string) {
+	s := "dot.exe -Tpng " + data + "merkletree.dot -o frontend/src/assets/" + data + "merkle.png"
+	args := strings.Split(s, " ")
+	cmd := exec.Command(args[0], args[1:]...)
+	b, err := cmd.CombinedOutput()
+	if err != nil {
+		log.Println("Ejecucicion Fallo", err)
+	}
+	fmt.Println("generarndo Imagen...", data, b)
 }
