@@ -9,7 +9,6 @@ import { HttpClient } from "@angular/common/http";
 })
 export class CarritoComprasComponent implements OnInit {
 pedido:Pedido;
-
   constructor(private http: HttpClient) {
 
    }
