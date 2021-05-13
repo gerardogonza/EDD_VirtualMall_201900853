@@ -1,4 +1,4 @@
-  
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -16,5 +16,6 @@ API='http://localhost:3000/api';
   cargarTiendas(jsonEntrada:ITiendas):Observable<any>{
   return this.http.post(`${this.API}/cargatienda`,jsonEntrada);
   }
+
 
 }

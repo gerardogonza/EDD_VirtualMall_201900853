@@ -8,9 +8,10 @@
           <p class="card-text">Descripcion: {{tienda.Descripcion}}</p>
           <p class="card-text">Codigo: {{tienda.Codigo}}</p>
           <p class="card-text">Precio: Q{{tienda.Precio}}</p>
-       
-        
+
+
           <a  class="btn btn-primary" (click)="addCarrito(getIndex(tienda.Codigo))" >Agregar al Carrito</a>
+          <a [routerLink]="['/comentarios-productos']" class="btn btn-primary" >Ver Comentarios</a>
         </div>
       </div>
     </div>

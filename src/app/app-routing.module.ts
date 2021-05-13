@@ -8,8 +8,11 @@ import { PedidoComponent } from './componentes/pedido/pedido.component';
 import { CargaJSONComponent } from './componentes/carga-json/carga-json.component';
 import { ReportesComponent } from './componentes/reportes/reportes.component';
 import { RegistrarComponent } from './componentes/registrar/registrar.component';
+import {ReportesmerkleComponent} from "./componentes/reportesmerkle/reportesmerkle.component";
+import {ComentariosTiendasComponent} from "./componentes/comentarios-tiendas/comentarios-tiendas.component";
+import {ComentariosProductosComponent} from "./componentes/comentarios-productos/comentarios-productos.component";
 const routes: Routes = [
- 
+
   {
     path:'inicio',
     component:InicioComponent
@@ -35,13 +38,26 @@ const routes: Routes = [
     component:ReportesComponent
   },
   {
+    path:'reportesmerkle',
+    component:ReportesmerkleComponent
+  },
+  {
     path:'pedido/:nombre',
     component:PedidoComponent
   },
   {
     path:'registrar',
     component:RegistrarComponent
+  },
+  {
+    path:'comentarios-tiendas',
+    component:ComentariosTiendasComponent
+  },
+  {
+    path:'comentarios-productos',
+    component:ComentariosProductosComponent
   }
+
 ];
 
 @NgModule({

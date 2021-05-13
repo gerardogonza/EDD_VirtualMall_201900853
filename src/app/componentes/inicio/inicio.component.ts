@@ -23,31 +23,31 @@ export class InicioComponent implements OnInit {
   DpiUser:string; //User
   PasswordUser:string;
   url = `http://localhost:3000/`;
-  
+
   alogin(){
-    
+
     if(this.Dpi=="1234567890101"&& this.Password=="1234"){
       console.log("Bienvenido Admin");
       window.location.href = 'http://localhost:4200/cargarjson';
     }
   for(var i = 0; i < this.conversion.length; i++){
     if(this.conversion[i].Dpi==this.Dpi&&this.conversion[i].Password==this.Password&&this.conversion[i].Cuenta=="Admin"){
-     
+
       window.location.href = 'http://localhost:4200/cargarjson';
     }
   }
 
   alert('Datos Erroneos');
-  return 0 
+  return 0
 }
 ulogin(){
-  
+
   for(var i = 0; i < this.conversion.length; i++){
     if(this.conversion[i].Dpi==this.DpiUser&&this.conversion[i].PasswordUser==this.Password&&this.conversion[i].Cuenta=="Usuario"){
       window.location.href = 'http://localhost:4200/modificaciones';
     }
   }
   alert('Datos Erroneos');
-  return 0 
+  return 0
 }
 }

@@ -12,6 +12,9 @@ import { PedidoComponent } from './componentes/pedido/pedido.component';
 import { CargaJSONComponent } from './componentes/carga-json/carga-json.component';
 import { ReportesComponent } from './componentes/reportes/reportes.component';
 import { RegistrarComponent } from './componentes/registrar/registrar.component';
+import { ReportesmerkleComponent } from './componentes/reportesmerkle/reportesmerkle.component';
+import { ComentariosTiendasComponent } from './componentes/comentarios-tiendas/comentarios-tiendas.component';
+import { ComentariosProductosComponent } from './componentes/comentarios-productos/comentarios-productos.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { RegistrarComponent } from './componentes/registrar/registrar.component'
     PedidoComponent,
     CargaJSONComponent,
     ReportesComponent,
-    RegistrarComponent
+    RegistrarComponent,
+    ReportesmerkleComponent,
+    ComentariosTiendasComponent,
+    ComentariosProductosComponent
   ],
   imports: [
     BrowserModule,
