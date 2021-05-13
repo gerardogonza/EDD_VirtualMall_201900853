@@ -21,6 +21,7 @@ import (
 	"os/exec"
 	"strconv"
 	"strings"
+	"time"
 )
 
 var path = "matriz.dot"
@@ -166,6 +167,7 @@ type login struct {
 }
 
 func main() {
+
 	HashTable := TableHash.NewHashTable(7)
 	HashTable.Insertar(5512340, "lena", "lena")
 	HashTable.Insertar(2, "Marcos", "744899223")
@@ -176,6 +178,10 @@ func main() {
 	HashTable.Insertar(74489223, "Marcos", "74489223")
 	HashTable.Insertar(8665439, "scram", "socram")
 	HashTable.Print()
+	t := time.Now()
+	fechaInicial = fmt.Sprintf("%02d",
+		t.Minute())
+	fmt.Println("minuto actual es =>", fechaInicial)
 
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", home)
@@ -198,8 +204,11 @@ func main() {
 	router.HandleFunc("/mostrarusuarios", mostrarUsuarios).Methods("GET")
 	router.HandleFunc("/registrarusuario", registrarUsuario).Methods("POST")
 	router.HandleFunc("/creararbol", creararbol).Methods("GET")
+	router.HandleFunc("/tiempo", tiempo).Methods("POST")
+	router.HandleFunc("/comprobartiempo", combrobartiempo).Methods("POST")
 	//log.Fatal(http.ListenAndServe(":3000", router))
 	log.Fatal(http.ListenAndServe(":3000", handlers.CORS(handlers.AllowedHeaders([]string{"X-Requested-With", "Content-Type", "Authorization"}), handlers.AllowedMethods([]string{"GET", "POST", "PUT", "HEAD", "OPTIONS"}), handlers.AllowedOrigins([]string{"*"}))(router)))
+
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
@@ -209,6 +218,50 @@ func home(w http.ResponseWriter, r *http.Request) {
 var lista_carrito []carritoo
 var primerprodcuto = 1
 
+type timer struct {
+	Tiempo int
+}
+
+var timerr timer
+var contador int
+var fechaInicial string
+var tiempoint int
+
+func tiempo(w http.ResponseWriter, r *http.Request) {
+	reqBody, err := ioutil.ReadAll(r.Body)
+	json.Unmarshal(reqBody, &timerr)
+	if err != nil {
+		log.Fatal("Error")
+	}
+	str1 := fechaInicial
+	/** converting the str1 variable into an int using Atoi method */
+	tiempoint, err := strconv.Atoi(str1)
+	if err == nil {
+		fmt.Println(tiempoint)
+	}
+
+}
+func combrobartiempo(w http.ResponseWriter, r *http.Request) {
+	reqBody, err := ioutil.ReadAll(r.Body)
+	json.Unmarshal(reqBody, &timerr)
+	if err != nil {
+		log.Fatal("Error")
+	}
+	t := time.Now()
+	fechafinal := fmt.Sprintf("%02d",
+		t.Minute())
+
+	var tiempodeCierre = tiempoint + timerr.Tiempo
+	str1 := fechafinal
+	/** converting the str1 variable into an int using Atoi method */
+	tiempofin, err := strconv.Atoi(str1)
+	if err == nil {
+		fmt.Println(tiempofin)
+	}
+	if tiempofin > tiempodeCierre {
+		blockchain()
+	}
+}
 func carrito(w http.ResponseWriter, r *http.Request) {
 	reqBody, err := ioutil.ReadAll(r.Body)
 	json.Unmarshal(reqBody, &carrito1)
@@ -286,6 +339,7 @@ func mostrarcarrito(w http.ResponseWriter, r *http.Request) {
 }
 
 func cargartienda(w http.ResponseWriter, r *http.Request) {
+
 	reqBody, err := ioutil.ReadAll(r.Body)
 	json.Unmarshal(reqBody, &indices)
 	if err != nil {
@@ -296,6 +350,7 @@ func cargartienda(w http.ResponseWriter, r *http.Request) {
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(indices)
 	fmt.Println("tiendas cargadas")
+
 }
 func linealizacion(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("generando linealizacion ")
@@ -516,11 +571,15 @@ func mostrarinventario(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	json.NewEncoder(w).Encode(lista_temporal)
+	t := time.Now()
+	fecha := fmt.Sprintf("%d-%02d-%02dT%02d:%02d:%02d",
+		t.Year(), t.Month(), t.Day(),
+		t.Hour(), t.Minute(), t.Second())
 
 	var list []MerkleInventario.Hashable
 	for i := 0; i < len(lista_temporal); i++ {
 		t := strconv.Itoa(lista_temporal[i].Codigo)
-		list = append(list, MerkleInventario.Bloque(t+" "+lista_temporal[i].Nombre+" "+lista_temporal[i].Departamento))
+		list = append(list, MerkleInventario.Bloque(t+" "+lista_temporal[i].Nombre+" "+lista_temporal[i].Departamento+" "+fecha))
 	}
 
 	completadomerkle := []int{4, 8, 16, 32, 64, 128, 256, 512, 1024}
@@ -1110,4 +1169,23 @@ func generarMerkle(data string) {
 		log.Println("Ejecucicion Fallo", err)
 	}
 	fmt.Println("generarndo Imagen...", data, b)
+}
+
+type blockchainn struct {
+	Indice      int
+	Fecha       string
+	Data        string
+	Nonce       int
+	PreviusHash string
+	Hash        string
+}
+
+var block blockchainn
+var numerohash int
+
+func blockchain() {
+	fmt.Print("HOLA")
+
+	numerohash = numerohash + 1
+
 }
