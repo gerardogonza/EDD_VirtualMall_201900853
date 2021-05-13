@@ -1,14 +1,14 @@
 
 <div class="form-floating">
     <label for="floatingTextarea2">Ingresar Tiendas</label>
-    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"  type="text"
+    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea1" style="height: 200px"  type="text"
     [(ngModel)]="cargatienda"
    ></textarea>
    <button type="button" class="btn btn-dark" (click)="cargarTiendas()">Cargar Tiendas</button>
 </div>
 <div class="form-floating">
     <label for="floatingTextarea2">Ingresar Pedido</label>
-    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"  type="text"
+    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea4" style="height: 200px"  type="text"
     [(ngModel)]="cargarpedidido"
    ></textarea>
    <button type="button" class="btn btn-dark" (click)="cargarPedido()">Cargar Pedido</button>
@@ -22,7 +22,7 @@
 </div>
 <div class="form-floating">
     <label for="floatingTextarea2">Ingresar Inventario</label>
-    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"  type="text"
+    <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea5" style="height: 200px"  type="text"
     [(ngModel)]="cargarinventario"
    ></textarea>
    <button type="button" class="btn btn-dark" (click)="cargarInventario()">Cargar Inventario</button>
@@ -34,6 +34,17 @@
    ></textarea>
    <button type="button" class="btn btn-dark" (click)="cargarUsuarios()">Cargar Usuarios</button>
 </div>
+<div>
+  <a href="reportes" type="submit" class="btn btn-secondary" >Ver Reportes </a>
+</div>
+<div>
+  <a href="reportesmerkle" type="submit" class="btn btn-secondary" >Ver Reportes de Merkle </a>
+</div>
 
-<a href="reportes" type="submit" class="btn btn-secondary" >Ver Reportes </a>
-<a href="reportesmerkle" type="submit" class="btn btn-secondary" >Ver Reportes de Merkle </a>
+<div >
+
+
+  <input type="number" class="form-control" placeholder="Ingrese Tiempo En minutos" value=""  [(ngModel)]="timer.tiempo" name="Tiempo"/>
+  <button type="button" class="btn btn-dark" (click)="configuracionTiempo()">Configurar Tiempo</button>
+  <button type="button" class="btn btn-dark" (click)="combrobarTiempo()">Combrobar Tiempo</button>
+</div>
