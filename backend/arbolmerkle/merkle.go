@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-var Path = "merkletree.dot"
+var Path = "pedidosmerkletree.dot"
 var File, Err = os.OpenFile(Path, os.O_RDWR, 0644)
 
 type Hash [32]byte

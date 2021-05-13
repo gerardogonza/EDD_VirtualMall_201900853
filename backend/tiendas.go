@@ -2,6 +2,8 @@ package main
 
 import (
 	"./MerkleInventario"
+	"./TableHash"
+	"./arbolmerkle"
 	"./archivos"
 	"./markleUsuarios"
 	"./matriz"
@@ -116,6 +118,18 @@ type carritoo struct {
 	Imagen          string
 	Almacenamiento  string
 }
+type pedidosCreados struct {
+	Id              int
+	Nombre          string
+	Descripcion     string
+	Departamento    string
+	Codigo          int
+	Precio          int
+	Cantidad        int
+	Cantidad_pedida int
+	Imagen          string
+	Almacenamiento  string
+}
 type grafo struct {
 	Nodos                []nodos
 	PosicionInicialRobot string
@@ -152,12 +166,27 @@ type login struct {
 }
 
 func main() {
+	HashTable := TableHash.NewHashTable(7)
+	HashTable.Insertar(5512340, "lena", "lena")
+	HashTable.Insertar(2, "Marcos", "744899223")
+	HashTable.Insertar(3, "Marcos", "744899223")
+	HashTable.Insertar(4, "Marcos", "744899223")
+
+	HashTable.Insertar(5, "Marcos", "744899223")
+	HashTable.Insertar(74489223, "Marcos", "74489223")
+	HashTable.Insertar(8665439, "scram", "socram")
+	HashTable.Print()
+
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/", home)
 	router.HandleFunc("/cargartienda", cargartienda).Methods("POST")
 	router.HandleFunc("/mostrartiendas", mostrartiendas).Methods("GET")
 	router.HandleFunc("/cargarinventario", cargarInventario).Methods("POST")
 	router.HandleFunc("/mostrarinventario/{numero}", mostrarinventario).Methods("GET")
+	router.HandleFunc("/crearcomentarios", crearcomentarios).Methods("POST")
+	router.HandleFunc("/mostrarcomentarios", mostrarcomentarios).Methods("GET")
+	router.HandleFunc("/crearcomentariosproductos", crearcomentariosproductos).Methods("POST")
+	router.HandleFunc("/mostrarcomentariosproductos", mostrarcomentariosproductos).Methods("GET")
 	router.HandleFunc("/cargarpedido", cargarpedido).Methods("POST")
 	router.HandleFunc("/mostrarpedido/{numero}", mostrarpedido).Methods("GET")
 	router.HandleFunc("/carrito", carrito).Methods("POST")
@@ -377,6 +406,68 @@ func mostrartiendas(w http.ResponseWriter, r *http.Request) {
 	merkleTiendas.RecorreTree(merkleTiendas.Tree(list)[0].(merkleTiendas.Node))
 
 	generarMerkle(data)
+}
+
+type comentario struct {
+	Cui        int
+	Comentario string
+}
+
+var comentarios comentario
+var lista_comentarios []comentario
+var lista_comentariosproductos []comentario
+
+func crearcomentarios(w http.ResponseWriter, r *http.Request) {
+	reqBody, err := ioutil.ReadAll(r.Body)
+	json.Unmarshal(reqBody, &comentarios)
+	if err != nil {
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	coment := comentario{
+		Cui:        comentarios.Cui,
+		Comentario: comentarios.Comentario,
+	}
+	lista_comentarios = append(lista_comentarios, coment)
+	json.NewEncoder(w).Encode(lista_comentarios)
+
+}
+func mostrarcomentarios(w http.ResponseWriter, r *http.Request) {
+
+	if err != nil {
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(lista_comentarios)
+}
+func crearcomentariosproductos(w http.ResponseWriter, r *http.Request) {
+	reqBody, err := ioutil.ReadAll(r.Body)
+	json.Unmarshal(reqBody, &comentarios)
+	if err != nil {
+		return
+	}
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	coment := comentario{
+		Cui:        comentarios.Cui,
+		Comentario: comentarios.Comentario,
+	}
+	lista_comentariosproductos = append(lista_comentariosproductos, coment)
+	json.NewEncoder(w).Encode(lista_comentariosproductos)
+
+}
+func mostrarcomentariosproductos(w http.ResponseWriter, r *http.Request) {
+
+	if err != nil {
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusCreated)
+	json.NewEncoder(w).Encode(lista_comentariosproductos)
 }
 
 func mostrarinventario(w http.ResponseWriter, r *http.Request) {
@@ -790,8 +881,10 @@ func linealizar() {
 	}
 
 }
-func generarRuta(w http.ResponseWriter, r *http.Request) {
 
+var idpedido = 0
+
+func generarRuta(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Fatal("Error")
 	}
@@ -838,13 +931,30 @@ func generarRuta(w http.ResponseWriter, r *http.Request) {
 		log.Println("Ejecucicion Fallo", err)
 	}
 	fmt.Println("generando Imagen...", b)
-	//graph.AddEdge("Despacho", "Reparaciones", 6)
-	//graph.AddEdge("Despacho", "Textiles", 100)
-	//graph.AddEdge("Aranceles", "Textiles", 10)
-	//graph.AddEdge("Textiles", "Reparaciones", 7)
-	//fmt.Println(graph.GetPath("Aranceles", "Textiles"))
-	//fmt.Println(graph.GetPath("Aranceles", "Reparaciones" ))
-	//mingrafo.Min()
+
+	var list []arbolmerkle.Hashable
+	for i := 0; i < len(lista_carrito); i++ {
+		t := strconv.Itoa(lista_carrito[i].Codigo)
+		h := strconv.Itoa(lista_carrito[i].Cantidad_pedida)
+		list = append(list, arbolmerkle.Bloque(t+" "+lista_carrito[i].Nombre+" "+h))
+	}
+
+	completadomerkle := []int{4, 8, 16, 32, 64, 128, 256, 512, 1024}
+
+	for i := 0; i < len(completadomerkle); i++ {
+		if len(list) < completadomerkle[i] {
+			g := completadomerkle[i] - len(list)
+			for j := 0; j < g; j++ {
+				t := strconv.Itoa(j)
+				list = append(list, arbolmerkle.Bloque("-1  "+t))
+			}
+			break
+		}
+	}
+	datostree := "pedidos"
+	arbolmerkle.RecorreTree(arbolmerkle.Tree(list)[0].(arbolmerkle.Node))
+
+	generarMerkle(datostree)
 }
 
 func cargarUsuarios(w http.ResponseWriter, r *http.Request) {
